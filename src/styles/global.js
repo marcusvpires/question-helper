@@ -48,11 +48,24 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-size: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: 0.069rem;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  input {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  input:focus {
+    outline: none;
+    border: none;
   }
   img {
     display: block;
@@ -66,6 +79,7 @@ const GlobalStyles = createGlobalStyle`
     --backDark: #090c10;
     --back: #0d1117;
     --primary: #c9d1d9;
+    --third: #6f757a;
     --hover: #051d4d;
   }
 
