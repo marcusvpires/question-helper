@@ -4,7 +4,9 @@ import * as S from "./styled";
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { repository: "Undefined" };
+    let repository = window.localStorage.getItem('repository')
+    if (!repository) { repository = 'Undefined' }
+    this.state = { repository: repository };
     this.repositoryChange = this.repositoryChange.bind(this);
   }
 
