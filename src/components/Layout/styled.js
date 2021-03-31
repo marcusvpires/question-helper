@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const LayoutWrapper = styled.section`
-  background-color: var(--back);
+  background-color: var(--backDark);
 `
 
 export const LayoutMain = styled.main`

@@ -59,6 +59,16 @@ const GlobalStyles = createGlobalStyle`
   	width: 100%;
   	height: auto;
   }
+
+  // ==============================  Color theme  ============================== //
+
+  body {
+    --backDark: #090c10;
+    --back: #0d1117;
+    --primary: #c9d1d9;
+    --hover: #051d4d;
+  }
+
 `
 
 export default GlobalStyles
