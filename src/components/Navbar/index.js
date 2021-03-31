@@ -1,12 +1,13 @@
 import React from "react"
-import * as db from '../../dataBase'
+import { saveRepository } from '../../dataBase/assets' 
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
 const Navbar = () => {
 
   function newRepository() {
-    db.add('repository', {id: 'g43e7udf87f32e8ft8', name: 'Repository'})
+    const name = localStorage.getItem('repository')
+    saveRepository(name)
     console.log('New repository')
   }
   function copyQuestions() {

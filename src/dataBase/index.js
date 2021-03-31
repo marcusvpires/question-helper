@@ -17,6 +17,18 @@ export const add = (storage, element, back = () => {}) => {
   }
 }
 
+export const put = (storage, element, back = () => {}) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readwrite');
+    const store = transaction.objectStore(storage);
+    store.put(element);
+    back(element)
+  }
+}
+
 /* export const get = (callback) => {
   const request = dataBase();
 
@@ -24,8 +36,8 @@ export const add = (storage, element, back = () => {}) => {
 
   request.onsuccess = (e) => {
     const db = e.target.result;
-    const transaction = db.transaction(['ternak'], 'readonly');
-    const store = transaction.objectStore('ternak');
+    const transaction = db.transaction([''], 'readonly');
+    const store = transaction.objectStore('');
     store.getAll().onsuccess = (ev) => {
       callback(ev.target.result);
     }
