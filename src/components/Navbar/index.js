@@ -1,10 +1,12 @@
 import React from "react"
+import * as db from '../../dataBase'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
 const Navbar = () => {
 
   function newRepository() {
+    db.add('repository', {id: 'g43e7udf87f32e8ft8', name: 'Repository'})
     console.log('New repository')
   }
   function copyQuestions() {
