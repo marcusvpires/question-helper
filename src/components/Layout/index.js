@@ -9,9 +9,7 @@ const Layout = ({ children }) => (
       <GlobalStyles />
       <Header />
       <Navbar />
-      <S.LayoutMain>
-        <main>{children}</main>
-      </S.LayoutMain>
+      <S.LayoutMain>{children}</S.LayoutMain>
     </S.LayoutWrapper>
   )
 
