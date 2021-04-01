@@ -1,5 +1,5 @@
 export default function dataBase() {
-  const request = indexedDB.open("dataBase", 4);
+  const request = indexedDB.open("dataBase", 5);
   
   request.onerror = (e) => {
     alert('Database Error')
@@ -12,16 +12,14 @@ export default function dataBase() {
 
   request.onupgradeneeded = (e) => {
     const db = e.target.result;
-    createObjStore('repository', db)
-    createObjStore('question', db)
+    if (!db.objectStoreNames.contains('repository')) {
+      db.createObjectStore('repository', {keyPath: 'id'})
+    }
+    if (!db.objectStoreNames.contains('question')) {
+      const questionDB = db.createObjectStore('question', {keyPath: 'id'})
+      questionDB.createIndex("repositoryID", "repositoryID", { unique: false });
+    }
   }
 
   return request;
-}
-
-function createObjStore(name, db) {
-  console.info('Create', name, 'data base table')
-  if (!db.objectStoreNames.contains(name)) {
-    db.createObjectStore(name, {keyPath: 'id'})
-  }
 }

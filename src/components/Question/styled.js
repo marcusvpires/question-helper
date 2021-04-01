@@ -7,6 +7,7 @@ export const QuestionWrapper = styled.li`
   border-radius: 5px;
   background-color: var(--blueDark);
   cursor: pointer;
+  margin: .8rem 0;
 `
 
 export const Question = styled.div`

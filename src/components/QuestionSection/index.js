@@ -2,11 +2,11 @@ import React from "react";
 import Question from '../Question'
 import * as S from "./styled";
 
-const QuestionSection = () => {
-  const question = {id: 1234567890, value: 'C', number: 10, attributes: { type: 'alternative' } }
+const QuestionSection = ({ questions }) => {
+  console.log(questions)
   return (
-    <S.QuestionSection>
-      <Question question={question}/>
+    <S.QuestionSection id='QuestionSection'>
+      {questions.map(question => (<Question question={question} key={question.id}/>))}
     </S.QuestionSection>
   );
 };

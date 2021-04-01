@@ -7,7 +7,7 @@ import * as S from "./styled";
 const Question = ({ question }) => {
   console.info('Create question', question.number, question.id, question)
   return (
-    <S.QuestionWrapper key={question.id}>
+    <S.QuestionWrapper>
       <S.Question>
         <Number question={question}/>
         {question.attributes.type === 'alternative' && <Alternative question={question} />}

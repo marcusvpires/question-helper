@@ -27,12 +27,12 @@ export const saveRepository = (id = createID()) => {
 //                         Question                          //
 // ========================================================= //
 
-export const saveAlternative = (alt, id = createID()) => {
+export const saveQuestion = (question) => {
   try {
-    const number = localStorage.getItem('number')
     let repositoryID = localStorage.getItem('repositoryID')
-    if (!repositoryID) { repositoryID = saveRepository() }
-    db.put('question', {id: id, value: alt, repositoryID: repositoryID, number: number, attributes: { type: 'alternative' } }, (element) => {
+    if (!repositoryID) { 
+      repositoryID = saveRepository() }
+    db.put('question', question, (element) => {
       console.log(`Put ${element.id} in question`, element)
     })
   } catch (err) {
