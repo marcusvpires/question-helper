@@ -29,21 +29,36 @@ export const put = (storage, element, back = () => {}) => {
   }
 }
 
-/* export const get = (callback) => {
+export const getAll = (storage, key, value, back = () => {}) => {
   const request = dataBase();
-
   request.onerror = onRequestError;
 
   request.onsuccess = (e) => {
     const db = e.target.result;
-    const transaction = db.transaction([''], 'readonly');
-    const store = transaction.objectStore('');
+    const transaction = db.transaction([storage], 'readonly');
+    const store = transaction.objectStore(storage);
     store.getAll().onsuccess = (ev) => {
-      callback(ev.target.result);
+      back(ev.target.result);
     }
   }
 }
 
-export const destroy = () => {
+export const getIndex = (storage, key, value, back = () => {}) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
 
-} */
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readonly');
+    const store = transaction.objectStore(storage);
+    const questions = []
+    const req = store.index(key).openCursor()
+    req.onsuccess = (ev) => {
+      const cursor = ev.target.result;
+      if (cursor) { 
+        if (value === cursor.key) { console.log('Cursor:', cursor.value); questions.push(cursor.value) }
+        cursor.continue()
+      } else { back(questions) }
+    }
+  }
+}

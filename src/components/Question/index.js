@@ -5,7 +5,6 @@ import Alternative from './Alternative'
 import * as S from "./styled";
 
 const Question = ({ question }) => {
-  console.info('Create question', question.number, question.id, question)
   return (
     <S.QuestionWrapper>
       <S.Question>

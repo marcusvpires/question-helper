@@ -1,18 +1,22 @@
 import React, { useState } from "react";
+import { getIndex } from '../dataBase/root'
 import Layout from '../components/Layout';
 import Forms from '../components/Forms';
 import QuestionSection from '../components/QuestionSection';
 
 const Home = () => {
 
-  const [questions, setQuestions] = useState([
-    {id: 1234567890, value: 'C', number: 10, attributes: { type: 'alternative' } },
-    {id: 1542345541, value: 'A', number: 11, attributes: { type: 'alternative' } },
-  ]);
+  const [questions, setQuestions] = useState(() => {
+    getIndex('question', 'repositoryID', '1617243054128-wr52y28c', (questions) => {
+      setQuestions(questions)
+    })
+    return ([])
+  });
+
+
 
   function addQuestions(question) {
     setQuestions([...questions, question])
-    console.log('New question', question)
   }
 
   return (
