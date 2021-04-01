@@ -4,15 +4,14 @@ import Alternative from './Alternative'
 // import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled";
 
-const Question = () => {
+const Question = ({ question }) => {
+  console.info('Create question', question.number, question.id, question)
   return (
-    <S.QuestionWrapper>
-      <S.QuestionContainer>
-        <S.Question>
-          <Number />
-          <Alternative/>
-        </S.Question>
-      </S.QuestionContainer>
+    <S.QuestionWrapper key={question.id}>
+      <S.Question>
+        <Number question={question}/>
+        {question.attributes.type === 'alternative' && <Alternative question={question} />}
+      </S.Question>
     </S.QuestionWrapper>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
-const Number = () => {
-  const [number, setNumber] = useState(0);
+const Number = ({ question }) => {
+  const [number, setNumber] = useState(question.number);
 
   function changeNumber(e) {
     setNumber(e.target.value)
