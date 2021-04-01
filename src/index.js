@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './components/Layout';
-import New from './components/New';
+import Forms from './components/Forms';
+import Question from './components/Question';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout><New /></Layout>
+    <Layout><Forms /><Question /></Layout>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,5 +1,5 @@
 export default function dataBase() {
-  const request = indexedDB.open("dataBase", 2);
+  const request = indexedDB.open("dataBase", 4);
   
   request.onerror = (e) => {
     alert('Database Error')
@@ -13,6 +13,7 @@ export default function dataBase() {
   request.onupgradeneeded = (e) => {
     const db = e.target.result;
     createObjStore('repository', db)
+    createObjStore('question', db)
   }
 
   return request;

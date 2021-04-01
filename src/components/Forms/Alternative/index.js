@@ -1,12 +1,11 @@
 import React from "react";
+import { saveAlternative } from '../../../dataBase'
 import * as S from "./styled";
 
 const Alternative = () => {
   const alternatives = ["A", "B", "C", "D", "E", ""];
 
-  function newAlternative(alt) {
-    console.log('Alternativa', alt.target.id)
-  }
+  function newAlternative(alt) { saveAlternative(alt.target.id) }
 
   return (
     <S.AltWrapper>

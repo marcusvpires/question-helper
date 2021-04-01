@@ -1,17 +1,17 @@
 import styled from "styled-components"
 
-export const NewWrapper = styled.section`
-  height: 100vh;
+export const FormsWrapper = styled.section`
+  height: 100%;
   width: 30%;
   padding: 2rem;
 `
 
-export const NewQuestion = styled.div`
+export const FormsQuestion = styled.div`
   font-size: 1.4rem;
   border-bottom: solid 1px;
   padding-bottom: 0.5rem;
 `
-export const NewNumber = styled.input`
+export const FormsNumber = styled.input`
   font-size: 1.4rem;
   color: var(--primary);
   &:invalid {

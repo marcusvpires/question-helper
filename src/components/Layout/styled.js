@@ -10,4 +10,5 @@ export const LayoutMain = styled.main`
   top: 5rem;
   left: 12.5rem;
   background-color: var(--backDark);
+  display: flex;
 `

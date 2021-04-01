@@ -6,8 +6,7 @@ import * as S from "./styled"
 const Navbar = () => {
 
   function newRepository() {
-    const name = localStorage.getItem('repository')
-    saveRepository(name)
+    saveRepository()
     console.log('New repository')
   }
   function copyQuestions() {

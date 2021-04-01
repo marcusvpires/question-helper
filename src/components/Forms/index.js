@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Alternative from './Alternative'
 import * as S from './styled'
 
-const New = () => {
+const Forms = () => {
   const [number, setNumber] = useState(() => {
     const number = localStorage.getItem('number')
     if (number) { return number }
@@ -15,10 +15,10 @@ const New = () => {
   }
 
   return (
-    <S.NewWrapper>
-      <S.NewQuestion>
+    <S.FormsWrapper>
+      <S.FormsQuestion>
         Question
-        <S.NewNumber
+        <S.FormsNumber
           title='Question number'
           name='Question number'
           id='number'
@@ -28,11 +28,11 @@ const New = () => {
           onChange={changeNumber}
           min='0'
         />
-      </S.NewQuestion>
+      </S.FormsQuestion>
       <Alternative />
-    </S.NewWrapper>
+    </S.FormsWrapper>
   )
 }
 
 
-export default New
+export default Forms
