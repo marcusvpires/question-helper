@@ -1,4 +1,6 @@
 import React from "react";
+import Number from './Number'
+import Alternative from './Alternative'
 // import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled";
 
@@ -7,7 +9,8 @@ const Question = () => {
     <S.QuestionWrapper>
       <S.QuestionContainer>
         <S.Question>
-          <S.QuestionNumber></S.QuestionNumber>
+          <Number />
+          <Alternative/>
         </S.Question>
       </S.QuestionContainer>
     </S.QuestionWrapper>
