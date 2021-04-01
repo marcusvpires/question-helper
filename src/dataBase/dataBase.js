@@ -1,5 +1,5 @@
-export default function matrix() {
-  const request = indexedDB.open("dataBase", 1);
+export default function dataBase() {
+  const request = indexedDB.open("dataBase", 2);
   
   request.onerror = (e) => {
     alert('Database Error')
@@ -21,7 +21,6 @@ export default function matrix() {
 function createObjStore(name, db) {
   console.info('Create', name, 'data base table')
   if (!db.objectStoreNames.contains(name)) {
-    const object = db.createObjectStore(name, {keyPath: 'id'})
-    object.createIndex('timestamp', 'timestamp');
+    db.createObjectStore(name, {keyPath: 'id'})
   }
 }

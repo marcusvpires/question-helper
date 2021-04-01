@@ -16,5 +16,5 @@ export const HeaderWrapper = styled.section`
 `
 
 export const HeaderRepository = styled.input`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 `

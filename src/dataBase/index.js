@@ -1,49 +1,26 @@
-import dataBase from './matrix';
+import * as db from './root'
 
-const onRequestError = (e) => {
-  alert('Database request error')
-  console.log('Database request error', e);
+const createID = () => {
+  let date = Date.now();
+  const random = 'xxxxxxxx'.replace(/[x]/g, c => {
+    const r = (date + Math.random()*16)%16 | 0;
+    date = Math.floor(date/16);
+    return r;
+  });
+  return Date.now() + '-' + random;
 }
 
-export const add = (storage, element, back = () => {}) => {
-  const request = dataBase();
-  request.onerror = onRequestError;
-  request.onsuccess = (e) => {
-    const db = e.target.result;
-    const transaction = db.transaction([storage], 'readwrite');
-    const store = transaction.objectStore(storage);
-    store.add(element);
-    back(element)
+// ========================================================= //
+//                        Repository                         //
+// ========================================================= //
+
+export const saveRepository = (name, id = createID()) => {
+  try {
+    db.put('repository', {id: id, name: name}, (element) => {
+      console.log(`Put ${element.name} (${element.id}) in repository`)
+    })
+  } catch (err) {
+    alert('Could not save the repository')
+    console.log('Could not save the repository', err)
   }
 }
-
-export const put = (storage, element, back = () => {}) => {
-  const request = dataBase();
-  request.onerror = onRequestError;
-  request.onsuccess = (e) => {
-    const db = e.target.result;
-    const transaction = db.transaction([storage], 'readwrite');
-    const store = transaction.objectStore(storage);
-    store.put(element);
-    back(element)
-  }
-}
-
-/* export const get = (callback) => {
-  const request = dataBase();
-
-  request.onerror = onRequestError;
-
-  request.onsuccess = (e) => {
-    const db = e.target.result;
-    const transaction = db.transaction([''], 'readonly');
-    const store = transaction.objectStore('');
-    store.getAll().onsuccess = (ev) => {
-      callback(ev.target.result);
-    }
-  }
-}
-
-export const destroy = () => {
-
-} */

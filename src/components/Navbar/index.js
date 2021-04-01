@@ -1,5 +1,5 @@
 import React from "react"
-import { saveRepository } from '../../dataBase/assets' 
+import { saveRepository } from '../../dataBase' 
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 

@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import * as S from "./styled";
 
 export function Header() {
-  const [repository, setRepository] = useState("");
+  const [repository, setRepository] = useState(() => {
+    const repository = localStorage.getItem('repository')
+    if (repository) { return repository }
+    return "Undefined"
+  });
   
   function changeRepository(e) {
     setRepository(e.target.value)

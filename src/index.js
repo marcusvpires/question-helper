@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from './components/Layout';
+import New from './components/New';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout><h1>Hello world</h1></Layout>
+    <Layout><New /></Layout>
   </React.StrictMode>,
   document.getElementById('root')
 );

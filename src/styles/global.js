@@ -67,6 +67,9 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
     border: none;
   }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
   img {
     display: block;
   	width: 100%;
@@ -80,7 +83,9 @@ const GlobalStyles = createGlobalStyle`
     --back: #0d1117;
     --primary: #c9d1d9;
     --third: #6f757a;
-    --hover: #051d4d;
+    --blueDark: #051d4d;
+    --blue: #0d3584;
+    --black: #020405;
   }
 
 `

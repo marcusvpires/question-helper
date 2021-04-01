@@ -21,7 +21,7 @@ export const NavButton = styled.button`
   transition: 200ms;
 
   &:hover {
-    background-color: var(--hover)
+    background-color: var(--blueDark)
   }
 `
 
