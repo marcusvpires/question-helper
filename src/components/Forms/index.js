@@ -25,6 +25,7 @@ const Forms = ({ addQuestions }) => {
         attributes: { type: type },
         repositoryID: repositoryID
       }
+      setNumber(Number(number) + 1)
       addQuestions(question);
     } catch (err) {
       console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
