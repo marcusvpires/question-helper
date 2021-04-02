@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { saveQuestion } from '../../dataBase'
 import Alternative from "./Alternative";
 import * as S from "./styled";
 
@@ -27,7 +26,6 @@ const Forms = ({ addQuestions }) => {
         repositoryID: repositoryID
       }
       addQuestions(question);
-      saveQuestion(question)
     } catch (err) {
       console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
       alert('Error on create question')

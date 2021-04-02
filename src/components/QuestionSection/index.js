@@ -2,10 +2,10 @@ import React from "react";
 import Question from '../Question'
 import * as S from "./styled";
 
-const QuestionSection = ({ questions }) => {
+const QuestionSection = ({ storage }) => {
   return (
     <S.QuestionSection id='QuestionSection'>
-      {questions.map(question => (<Question question={question} key={question.id}/>))}
+      {storage.questions.map(question => (<Question question={question} key={question.id} storage={storage} />))}
     </S.QuestionSection>
   );
 };
