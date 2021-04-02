@@ -1,7 +1,7 @@
 import React from "react";
 import Number from './Number'
 import Alternative from './Alternative'
-// import * as I from '@styled-icons/boxicons-regular/'
+import Buttons from './Buttons'
 import * as S from "./styled";
 
 const Question = ({ question }) => {
@@ -10,6 +10,7 @@ const Question = ({ question }) => {
       <S.Question>
         <Number question={question}/>
         {question.attributes.type === 'alternative' && <Alternative question={question} />}
+        <Buttons question={question} />
       </S.Question>
     </S.QuestionWrapper>
   );

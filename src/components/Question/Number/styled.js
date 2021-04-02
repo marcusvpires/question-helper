@@ -10,6 +10,7 @@ export const NumberText = styled.span`
 export const NumberInput = styled.input`
   font-size: 1rem;
   color: var(--primary);
+  width: 4rem;
   &:invalid {
     box-shadow: none;
     color: red;

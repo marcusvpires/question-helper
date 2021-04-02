@@ -82,6 +82,7 @@ const GlobalStyles = createGlobalStyle`
     --backDark: #090c10;
     --back: #0d1117;
     --primary: #c9d1d9;
+    --secondary: #a8acaf;
     --third: #6f757a;
     --blueDark: #051d4d;
     --blue: #0d3584;

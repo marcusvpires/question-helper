@@ -56,7 +56,7 @@ export const getIndex = (storage, key, value, back = () => {}) => {
     req.onsuccess = (ev) => {
       const cursor = ev.target.result;
       if (cursor) { 
-        if (value === cursor.key) { console.log('Cursor:', cursor.value); questions.push(cursor.value) }
+        if (value === cursor.key) { questions.push(cursor.value) }
         cursor.continue()
       } else { back(questions) }
     }
