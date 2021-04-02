@@ -21,23 +21,44 @@ const Home = () => {
   const storage = {
     add: (question) => {
       setQuestions([...questions, question]);
-      questionDB.add(question)
+      questionDB.add(question);
     },
     remove: (id) => {
-      console.log('Remove question', id)
-      setQuestions(questions.filter((question) => {
-        return question.id !== id
-      }))
-      questionDB.remove(id)
+      console.log("Remove question", id);
+      setQuestions(
+        questions.filter((question) => {
+          return question.id !== id;
+        })
+      );
+      questionDB.remove(id);
     },
-    repositoryID: () => { return localStorage.getItem("repositoryID") },
-    questions: questions
+    changeMarker: (id, marker) => {
+      const newQuestions = []
+      for (const index in questions) {
+        const question = questions[index]
+        if (question.id === id) { 
+          if ( question.attributes.marker === marker ) {
+            question.attributes.marker = null
+            questionDB.add(question);
+          } else {
+            question.attributes.marker = marker
+            questionDB.add(question);
+          }
+        }
+        newQuestions.push(question)
+      } 
+      setQuestions(newQuestions)
+    },
   };
 
   return (
     <Layout>
       <Forms addQuestions={storage.add} />
-      <QuestionSection storage={storage} />
+      <QuestionSection
+        questions={questions}
+        remove={storage.remove}
+        changeMarker={storage.changeMarker}
+      />
     </Layout>
   );
 };

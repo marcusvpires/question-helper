@@ -12,7 +12,7 @@ export const BtnIcon = styled.span`
   border-radius: 2px;
   display: flex;
   align-items: center;
-  color: var(--secondary);
+  color: ${props => props.marker ? `var(--${props.marker})` : 'var(--secondary)'} ;
   transition: 200ms;
 
   &:hover {

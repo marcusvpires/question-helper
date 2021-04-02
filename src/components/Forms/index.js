@@ -22,7 +22,7 @@ const Forms = ({ addQuestions }) => {
         id: id,
         value: value,
         number: number,
-        attributes: { type: type },
+        attributes: { type: type, marker: null },
         repositoryID: repositoryID
       }
       setNumber(Number(number) + 1)

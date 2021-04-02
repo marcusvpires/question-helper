@@ -4,14 +4,13 @@ import Alternative from './Alternative'
 import Buttons from './Buttons'
 import * as S from "./styled";
 
-const Question = ({ question, storage }) => {
-
+const Question = ({ question, remove, changeMarker, marker }) => {
   return (
-    <S.QuestionWrapper>
+    <S.QuestionWrapper marker={marker}>
       <S.Question>
         <Number question={question}/>
         {question.attributes.type === 'alternative' && <Alternative question={question} />}
-        <Buttons question={question} storage={storage} />
+        <Buttons id={question.id} remove={remove} changeMarker={changeMarker} marker={marker} />
       </S.Question>
     </S.QuestionWrapper>
   );

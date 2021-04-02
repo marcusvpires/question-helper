@@ -1,11 +1,19 @@
 import React from "react";
-import Question from '../Question'
+import Question from "../Question";
 import * as S from "./styled";
 
-const QuestionSection = ({ storage }) => {
+const QuestionSection = ({ questions, remove, changeMarker }) => {
   return (
-    <S.QuestionSection id='QuestionSection'>
-      {storage.questions.map(question => (<Question question={question} key={question.id} storage={storage} />))}
+    <S.QuestionSection id="QuestionSection">
+      {questions.map((question) => (
+        <Question
+          question={question}
+          key={question.id}
+          remove={remove}
+          changeMarker={changeMarker}
+          marker={question.attributes.marker}
+        />
+      ))}
     </S.QuestionSection>
   );
 };
