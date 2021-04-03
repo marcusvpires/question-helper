@@ -10,6 +10,11 @@ const Forms = ({ addQuestions }) => {
     if (number) { return number; }
     return "0";
   });
+  const [text, setText] = useState(() => {
+    const text = localStorage.getItem('text')
+    if (!text) {return ''}
+    return text
+  })
 
   function changeNumber(e) {
     setNumber(e.target.value);
@@ -28,7 +33,12 @@ const Forms = ({ addQuestions }) => {
         repositoryID: repositoryID
       }
       setNumber(Number(number) + 1)
+      if (type === 'text') {
+        setText('')
+        localStorage.removeItem('text')
+      }
       addQuestions(question);
+
     } catch (err) {
       console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
       alert('Error on create question')
@@ -51,7 +61,7 @@ const Forms = ({ addQuestions }) => {
         />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
-      <Text />
+      <Text text={text} setText={setText} />
       <Buttons createQuestion={createQuestion} />
     </S.FormsWrapper>
   );

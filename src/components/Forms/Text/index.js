@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styled";
 
-const FormText = () => {
-
-  const [text, setText] = useState(() => {
-    const text = localStorage.getItem('text')
-    if (!text) {return ''}
-    return text
-  })
+const FormText = ({ setText, text }) => {
 
   return (
     <S.TextWrapper>
