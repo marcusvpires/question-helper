@@ -13,6 +13,7 @@ const QuestionSection = ({ questions, remove, changeMarker, saveQuestion }) => {
           changeMarker={changeMarker}
           marker={question.attributes.marker}
           saveQuestion={saveQuestion}
+          id={question.id}
         />
       ))}
     </S.QuestionSection>

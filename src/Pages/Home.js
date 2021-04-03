@@ -13,15 +13,41 @@ const Home = () => {
     }
     console.log("Connect with repository", repositoryID);
     getIndex("question", "repositoryID", repositoryID, (questions) => {
+      console.log('Connect !')
       setQuestions(questions);
     });
-    return [];
+
+    const loading = localStorage.getItem('loading').split(';')
+    const before = []
+    for (const index in loading) {
+      const question = loading[index].split('&')
+      let type = 'alternative'
+      if (question[0] === 't') { type = 'text'; }
+      before.push({
+        id: index,
+        value: question[1],
+        number: question[2],
+        attributes: { type: type, marker: null },
+        repositoryID: repositoryID
+      })
+    }
+    return before;
   });
+
+  const setLoading = async () => {
+    let loading = ''
+    for (const index in questions) { 
+      if (questions[index].attributes.type === 'text') {loading += 't&' + questions[index].value.slice(0, 30) + '&' + questions[index].number + ';'}
+      else { loading += 'a&' + questions[index].value + '&' + questions[index].number + ';' }
+    }
+    localStorage.setItem('loading', loading.slice(0, -1))
+  }
 
   const storage = {
     add: (question) => {
       setQuestions([...questions, question]);
       questionDB.add(question);
+      setLoading()
     },
     save: (question) => {
       questionDB.add(question);
@@ -34,6 +60,7 @@ const Home = () => {
         })
       );
       questionDB.remove(id);
+      setLoading()
     },
     changeMarker: (id, marker) => {
       const newQuestions = []
