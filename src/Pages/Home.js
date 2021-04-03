@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getIndex } from "../dataBase/root";
 import { saveRepository, questionDB } from "../dataBase";
 import Layout from "../components/Layout";
@@ -33,6 +33,9 @@ const Home = () => {
     }
     return before;
   });
+
+  const endRef = useRef()
+  useEffect(() => { endRef.current.scrollIntoView({ behavior: 'smooth' }) }, [questions]);
 
   const setLoading = async () => {
     let loading = ''
@@ -89,6 +92,7 @@ const Home = () => {
         remove={storage.remove}
         changeMarker={storage.changeMarker}
         saveQuestion={storage.save}
+        ref={endRef}
       />
     </Layout>
   );

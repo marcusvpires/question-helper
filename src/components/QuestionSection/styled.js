@@ -9,3 +9,7 @@ export const QuestionSection = styled.ul`
   user-select: none;  
 `
 
+export const QuestionEnd = styled.li`
+  background-color: red;
+`
+

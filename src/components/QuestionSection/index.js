@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from 'react'
 import Question from "../Question";
 import * as S from "./styled";
 
-const QuestionSection = ({ questions, remove, changeMarker, saveQuestion }) => {
+const QuestionSection = forwardRef(({ questions, remove, changeMarker, saveQuestion }, ref) => {
   return (
     <S.QuestionSection id="QuestionSection">
       {questions.map((question) => (
@@ -16,8 +16,9 @@ const QuestionSection = ({ questions, remove, changeMarker, saveQuestion }) => {
           id={question.id}
         />
       ))}
+      <S.QuestionEnd ref={ref} />
     </S.QuestionSection>
   );
-};
+});
 
 export default QuestionSection;
