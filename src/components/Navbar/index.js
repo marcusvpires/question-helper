@@ -1,5 +1,6 @@
 import React from "react"
-import { saveRepository } from '../../dataBase' 
+import { saveRepository  } from '../../dataBase'
+import * as storage from '../../assets/storage'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
@@ -13,6 +14,7 @@ const Navbar = () => {
     console.log('Copy questions')
   }
   function clearSection() {
+    storage.clear()
     console.log('Clear section')
   }
   function openTrash() {

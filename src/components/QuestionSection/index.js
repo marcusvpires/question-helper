@@ -1,24 +1,12 @@
-import React, { forwardRef } from 'react'
-import Question from "../Question";
-import * as S from "./styled";
+import styled from "styled-components"
 
-const QuestionSection = forwardRef(({ questions, remove, changeMarker, saveQuestion }, ref) => {
-  return (
-    <S.QuestionSection id="QuestionSection">
-      {questions.map((question) => (
-        <Question
-          question={question}
-          key={question.id}
-          remove={remove}
-          changeMarker={changeMarker}
-          marker={question.attributes.marker}
-          saveQuestion={saveQuestion}
-          id={question.id}
-        />
-      ))}
-      <S.QuestionEnd ref={ref} />
-    </S.QuestionSection>
-  );
-});
+const QuestionSection = styled.ul`
+  height: 100%;
+  width: calc(100% - 24rem);
+  border-left: 1px solid #6f757a;
+  padding: 1rem 2rem;
+  overflow: auto;
+  user-select: none;  
+`
 
-export default QuestionSection;
+export default QuestionSection

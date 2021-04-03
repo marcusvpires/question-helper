@@ -5,14 +5,13 @@ import Text from "./Text";
 import Buttons from "./Buttons";
 import * as S from "./styled";
 
-const Question = ({ question, remove, changeMarker, marker, saveQuestion }) => {
+const Question = ({ question }) => {
   const [value, setValue] = useState(question.value);
   const [text, setText] = useState({ display: false, color: null, rotate: null });
 
   const save = (value) => {
     console.log("Save question", question.id);
     question.value = value;
-    saveQuestion(question);
   };
 
   const type = question.attributes.type;
@@ -25,24 +24,19 @@ const Question = ({ question, remove, changeMarker, marker, saveQuestion }) => {
   };
 
   return (
-    <S.QuestionWrapper marker={marker}>
-      <S.Question>
-        <Number question={question} />
-        {type === "alternative" && <Alternative question={question} />}
-        {type === "text" && <S.Title>{value}</S.Title>}
-        <Buttons
-          id={question.id}
-          remove={remove}
-          changeMarker={changeMarker}
-          marker={marker}
-          displayText={handleText}
-          text={text}
-          type={type}
-        />
-        {text.display && <Text value={value} setValue={setValue} save={save} />}
-      </S.Question>
-    </S.QuestionWrapper>
-  );
+    <S.Question id={question.id}>
+      <Number question={question} />
+      {type === "alternative" && <Alternative question={question} />}
+      {type === "text" && <S.Title>{value}</S.Title>}
+      <Buttons
+        id={question.id}
+        displayText={handleText}
+        text={text}
+        type={type}
+      />
+      {text.display && <Text value={value} setValue={setValue} save={save} />}
+    </S.Question>
+  )
 };
 
 export default Question;

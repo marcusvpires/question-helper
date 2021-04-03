@@ -43,6 +43,20 @@ export const remove = (storage, key, back = () => {}) => {
   }
 }
 
+export const removeAll = (storage, back = () => {}) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readwrite');
+    const store = transaction.objectStore(storage);
+    store.clear().onsuccess = (ev) => {
+      back({ result: ev.target.result });
+    }
+  }
+}
+
 export const getAll = (storage, key, value, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;

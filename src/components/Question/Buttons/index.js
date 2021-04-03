@@ -1,8 +1,10 @@
 import React from "react";
+import * as storage from '../../../assets/storage'
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 
-const Buttons = ({ id, remove, changeMarker, marker, type, displayText, text }) => {
+const Buttons = ({ id, marker, type, displayText, text }) => {
+  
   const isMarker = (btn) => {
     if (marker === btn) {
       return marker + "Icon";
@@ -16,27 +18,27 @@ const Buttons = ({ id, remove, changeMarker, marker, type, displayText, text }) 
           onClick={() => { displayText();}}
           marker={text.color}
           rotate={text.rotate}
-        ><I.CaretUpSquare />
+          ><I.CaretUpSquare />
         </S.BtnIcon>
       )}
       <S.BtnIcon
-        onClick={() => {changeMarker(id, "marker");}}
+        onClick={() => {console.log(id, "marker");}}
         marker={isMarker("marker")}
-      ><I.Bookmark />
+        ><I.Bookmark />
       </S.BtnIcon>
       <S.BtnIcon
-        onClick={() => {changeMarker(id, "correct");}}
+        onClick={() => {console.log(id, "correct");}}
         marker={isMarker("correct")}
-      ><I.CheckSquare />
+        ><I.CheckSquare />
       </S.BtnIcon>
       <S.BtnIcon
-        onClick={() => {changeMarker(id, "erro");}}
+        onClick={() => {console.log(id, "erro");}}
         marker={isMarker("erro")}
-      ><I.ErrorAlt />
+        ><I.ErrorAlt />
       </S.BtnIcon>
       <S.BtnIcon
-        onClick={() => {remove(id);}}
-      ><I.Trash />
+        onClick={() => { storage.remove(id) }}
+        ><I.Trash />
       </S.BtnIcon>
     </S.BtnWrapper>
   );

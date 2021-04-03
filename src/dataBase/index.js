@@ -41,6 +41,10 @@ export const questionDB = {
   remove: async (id) => {
     try { db.remove("question", id) } 
     catch (e) { err('remove the question', e, id ) }
+  },
+  removeAll: async (id) => {
+    try { db.removeAll("question") } 
+    catch (e) { err('remove all questions', e ) }
   }
 }
 
