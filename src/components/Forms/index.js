@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Alternative from "./Alternative";
+import Text from "./Text";
+import Buttons from "./Buttons";
 import * as S from "./styled";
 
 const Forms = ({ addQuestions }) => {
@@ -49,6 +51,8 @@ const Forms = ({ addQuestions }) => {
         />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
+      <Text />
+      <Buttons createQuestion={createQuestion} />
     </S.FormsWrapper>
   );
 };

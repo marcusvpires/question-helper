@@ -23,6 +23,9 @@ const Home = () => {
       setQuestions([...questions, question]);
       questionDB.add(question);
     },
+    save: (question) => {
+      questionDB.add(question);
+    },
     remove: (id) => {
       console.log("Remove question", id);
       setQuestions(
@@ -58,6 +61,7 @@ const Home = () => {
         questions={questions}
         remove={storage.remove}
         changeMarker={storage.changeMarker}
+        saveQuestion={storage.save}
       />
     </Layout>
   );

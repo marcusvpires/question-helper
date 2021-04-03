@@ -2,7 +2,7 @@ import React from "react";
 import Question from "../Question";
 import * as S from "./styled";
 
-const QuestionSection = ({ questions, remove, changeMarker }) => {
+const QuestionSection = ({ questions, remove, changeMarker, saveQuestion }) => {
   return (
     <S.QuestionSection id="QuestionSection">
       {questions.map((question) => (
@@ -12,6 +12,7 @@ const QuestionSection = ({ questions, remove, changeMarker }) => {
           remove={remove}
           changeMarker={changeMarker}
           marker={question.attributes.marker}
+          saveQuestion={saveQuestion}
         />
       ))}
     </S.QuestionSection>

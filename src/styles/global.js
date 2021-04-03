@@ -70,6 +70,9 @@ const GlobalStyles = createGlobalStyle`
   input[type=number] {
     -moz-appearance: textfield;
   }
+  textarea {
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  }
   img {
     display: block;
   	width: 100%;
