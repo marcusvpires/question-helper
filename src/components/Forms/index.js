@@ -33,6 +33,7 @@ const Forms = ({ addQuestions }) => {
         repositoryID: repositoryID
       }
       setNumber(Number(number) + 1)
+      localStorage.setItem("number", Number(number) + 1);
       if (type === 'text') {
         setText('')
         localStorage.removeItem('text')
