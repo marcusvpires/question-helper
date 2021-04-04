@@ -57,7 +57,7 @@ const Forms = ({ number, setNumber, text, setText }) => {
         />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
-      <Buttons />
+      <Buttons createQuestion={createQuestion} />
       <Text text={text} setText={setText} />
       <Display createQuestion={createQuestion} />
     </S.FormsWrapper>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { getIndex } from "../dataBase/root";
 import { repositoryDB } from "../dataBase";
@@ -28,16 +28,17 @@ const QuestionsPage = () => {
     return "Undefined"
   });
 
-  let repositoryID = localStorage.getItem("repositoryID");
-  if (!repositoryID) { repositoryID = repositoryDB.add(); }
-  console.log("Connect with repository", repositoryID);
-
-  getIndex("question", "repositoryID", repositoryID, (questions) => {
-    for (const index in questions) {
-      storage.create(questions[index])
-    }
-    console.log('Connect !')
-  });
+  useEffect(() => {
+    let repositoryID = localStorage.getItem("repositoryID");
+    if (!repositoryID) { repositoryID = repositoryDB.add(); }
+    console.log("Connect with repository", repositoryID);
+  
+    getIndex("question", "repositoryID", repositoryID, (questions) => {
+      for (const index in questions) {
+        storage.create(questions[index])
+      }
+    })
+  })
 
   return (
     <Layout setNumber={setNumber} setText={setText} repository={repository} setRepository={setRepository} >

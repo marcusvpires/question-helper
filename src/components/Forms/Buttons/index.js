@@ -1,22 +1,21 @@
 import React from "react";
+import Timer from './Timer'
+import Shortcut from './Shortcut'
+
 import * as S from "./styled";
 
-const FormButtons = () => {
+const FormButtons = ({ createQuestion }) => {
+
   return (
     <S.BtnWrapper>
-
       <S.Button
-        onClick={() => { console.log("Random");}}
+        onClick={() => {
+          const alternatives = ["A", "B", "C", "D", "E"];
+          createQuestion(alternatives[5 * Math.random() | 0], 'alternative')
+        }}
       >Random</S.Button>
-
-      <S.Button
-        onClick={() => { console.log("Random");}}
-      >Quick</S.Button>
-
-      <S.Button
-        onClick={() => { console.log("Random");}}
-      >Timer</S.Button>
-
+      <Shortcut />
+      <Timer />
     </S.BtnWrapper>
   );
 };

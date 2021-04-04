@@ -1,7 +1,10 @@
 import styled from "styled-components"
 
 export const BtnWrapper = styled.div`
-	margin: 1rem 0 ;
+	margin: 1rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `
 
 export const Button = styled.button`
@@ -26,5 +29,17 @@ export const Button = styled.button`
 	&:active {
 		transition: 50ms;
 		background-color: var(--blue);
+	}
+`
+
+export const Shortcut = styled.input`
+	border-radius: 2px;
+	background-color: var(--blueDark);
+	width: 6.5rem;
+	height: 2.4rem;
+
+	&::placeholder {
+		color: var(--primary);
+		opacity: 1;
 	}
 `

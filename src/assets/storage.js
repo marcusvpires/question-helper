@@ -10,7 +10,6 @@ export const create = (question) => {
     wrapper.id = question.id
 
     const marker = question.attributes.marker
-    console.log(marker)
     if (marker) {
       wrapper.style.backgroundColor = `var(--${marker})`
       wrapper.style.border = `1px solid var(--${marker})`
