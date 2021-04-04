@@ -17,7 +17,7 @@ export const Shortcut = styled.input`
 
 	&:focus {
 		outline-width: 2px;
-		outline-color: var(--blue);
+		outline-color: ${props => props.valid ? 'var(--blue)' : 'red'};
 		outline-style: solid;
 	}
 `

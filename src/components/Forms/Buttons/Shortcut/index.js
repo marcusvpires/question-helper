@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
-const Shortcut = () => {
+const Shortcut = ({ createQuestion }) => {
 
-  const [value, setValue] = useState('')
+  const [shortcut, setShortcut] = useState('')
+  const [isValid, setValid] = useState(true)
 
-  const handleValue = (ev) => {
-    console.log(ev.target.value)
+  const handleShortcut = (ev) => {
+    let value = ev.target.value.toUpperCase().slice(-1)
+    const valid = ['A','B','C','D','E','1','2','3','4','5']
+    if (valid.indexOf(value) !== -1) {
+      setValid(true)
+      if (Number(value)) { value = valid[Number(value) - 1] }
+      createQuestion(value, 'alternative')
+    } else { setValid(false) }
+    setShortcut(value)
   }
 
   return (
     <S.ShortcutWrapper>
       <S.Shortcut
-        value={value}
-        onChange={handleValue}
+        value={shortcut}
+        onChange={handleShortcut}
         placeholder='Shortcut'
+        valid={isValid}
       />
     </S.ShortcutWrapper>
   );

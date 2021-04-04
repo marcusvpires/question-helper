@@ -14,7 +14,7 @@ const FormButtons = ({ createQuestion }) => {
           createQuestion(alternatives[5 * Math.random() | 0], 'alternative')
         }}
       >Random</S.Button>
-      <Shortcut />
+      <Shortcut createQuestion={createQuestion} />
       <Timer />
     </S.BtnWrapper>
   );
