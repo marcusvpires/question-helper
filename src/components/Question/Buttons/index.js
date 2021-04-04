@@ -18,13 +18,13 @@ const Buttons = ({ question, type, displayText, text }) => {
     const element = document.getElementById(id).style
     if (marker === button) {
       element.backgroundColor = `var(--blueDark)`
-      element.borderBlockColor = `#6f757a`
+      element.border = ``
       setMarker(null)
       question.attributes.marker = null
     }
     else {
       element.backgroundColor = `var(--${button})`
-      element.borderBlockColor = `var(--${button})`
+      element.border = `1px solid var(--${button})`
       question.attributes.marker = button
       setMarker(button)
     }

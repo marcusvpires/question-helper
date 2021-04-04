@@ -13,7 +13,7 @@ export const create = (question) => {
     console.log(marker)
     if (marker) {
       wrapper.style.backgroundColor = `var(--${marker})`
-      wrapper.style.borderBlockColor = `var(--${marker})`
+      wrapper.style.border = `1px solid var(--${marker})`
     }
 
     document.getElementById('questionSection').appendChild(wrapper)
