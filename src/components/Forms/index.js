@@ -4,6 +4,7 @@ import * as storage from '../../assets/storage'
 
 import Alternative from "./Alternative";
 import Text from "./Text";
+import Display from "./Display";
 import Buttons from "./Buttons";
 
 import * as S from "./styled";
@@ -56,8 +57,9 @@ const Forms = ({ number, setNumber, text, setText }) => {
         />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
+      <Buttons />
       <Text text={text} setText={setText} />
-      <Buttons createQuestion={createQuestion} />
+      <Display createQuestion={createQuestion} />
     </S.FormsWrapper>
   );
 };

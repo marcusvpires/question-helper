@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-export const BtnWrapper = styled.div`
-	margin: 1rem 0 ;
+export const DisplayWrapper = styled.div`
+	margin: 1rem 0 0;
 `
 
-export const Button = styled.button`
+export const Display = styled.button`
 	color: var(--primary);
 	border-radius: 2px;
 	border: none;

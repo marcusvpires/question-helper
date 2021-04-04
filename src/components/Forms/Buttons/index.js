@@ -1,15 +1,22 @@
 import React from "react";
 import * as S from "./styled";
 
-const FormButtons = ({createQuestion}) => {
-
+const FormButtons = () => {
   return (
     <S.BtnWrapper>
 
-      <S.Button onClick={() => { 
-        const text = localStorage.getItem('text')
-        createQuestion(text, 'text')
-      }} >Create</S.Button>
+      <S.Button
+        onClick={() => { console.log("Random");}}
+      >Random</S.Button>
+
+      <S.Button
+        onClick={() => { console.log("Random");}}
+      >Quick</S.Button>
+
+      <S.Button
+        onClick={() => { console.log("Random");}}
+      >Timer</S.Button>
+
     </S.BtnWrapper>
   );
 };

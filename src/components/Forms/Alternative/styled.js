@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const AltWrapper = styled.section`
   width: 100%;
   padding: 1rem;
-  margin-top: 2rem;
+  margin: 1.4rem 0 1rem;
   border-radius: 4px;
   background-color: var(--black);
   display: flex;
