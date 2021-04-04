@@ -29,7 +29,7 @@ const Question = ({ question }) => {
       {type === "alternative" && <Alternative question={question} />}
       {type === "text" && <S.Title>{value}</S.Title>}
       <Buttons
-        id={question.id}
+        question={question}
         displayText={handleText}
         text={text}
         type={type}

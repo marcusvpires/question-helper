@@ -8,6 +8,14 @@ export const create = (question) => {
     const wrapper = document.createElement('li')
     wrapper.classList.add('QuestionWrapper')
     wrapper.id = question.id
+
+    const marker = question.attributes.marker
+    console.log(marker)
+    if (marker) {
+      wrapper.style.backgroundColor = `var(--${marker})`
+      wrapper.style.borderBlockColor = `var(--${marker})`
+    }
+
     document.getElementById('questionSection').appendChild(wrapper)
     ReactDOM.render(<Question question={question} />, document.getElementById(question.id))
     wrapper.scrollIntoView({ behavior: "smooth" })
@@ -16,6 +24,10 @@ export const create = (question) => {
 
 export const save = (question) => {
   create(question)
+  questionDB.add(question);
+}
+
+export const update = (question) => {
   questionDB.add(question);
 }
 
