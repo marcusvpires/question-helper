@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export const BtnWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  width: 9rem;
 `
 
 export const BtnIcon = styled.span`
@@ -15,6 +16,7 @@ export const BtnIcon = styled.span`
   color: ${props => props.marker ? `var(--${props.marker})` : 'var(--secondary)'};
   transform: ${props => props.rotate ? `rotate(${props.rotate})` : 'none'};
   transition: 200ms;
+
 
   &:hover {
     background-color: var(--blueDark)

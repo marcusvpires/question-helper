@@ -20,12 +20,13 @@ const Forms = ({ number, setNumber, text, setText }) => {
     try {
       const id = Date.now() + '-' + Math.random().toString(36).slice(-10);
       const repositoryID = localStorage.getItem('repositoryID')
-      
+      const timer = localStorage.getItem('timer')
+
       const question = {
         id: id,
         value: value,
         number: number,
-        attributes: { type: type, marker: null },
+        attributes: { type: type, marker: null, time: timer },
         repositoryID: repositoryID
       }
       

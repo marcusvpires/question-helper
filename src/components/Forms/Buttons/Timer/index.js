@@ -37,6 +37,10 @@ const useTimer = (initialState = 0) => {
   const [isActive, setIsActive] = React.useState(false)
   const countRef = React.useRef(null)
 
+  React.useEffect(() => {
+    localStorage.setItem('timer', formatTime(timer))
+  }, [timer])
+
   const handleStart = () => {
     setIsActive(true)
     countRef.current = setInterval(() => {

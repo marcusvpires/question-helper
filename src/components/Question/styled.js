@@ -18,4 +18,9 @@ export const Title = styled.span`
   text-overflow: ellipsis;
   max-width: 15rem;
   color: #8c979e;
+  width: 12.8rem;
+`
+
+export const Time = styled.span`
+    color: #8c979e;
 `

@@ -26,6 +26,7 @@ const Question = ({ question }) => {
   return (
     <S.Question id={question.id}>
       <Number question={question} />
+      <S.Time>{question.attributes.time}</S.Time>
       {type === "alternative" && <Alternative question={question} />}
       {type === "text" && <S.Title>{value}</S.Title>}
       <Buttons
