@@ -1,19 +1,23 @@
 import React from "react"
-import { saveRepository  } from '../../dataBase'
+import { repositoryDB  } from '../../dataBase'
 import * as storage from '../../assets/storage'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
-const Navbar = () => {
+const Navbar = ({ setText, setNumber, setRepository }) => {
 
   function newRepository() {
-    saveRepository()
+    repositoryDB.new()
+    clearSection()
+    setRepository('')
     console.log('New repository')
   }
   function copyQuestions() {
     console.log('Copy questions')
   }
   function clearSection() {
+    setText('')
+    setNumber(1)
     storage.clear()
     console.log('Clear section')
   }

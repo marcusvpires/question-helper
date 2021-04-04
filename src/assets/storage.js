@@ -27,6 +27,8 @@ export const remove = (id) => {
 
 export const clear = () => {
   document.getElementById('questionSection').innerHTML = ''
+  localStorage.removeItem("number");
+  localStorage.removeItem('text')
   questionDB.removeAll()
   console.log('Clear section')
 }

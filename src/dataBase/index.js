@@ -19,15 +19,38 @@ const err = (msg, err, par) => {
 //                        Repository                         //
 // ========================================================= //
 
-export const saveRepository = async (id = createID()) => {
-  try {
-    const name = localStorage.getItem("repository");
-    localStorage.setItem("repositoryID", id);
-    db.put("repository", { id: id, name: name }, (element) => {
-      console.log(`Put ${element.name} (${element.id}) in repository`);
-    });
-  } catch (e) { err('save the repository', e, id ) }
-};
+export const repositoryDB = {
+  add: async () => {
+    try {
+      let id = localStorage.getItem("repositoryID")
+      let name = localStorage.getItem("repository");
+
+      if (!id) { id = createID(); localStorage.setItem("repositoryID", id) }
+      if (!name) { name = 'undefined' }
+
+      db.put("repository", { id: id, name: name }, (element) => {
+        console.log(`Put repository ${element.name} (${element.id})`);
+      });
+    } 
+    catch (e) { err('add repository', e ) }
+  },
+  new: async () => {
+    try {
+      repositoryDB.add()
+      localStorage.removeItem("repositoryID")
+      localStorage.removeItem("repository");
+      
+      const id = createID()
+      localStorage.setItem("repositoryID", id)
+
+      db.put("repository", { id: id, name: 'undefined' }, (element) => {
+        console.log(`Put repository ${element.name} (${element.id})`);
+      });
+    } 
+    catch (e) { err('add repository', e ) }
+  },
+
+}
 
 // ========================================================= //
 //                         Question                          //

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import * as storage from '../../assets/storage'
 
@@ -8,19 +8,7 @@ import Buttons from "./Buttons";
 
 import * as S from "./styled";
 
-const Forms = () => {
-
-  const [number, setNumber] = useState(() => {
-    const number = localStorage.getItem("number");
-    if (number) { return number; }
-    return "0";
-  });
-  
-  const [text, setText] = useState(() => {
-    const text = localStorage.getItem('text')
-    if (!text) {return ''}
-    return text
-  })
+const Forms = ({ number, setNumber, text, setText }) => {
 
   function changeNumber(e) {
     setNumber(e.target.value);
