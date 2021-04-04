@@ -4,7 +4,7 @@ import Shortcut from './Shortcut'
 
 import * as S from "./styled";
 
-const FormButtons = ({ createQuestion }) => {
+const FormButtons = ({ createQuestion, timer }) => {
 
   return (
     <S.BtnWrapper>
@@ -15,7 +15,7 @@ const FormButtons = ({ createQuestion }) => {
         }}
       >Random</S.Button>
       <Shortcut createQuestion={createQuestion} />
-      <Timer />
+      <Timer timer={timer.timer} isActive={timer.isActive} handleStart={timer.handleStart} handlePause={timer.handlePause} setTimer={timer.setTimer} />
     </S.BtnWrapper>
   );
 };
