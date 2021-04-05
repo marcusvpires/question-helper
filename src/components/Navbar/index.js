@@ -6,28 +6,23 @@ import * as S from "./styled"
 
 const Navbar = ({ setText, setNumber, setRepository, isArchivePage }) => {
 
-  console.log(isArchivePage)
-
   function newRepository() {
-    console.log('New repository')
     repositoryDB.new()
-    if (!isArchivePage) {
-      clearSection()
-      setRepository('')
-    }
+    setRepository('')
+    setText('')
+    setNumber(1)
+    document.getElementById('questionSection').innerHTML = ''
+    localStorage.removeItem("number");
+    localStorage.removeItem('text')
   }
   function copyQuestions() {
     console.log('Copy questions')
   }
   function clearSection() {
-    console.log('Clear section')
-    if (!isArchivePage) {
-      clearSection()
-      setRepository('')
-      setText('')
-      setNumber(1)
-      storage.clear()
-    }
+    setRepository('')
+    setText('')
+    setNumber(1)
+    storage.clear()
   }
   function openTrash() {
     console.log('Open trash')

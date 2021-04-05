@@ -89,6 +89,11 @@ const GlobalStyles = createGlobalStyle`
     margin: .8rem 0;
   }
 
+  .RepositoryWrapper {
+    width: 100%;
+    margin-bottom: .8rem;
+  }
+
   // ==============================  Color theme  ============================== //
 
   body {

@@ -4,11 +4,15 @@ import { getIndex } from "../../dataBase/root";
 
 import * as S from "./styled";
 
-const Repository = ({ repository }) => {
+const Repository = ({ repository, selectRepository, setSelectRepository }) => {
 
   const date = storage.toDate(repository.id)
+  const isSelect = selectRepository === repository.id
 
   const displayQuestions = () => {
+    document.getElementById('questionSection').innerHTML = ''
+    setSelectRepository(repository.id)
+    console.log(repository.id)
     getIndex("question", "repositoryID", repository.id, (questions) => {
       for (const index in questions) {
         storage.create(questions[index])
@@ -17,7 +21,7 @@ const Repository = ({ repository }) => {
   }
 
   return (
-    <S.Repository id={repository.id} onClick={displayQuestions} >
+    <S.Repository id={repository.id} onClick={displayQuestions} isSelect={isSelect} >
       <S.RepositoryName>{repository.name}</S.RepositoryName>
       <S.RepositoryDate>{date}</S.RepositoryDate>
     </S.Repository>

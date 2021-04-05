@@ -1,14 +1,27 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React, { useState, useEffect } from "react";
 
-import Repositories from "../components/Repositories";
+import * as RepoStorage from '../assets/repositoryStorage'
+import { getAll } from '../dataBase/root'
+
+import Layout from "../components/Layout";
+import RepositorySection from "../components/RepositorySection";
 import QuestionSection from "../components/QuestionSection";
 
 const ArchivePage = () => {
 
+  const [selectRepository, setSelectRepository] = useState(false)
+
+  useEffect(() => {
+    getAll("repository", (repository) => {
+      for (const index in repository) {
+        RepoStorage.create(repository[index], selectRepository, setSelectRepository)
+      }
+    })
+  })
+
   return (
     <Layout isArchivePage>
-      <Repositories />
+      <RepositorySection id='repositorySection' />
       <QuestionSection id='questionSection' />
     </Layout>
   )

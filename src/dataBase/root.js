@@ -57,7 +57,7 @@ export const removeAll = (storage, back = () => {}) => {
   }
 }
 
-export const getAll = (storage, key, value, back = () => {}) => {
+export const getAll = (storage, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
 

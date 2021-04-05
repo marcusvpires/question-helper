@@ -6,7 +6,6 @@ const Alt = ({ question }) => {
   const [alternative, setAlternative] = useState(question.value);
   
   function changeAlternative(e) {
-    console.log(e.target.value)
     if (alternative === e.target.value) { setAlternative(null) }
     else { setAlternative(e.target.value) }
   }
