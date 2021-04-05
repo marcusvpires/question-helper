@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 
-export function Header({ setRepository, repository }) {
+export function Header({ setRepository, repository,isArchivePage }) {
   
   function changeRepository(e) {
     setRepository(e.target.value)
@@ -15,9 +15,10 @@ export function Header({ setRepository, repository }) {
         name="Repository name"
         title="Repository name"
         placeholder="Repository"
-        value={repository}
+        value={isArchivePage ? 'Repositories' : repository}
         onChange={changeRepository}
-        />
+        disabled={isArchivePage}
+      />
     </S.HeaderWrapper>
   );
 }

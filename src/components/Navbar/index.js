@@ -4,22 +4,30 @@ import * as storage from '../../assets/storage'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
-const Navbar = ({ setText, setNumber, setRepository }) => {
+const Navbar = ({ setText, setNumber, setRepository, isArchivePage }) => {
+
+  console.log(isArchivePage)
 
   function newRepository() {
-    repositoryDB.new()
-    clearSection()
-    setRepository('')
     console.log('New repository')
+    repositoryDB.new()
+    if (!isArchivePage) {
+      clearSection()
+      setRepository('')
+    }
   }
   function copyQuestions() {
     console.log('Copy questions')
   }
   function clearSection() {
-    setText('')
-    setNumber(1)
-    storage.clear()
     console.log('Clear section')
+    if (!isArchivePage) {
+      clearSection()
+      setRepository('')
+      setText('')
+      setNumber(1)
+      storage.clear()
+    }
   }
   function openTrash() {
     console.log('Open trash')

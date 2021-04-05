@@ -4,8 +4,8 @@ import { getIndex } from "../dataBase/root";
 import { repositoryDB } from "../dataBase";
 import * as storage from '../assets/storage'
 
-import QuestionSection from "../components/QuestionSection";
 import Layout from "../components/Layout";
+import QuestionSection from "../components/QuestionSection";
 import Forms from "../components/Forms";
 
 const QuestionsPage = () => {
