@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import * as RepoStorage from '../assets/repositoryStorage'
+import * as storage from '../assets/storage'
 import { getAll } from '../dataBase/root'
 
 import Layout from "../components/Layout";
@@ -14,7 +14,7 @@ const ArchivePage = () => {
   useEffect(() => {
     getAll("repository", (repository) => {
       for (const index in repository) {
-        RepoStorage.create(repository[index], selectRepository, setSelectRepository)
+        storage.repository.display(repository[index], selectRepository, setSelectRepository)
       }
     })
   })

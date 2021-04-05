@@ -68,6 +68,9 @@ export const questionDB = {
   removeAll: async (id) => {
     try { db.removeAll("question") } 
     catch (e) { err('remove all questions', e ) }
+  },
+  clearRepository: async (repository) => {
+    db.deleteIndex('question', 'repositoryID', repository)
   }
 }
 

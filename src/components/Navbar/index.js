@@ -1,6 +1,9 @@
 import React from "react"
+import { Link } from "react-router-dom";
+
 import { repositoryDB  } from '../../dataBase'
-import * as storage from '../../assets/storage'
+import * as Storage from '../../assets/storage'
+
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
@@ -22,21 +25,13 @@ const Navbar = ({ setText, setNumber, setRepository, isArchivePage }) => {
     setRepository('')
     setText('')
     setNumber(1)
-    storage.clear()
-  }
-  function openTrash() {
-    console.log('Open trash')
-  }
-  function folderOpen() {
-    console.log('Open folder')
+    Storage.repository.clear()
   }
 
   const navButtonList = [
     {name: 'New repository', onClick: newRepository, icon: (<I.AddToQueue />)},
     {name: 'Clear section', onClick: clearSection, icon: (<I.Brush />)},
     {name: 'Copy questions', onClick: copyQuestions, icon: (<I.CopyAlt />)},
-    {name: 'Open folder', onClick: folderOpen, icon: (<I.FolderOpen />)},
-    {name: 'Open trash', onClick: openTrash, icon: (<I.Trash />)},
   ]
   
   return (
@@ -48,6 +43,19 @@ const Navbar = ({ setText, setNumber, setRepository, isArchivePage }) => {
           <S.NavText>{e.name}</S.NavText> 
         </S.NavButton>
       ))}
+      <Link to='/archive'>
+        <S.NavButton name={'Open folder'} title={'Open folder'}>
+          <S.NavIcon><I.FolderOpen /></S.NavIcon> 
+          <S.NavText>Open folder</S.NavText> 
+        </S.NavButton>
+      </Link>
+      <Link to='/trash'>
+        <S.NavButton name={'Open trash'} title={'Open trash'}>
+          <S.NavIcon><I.Trash /></S.NavIcon> 
+          <S.NavText>Open trash</S.NavText> 
+        </S.NavButton>
+      </Link>
+
     </S.NavWrapper>
   )
 }

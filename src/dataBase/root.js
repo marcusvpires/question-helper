@@ -5,18 +5,6 @@ const onRequestError = (e) => {
   console.log('Database request error', e);
 }
 
-export const add = (storage, element, back = () => {}) => {
-  const request = dataBase();
-  request.onerror = onRequestError;
-  request.onsuccess = (e) => {
-    const db = e.target.result;
-    const transaction = db.transaction([storage], 'readwrite');
-    const store = transaction.objectStore(storage);
-    store.add(element);
-    back(element)
-  }
-}
-
 export const put = (storage, element, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
@@ -87,6 +75,25 @@ export const getIndex = (storage, key, value, back = () => {}) => {
         if (value === cursor.key) { questions.push(cursor.value) }
         cursor.continue()
       } else { back(questions) }
+    }
+  }
+}
+
+export const deleteIndex = (storage, key, value) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readonly');
+    const store = transaction.objectStore(storage);
+    const req = store.index(key).openCursor()
+    req.onsuccess = (ev) => {
+      const cursor = ev.target.result;
+      if (cursor) { 
+        if (value === cursor.key) { cursor.delete() }
+        cursor.continue()
+      }
     }
   }
 }

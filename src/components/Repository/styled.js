@@ -25,3 +25,20 @@ export const RepositoryName = styled.span`
 export const RepositoryDate = styled.span`
   font-size: 1.2rem;
 `
+
+export const RepositoryTrash = styled.span`
+  cursor: pointer;
+  width: 1.8rem;
+  padding: 0.3rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  color: ${props => props.marker ? `var(--${props.marker})` : 'var(--secondary)'};
+  transform: ${props => props.rotate ? `rotate(${props.rotate})` : 'none'};
+  transition: 200ms;
+
+
+  &:hover {
+    background-color: var(--blueDark)
+  }
+`

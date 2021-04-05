@@ -24,19 +24,19 @@ const Question = ({ question }) => {
 
   return (
     <S.Question id={question.id}>
-      <Number question={question} save={storage.update} />
+      <Number question={question} save={storage.question.save} />
       <S.Time>{question.attributes.time}</S.Time>
-      {type === "alternative" && <Alternative question={question} save={storage.update}/>}
+      {type === "alternative" && <Alternative question={question} save={storage.question.save}/>}
       {type === "text" && <S.Title>{value}</S.Title>}
       <Buttons
         question={question}
         displayText={handleText}
         text={text}
         type={type}
-        save={storage.update}
-        remove={storage.remove}
+        save={storage.question.save}
+        remove={storage.question.remove}
       />
-      {text.display && <Text value={value} setValue={setValue} save={storage.update} question={question} />}
+      {text.display && <Text value={value} setValue={setValue} save={storage.question.save} question={question} />}
     </S.Question>
   )
 };

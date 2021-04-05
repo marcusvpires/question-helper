@@ -33,11 +33,7 @@ const QuestionsPage = () => {
     if (!repositoryID) { repositoryID = repositoryDB.add(); }
     console.log("Connect with repository", repositoryID);
   
-    getIndex("question", "repositoryID", repositoryID, (questions) => {
-      for (const index in questions) {
-        storage.create(questions[index])
-      }
-    })
+    storage.repository.questions(repositoryID)
   })
 
   return (
