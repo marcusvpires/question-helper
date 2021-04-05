@@ -43,3 +43,10 @@ export const clear = () => {
   questionDB.removeAll()
   console.log('Clear section')
 }
+
+export const toDate = (id) => {
+  const time = new Date(id.split('-')[0] * 1000)
+  const dd = String(time.getDate()).padStart(2, '0')
+  const mm = String(time.getMonth() + 1).padStart(2, '0')
+  return(dd + '/' + mm  + '/' + time.getFullYear())
+}

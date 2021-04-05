@@ -16,3 +16,7 @@ export const Repository = styled.div`
 export const RepositoryName = styled.span`
   font-size: 1.2rem;
 `
+
+export const RepositoryDate = styled.span`
+  font-size: 1.2rem;
+`
