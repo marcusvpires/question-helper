@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
-const Alt = ({ question }) => {
+const Alt = ({ question, save }) => {
   const altList = ['A', 'B', 'C', 'D', 'E']
   const [alternative, setAlternative] = useState(question.value);
   
   function changeAlternative(e) {
-    if (alternative === e.target.value) { setAlternative(null) }
-    else { setAlternative(e.target.value) }
+    let alt = e.target.value
+    if (alternative === alt) { setAlternative(null); alt = null }
+    else { setAlternative(alt) }
+    question.value = alt
+    save(question)
   }
 
   return (

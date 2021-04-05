@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 
-const Text = ({ setValue, value, save }) => {
+const Text = ({ setValue, value, save, question }) => {
 
   return (
     <S.TextArea
@@ -11,7 +11,8 @@ const Text = ({ setValue, value, save }) => {
       placeholder='Type a text question here...'
       onChange={(ev) => { setValue(ev.target.value) }}
       onBlur={(ev) => {
-        save(ev.target.value)
+        question.value = ev.target.value
+        save(question)
       }}
     />
   );

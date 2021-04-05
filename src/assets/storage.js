@@ -27,6 +27,7 @@ export const save = (question) => {
 }
 
 export const update = (question) => {
+  console.log('Update question', question)
   questionDB.add(question);
 }
 

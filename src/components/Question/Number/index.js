@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
-const Number = ({ question }) => {
+const Number = ({ question, save }) => {
   const [number, setNumber] = useState(question.number);
 
   function changeNumber(e) {
+    question.number = e.target.value
     setNumber(e.target.value)
   }
 
@@ -19,6 +20,7 @@ const Number = ({ question }) => {
         placeholder='0'
         value={number}
         onChange={changeNumber}
+        onBlur={() => {save(question)}}
         min='0'
       />
     </S.Number>
