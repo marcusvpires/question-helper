@@ -15,7 +15,7 @@ const Repository = ({ repository, selectRepository, setSelectRepository }) => {
     console.log(repository.id)
     getIndex("question", "repositoryID", repository.id, (questions) => {
       for (const index in questions) {
-        storage.question.add(questions[index])
+        storage.question.create(questions[index])
       }
     })
   }

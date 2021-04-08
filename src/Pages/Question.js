@@ -35,7 +35,7 @@ const QuestionsPage = () => {
   
     getIndex("question", "repositoryID", repositoryID, (questions) => {
       for (const index in questions) {
-        storage.question.add(questions[index])
+        storage.question.create(questions[index])
       }
     })
   })

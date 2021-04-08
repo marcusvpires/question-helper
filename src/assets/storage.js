@@ -54,7 +54,8 @@ export const toDate = (id) => {
 }
 
 export const question = {
-  add: async (question) => {
+
+  create: (question) => {
     let wrapper = document.getElementById(question.id)
     if (!wrapper) {
       wrapper = document.createElement('li')
@@ -69,7 +70,14 @@ export const question = {
     document.getElementById('questionSection').appendChild(wrapper)
     ReactDOM.render(<Question question={question} />, document.getElementById(question.id))
     wrapper.scrollIntoView({ behavior: "smooth" })
+  },
 
+  save: (question) => { 
+    root.put("question", question)
+  },
+
+  new: (question) => {
+    create(question)
     root.put("question", question)
   }
 }

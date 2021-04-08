@@ -44,7 +44,7 @@ const Forms = ({ number, setNumber, text, setText }) => {
       setNumber(Number(number) + 1)
       Timer.handleReset()
 
-      storage.save(question);
+      storage.question.new(question);
 
     } catch (err) {
       console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
