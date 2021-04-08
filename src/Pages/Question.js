@@ -13,12 +13,6 @@ const QuestionsPage = () => {
 
   const form = useForm()
 
-  const [number, setNumber] = useState(() => {
-    const number = localStorage.getItem("number");
-    if (number) { return number; }
-    return "0";
-  });
-
   const [repository, setRepository] = useState(() => {
     const repository = localStorage.getItem('repository')
     if (repository) { return repository }
@@ -38,8 +32,8 @@ const QuestionsPage = () => {
   })
 
   return (
-    <Layout setNumber={setNumber} repository={repository} setRepository={setRepository} form={form} >
-      <Forms number={number} setNumber={setNumber} form={form} />
+    <Layout repository={repository} setRepository={setRepository} form={form}  >
+      <Forms form={form} />
       <QuestionSection id='questionSection' />
     </Layout>
   );

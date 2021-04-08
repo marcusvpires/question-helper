@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./styled";
 
 const FormText = ({ handleText, text }) => {
+  console.log('Text:', text)
 
   return (
     <S.TextWrapper>

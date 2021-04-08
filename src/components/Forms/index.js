@@ -9,14 +9,9 @@ import Buttons from "./Buttons";
 
 import * as S from "./styled";
 
-const Forms = ({ number, setNumber, form }) => {
+const Forms = ({ form }) => {
 
   const Timer = useTimer(0)
-  
-  function changeNumber(e) {
-    setNumber(e.target.value);
-    localStorage.setItem("number", e.target.value);
-  }
   
   function createQuestion(value, type) {
     try {
@@ -34,26 +29,25 @@ const Forms = ({ number, setNumber, form }) => {
       const question = {
         id: id,
         value: value,
-        number: number,
+        number: form.number,
         attributes: { type: type, marker: null, time: formatTime(Timer.timer) },
         repositoryID: repositoryID
       }
       
       if (type === 'text') { form.handleText(''); localStorage.removeItem('text') }
-      localStorage.setItem("number", Number(number) + 1);
-      setNumber(Number(number) + 1)
+      form.handleNumber(Number(form.number) + 1)
       Timer.handleReset()
 
       questionStorage.generate(question);
 
     } catch (err) {
-      console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
+      console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${form.number}`, err )
       alert('Error on create question')
     }
   }
 
   return (
-    <S.FormsWrapper>
+    <S.FormsWrapper >
       <S.FormsQuestion>
         Question
         <S.FormsNumber
@@ -62,8 +56,8 @@ const Forms = ({ number, setNumber, form }) => {
           id="number"
           type="number"
           placeholder="0"
-          value={number}
-          onChange={changeNumber}
+          value={form.number}
+          onChange={ev => { form.handleNumber(ev.target.value) }}
           min="0"
         />
       </S.FormsQuestion>
