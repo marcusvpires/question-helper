@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import * as storage from '../../assets/storage'
+import * as questionStorage from '../../storage/question'
 
 import Number from "./Number";
 import Alternative from "./Alternative";
@@ -24,19 +24,19 @@ const Question = ({ question }) => {
 
   return (
     <S.Question id={question.id}>
-      <Number question={question} save={storage.question.update} />
+      <Number question={question} save={questionStorage.update} />
       <S.Time>{question.attributes.time}</S.Time>
-      {type === "alternative" && <Alternative question={question} save={storage.question.update}/>}
+      {type === "alternative" && <Alternative question={question} save={questionStorage.update}/>}
       {type === "text" && <S.Title>{value}</S.Title>}
       <Buttons
         question={question}
         displayText={handleText}
         text={text}
         type={type}
-        save={storage.question.update}
-        remove={storage.question.remove}
+        save={questionStorage.update}
+        remove={questionStorage.remove}
       />
-      {text.display && <Text value={value} setValue={setValue} save={storage.question.update} question={question} />}
+      {text.display && <Text value={value} setValue={setValue} save={questionStorage.update} question={question} />}
     </S.Question>
   )
 };

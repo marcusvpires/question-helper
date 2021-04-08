@@ -1,6 +1,7 @@
 import React from "react";
 
 import * as storage from '../../assets/storage'
+import * as questionStorage from '../../storage/question'
 
 import Alternative from "./Alternative";
 import Text from "./Text";
@@ -44,7 +45,7 @@ const Forms = ({ number, setNumber, text, setText }) => {
       setNumber(Number(number) + 1)
       Timer.handleReset()
 
-      storage.question.new(question);
+      questionStorage.generate(question);
 
     } catch (err) {
       console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )

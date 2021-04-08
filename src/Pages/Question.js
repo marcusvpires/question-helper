@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getIndex } from "../dataBase/root";
 import { repositoryDB } from "../dataBase";
 import * as storage from '../assets/storage'
+import * as questionStorage from '../storage/question'
 
 import Layout from "../components/Layout";
 import QuestionSection from "../components/QuestionSection";
@@ -35,7 +36,7 @@ const QuestionsPage = () => {
   
     getIndex("question", "repositoryID", repositoryID, (questions) => {
       for (const index in questions) {
-        storage.question.create(questions[index])
+        questionStorage.create(questions[index])
       }
     })
   })

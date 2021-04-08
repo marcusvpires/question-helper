@@ -1,5 +1,7 @@
 import React from "react";
 import * as storage from '../../assets/storage'
+import * as questionStorage from '../../storage/question'
+
 import { getIndex } from "../../dataBase/root";
 
 import * as S from "./styled";
@@ -15,7 +17,7 @@ const Repository = ({ repository, selectRepository, setSelectRepository }) => {
     console.log(repository.id)
     getIndex("question", "repositoryID", repository.id, (questions) => {
       for (const index in questions) {
-        storage.question.create(questions[index])
+        questionStorage.create(questions[index])
       }
     })
   }
