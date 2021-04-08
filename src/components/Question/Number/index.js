@@ -4,6 +4,7 @@ import * as S from "./styled";
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Number = ({ question, save }) => {
   const [questionNumber, setQuestionNumber] = useState(question.number);
 
@@ -15,6 +16,12 @@ const Number = ({ question }) => {
   const [number, setNumber] = useState(question.number);
 
   function changeNumber(e) {
+=======
+const Number = ({ question }) => {
+  const [number, setNumber] = useState(question.number);
+
+  function changeNumber(e) {
+>>>>>>> parent of 88a7013 (Auto update questions)
 =======
 const Number = ({ question }) => {
   const [number, setNumber] = useState(question.number);
