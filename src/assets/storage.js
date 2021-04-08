@@ -72,12 +72,18 @@ export const question = {
     wrapper.scrollIntoView({ behavior: "smooth" })
   },
 
-  save: (question) => { 
+  update: (question) => { 
     root.put("question", question)
   },
 
   new: (question) => {
     create(question)
     root.put("question", question)
+  },
+
+  remove: (id) => {
+    document.getElementById(id).remove()
+    questionDB.remove(id)  
   }
+
 }
