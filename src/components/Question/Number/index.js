@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
+<<<<<<< HEAD
 const Number = ({ question, save }) => {
   const [questionNumber, setQuestionNumber] = useState(question.number);
 
   function changeNumber(e) {
     question.number = e.target.value
     setQuestionNumber(e.target.value)
+=======
+const Number = ({ question }) => {
+  const [number, setNumber] = useState(question.number);
+
+  function changeNumber(e) {
+    setNumber(e.target.value)
+>>>>>>> parent of 88a7013 (Auto update questions)
   }
 
   return (
@@ -20,7 +28,6 @@ const Number = ({ question, save }) => {
         placeholder='0'
         value={questionNumber}
         onChange={changeNumber}
-        onBlur={() => {save(question)}}
         min='0'
       />
     </S.Number>

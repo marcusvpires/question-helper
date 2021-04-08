@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import * as storage from '../../../assets/storage'
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 
-const Buttons = ({ question, type, displayText, text, save, remove }) => {
+const Buttons = ({ question, type, displayText, text }) => {
   const [marker, setMarker] = useState(question.attributes.marker);
   const id = question.id
 
@@ -13,6 +14,7 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
   };
 
   const handleMarker = (id, button) => {
+    console.log('After', question, '=>', button)
     const element = document.getElementById(id).style
     if (marker === button) {
       element.backgroundColor = `var(--blueDark)`
@@ -26,7 +28,8 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
       question.attributes.marker = button
       setMarker(button)
     }
-    save(question)
+    console.log('Then', question)
+    storage.update(question)
   }
 
   return (
@@ -55,7 +58,7 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
         ><I.ErrorAlt />
       </S.BtnIcon>
       <S.BtnIcon
-        onClick={() => { remove(id) }}
+        onClick={() => { storage.remove(id) }}
         ><I.Trash />
       </S.BtnIcon>
     </S.BtnWrapper>

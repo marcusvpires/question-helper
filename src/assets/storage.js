@@ -17,9 +17,19 @@ const tryCatch = (msg, par, func) => {
   }
 }
 
+<<<<<<< HEAD
 export const createID = (identifier) => {
   const random = Math.random().toString(36).slice(-8);
   return Date.now() + "-" + identifier + '-' + random;
+=======
+export const save = (question) => {
+  create(question)
+  questionDB.add(question);
+}
+
+export const update = (question) => {
+  questionDB.add(question);
+>>>>>>> parent of 88a7013 (Auto update questions)
 }
 
 
