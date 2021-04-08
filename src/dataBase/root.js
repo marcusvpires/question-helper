@@ -5,7 +5,7 @@ const onRequestError = (e) => {
   console.log('Database request error', e);
 }
 
-export const add = (storage, element, back = () => {}) => {
+export const add = async (storage, element, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
   request.onsuccess = (e) => {
@@ -17,7 +17,7 @@ export const add = (storage, element, back = () => {}) => {
   }
 }
 
-export const put = (storage, element, back = () => {}) => {
+export const put = async (storage, element, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
   request.onsuccess = (e) => {

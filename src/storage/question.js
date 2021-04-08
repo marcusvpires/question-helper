@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import Question from '../components/Question'
 import * as root from '../dataBase/root'
 
-export const create = (question) => {
+export const create = async (question) => {
   let wrapper = document.getElementById(question.id)
   if (!wrapper) {
     wrapper = document.createElement('li')
@@ -19,17 +19,17 @@ export const create = (question) => {
   wrapper.scrollIntoView({ behavior: "smooth" })
 }
 
-export const update = (question) => { 
+export const update = async (question) => { 
   root.put("question", question)
 }
 
-export const generate = (question) => {
+export const generate = async (question) => {
   console.log(this)
   create(question)
   root.put("question", question)
 }
 
-export const remove = (id) => {
+export const remove = async (id) => {
   document.getElementById(id).remove()
   root.remove("question", id) 
 }
