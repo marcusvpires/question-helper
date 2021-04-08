@@ -1,6 +1,5 @@
 import React from "react";
 
-import * as storage from '../../assets/storage'
 import * as questionStorage from '../../storage/question'
 
 import Alternative from "./Alternative";
@@ -10,7 +9,7 @@ import Buttons from "./Buttons";
 
 import * as S from "./styled";
 
-const Forms = ({ number, setNumber, text, setText }) => {
+const Forms = ({ number, setNumber, text, setText, form }) => {
 
   const Timer = useTimer(0)
   
@@ -70,7 +69,7 @@ const Forms = ({ number, setNumber, text, setText }) => {
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
       <Buttons createQuestion={createQuestion} timer={Timer} />
-      <Text text={text} setText={setText} />
+      <Text text={form.text} handleText={form.handleText} />
       <Display createQuestion={createQuestion} />
     </S.FormsWrapper>
   );

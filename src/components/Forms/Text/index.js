@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 
-const FormText = ({ setText, text }) => {
+const FormText = ({ handleText, text }) => {
 
   return (
     <S.TextWrapper>
@@ -10,10 +10,7 @@ const FormText = ({ setText, text }) => {
         title={'Text question input'}
         value={text}
         placeholder='Type a text question here...'
-        onChange={({target: {value}}) => {
-          setText(value)
-          localStorage.setItem('text', value)
-        }}
+        onChange={ev => { handleText(ev.target.value) }}
       />
     </S.TextWrapper>
   );
