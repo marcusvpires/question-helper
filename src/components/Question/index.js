@@ -29,9 +29,15 @@ const Question = ({ question }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Number question={question} save={storage.question.save} />
       <S.Time>{question.attributes.time}</S.Time>
       {type === "alternative" && <Alternative question={question} save={storage.question.save}/>}
+=======
+      <Number question={question} />
+      <S.Time>{question.attributes.time}</S.Time>
+      {type === "alternative" && <Alternative question={question} />}
+>>>>>>> parent of 88a7013 (Auto update questions)
 =======
       <Number question={question} />
       <S.Time>{question.attributes.time}</S.Time>
@@ -62,10 +68,15 @@ const Question = ({ question }) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         save={storage.question.save}
         remove={storage.question.remove}
       />
       {text.display && <Text value={value} setValue={setValue} save={storage.question.save} question={question} />}
+=======
+      />
+      {text.display && <Text value={value} setValue={setValue} save={save} />}
+>>>>>>> parent of 88a7013 (Auto update questions)
 =======
       />
       {text.display && <Text value={value} setValue={setValue} save={save} />}
