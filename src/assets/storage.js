@@ -51,3 +51,22 @@ export const toDate = (id) => {
   const mm = String(time.getMonth() + 1).padStart(2, '0')
   return(dd + '/' + mm  + '/' + time.getFullYear())
 }
+
+export const question = {
+  add: (question) => {
+    let wrapper = document.getElementById(question.id)
+    if (!wrapper) {
+      wrapper = document.createElement('li')
+      wrapper.classList.add('QuestionWrapper')
+      wrapper.id = question.id
+    }
+    const marker = question.attributes.marker
+    if (marker) {
+      wrapper.style.backgroundColor = `var(--${marker})`
+      wrapper.style.border = `1px solid var(--${marker})`
+    }
+    document.getElementById('questionSection').appendChild(wrapper)
+    ReactDOM.render(<Question question={question} />, document.getElementById(question.id))
+    wrapper.scrollIntoView({ behavior: "smooth" })
+  }
+}
