@@ -9,7 +9,7 @@ import Buttons from "./Buttons";
 
 import * as S from "./styled";
 
-const Forms = ({ number, setNumber, text, setText, form }) => {
+const Forms = ({ number, setNumber, form }) => {
 
   const Timer = useTimer(0)
   
@@ -39,7 +39,7 @@ const Forms = ({ number, setNumber, text, setText, form }) => {
         repositoryID: repositoryID
       }
       
-      if (type === 'text') { setText(''); localStorage.removeItem('text') }
+      if (type === 'text') { form.handleText(''); localStorage.removeItem('text') }
       localStorage.setItem("number", Number(number) + 1);
       setNumber(Number(number) + 1)
       Timer.handleReset()
