@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import { questionDB } from "../dataBase";
+import * as root from '../dataBase/root'
 import Question from '../components/Question'
 
 export const create = (question) => {
@@ -53,7 +54,7 @@ export const toDate = (id) => {
 }
 
 export const question = {
-  add: (question) => {
+  add: async (question) => {
     let wrapper = document.getElementById(question.id)
     if (!wrapper) {
       wrapper = document.createElement('li')
@@ -68,5 +69,7 @@ export const question = {
     document.getElementById('questionSection').appendChild(wrapper)
     ReactDOM.render(<Question question={question} />, document.getElementById(question.id))
     wrapper.scrollIntoView({ behavior: "smooth" })
+
+    root.put("question", question)
   }
 }
