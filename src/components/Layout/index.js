@@ -4,11 +4,11 @@ import Header from "../Header"
 import Navbar from "../Navbar"
 import * as S from "./styled"
 
-const Layout = ({ children, form, isArchivePage }) => (
+const Layout = ({ children, setText, setNumber, setRepository, repository, isArchivePage }) => (
     <S.LayoutWrapper>
       <GlobalStyles />
-      <Header form={form} isArchivePage={isArchivePage} />
-      <Navbar  form={form} isArchivePage={isArchivePage} />
+      <Header repository={repository} setRepository={setRepository} isArchivePage={isArchivePage} />
+      <Navbar  setText={setText} setNumber={setNumber} setRepository={setRepository} isArchivePage={isArchivePage} />
       <S.LayoutMain>{children}</S.LayoutMain>
     </S.LayoutWrapper>
   )

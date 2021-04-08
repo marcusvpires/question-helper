@@ -1,45 +1,55 @@
 import React from "react";
+
 import * as storage from '../../assets/storage'
 
 import Alternative from "./Alternative";
 import Text from "./Text";
 import Display from "./Display";
 import Buttons from "./Buttons";
-import useTimer from './useTimer'
 
 import * as S from "./styled";
 
-const Forms = ({ form }) => {
+const Forms = ({ number, setNumber, text, setText }) => {
 
   const Timer = useTimer(0)
   
+  function changeNumber(e) {
+    setNumber(e.target.value);
+    localStorage.setItem("number", e.target.value);
+  }
+  
   function createQuestion(value, type) {
     try {
-      const number = form.number
-      const id = storage.createID()
+      const id = Date.now() + '-' + Math.random().toString(36).slice(-10);
       const repositoryID = localStorage.getItem('repositoryID')
+
+      const formatTime = (timer) => {
+        const getSeconds = `0${(timer % 60)}`.slice(-2)
+        const minutes = `${Math.floor(timer / 60)}`
+        const getMinutes = `0${minutes % 60}`.slice(-2)
+      
+        return `${getMinutes}:${getSeconds}`
+      }
+
       const question = {
         id: id,
         value: value,
         number: number,
-        attributes: { type: type, marker: null, time: storage.toTime(Timer) },
+        attributes: { type: type, marker: null, time: formatTime(Timer.timer) },
         repositoryID: repositoryID
       }
-
-      form.set('number', () => Number(number) + 1)
-      if (type === 'text') { form.set('text', '') }
+      
+      if (type === 'text') { setText(''); localStorage.removeItem('text') }
+      localStorage.setItem("number", Number(number) + 1);
+      setNumber(Number(number) + 1)
       Timer.handleReset()
 
-      storage.question.add(question);
+      storage.save(question);
 
     } catch (err) {
-      console.warn('Error on create question -', `value: ${value}, type: ${type}, form: ${form}`, err )
+      console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${number}`, err )
       alert('Error on create question')
     }
-  }
-
-  function changeNumber(e) {
-    form.set('number', e.target.value)
   }
 
   return (
@@ -52,17 +62,43 @@ const Forms = ({ form }) => {
           id="number"
           type="number"
           placeholder="0"
-          value={form.number}
+          value={number}
           onChange={changeNumber}
           min="0"
         />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
       <Buttons createQuestion={createQuestion} timer={Timer} />
-      <Text form={form} />
+      <Text text={text} setText={setText} />
       <Display createQuestion={createQuestion} />
     </S.FormsWrapper>
   );
 };
+
+const useTimer = (initialState = 0) => {
+  const [timer, setTimer] = React.useState(initialState)
+  const [isActive, setIsActive] = React.useState(false)
+  const countRef = React.useRef(null)
+
+  const handleStart = () => {
+    setIsActive(true)
+    countRef.current = setInterval(() => {
+      setTimer((timer) => timer + 1)
+    }, 1000)
+  }
+
+  const handlePause = () => {
+    clearInterval(countRef.current)
+    setIsActive(false)
+  }
+
+  const handleReset = () => {
+    clearInterval(countRef.current)
+    setTimer(0)
+    setIsActive(false)
+  }
+
+  return { timer, isActive, handleStart, handlePause, handleReset, setTimer }
+}
 
 export default Forms;

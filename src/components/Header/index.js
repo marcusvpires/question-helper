@@ -1,10 +1,11 @@
 import React from "react";
 import * as S from "./styled";
 
-export function Header({ form,isArchivePage }) {
-   
+export function Header({ setRepository, repository,isArchivePage }) {
+  
   function changeRepository(e) {
-    form.set('repository', e.target.value)
+    setRepository(e.target.value)
+    localStorage.setItem('repository', e.target.value)
   }
 
   return (
@@ -14,7 +15,7 @@ export function Header({ form,isArchivePage }) {
         name="Repository name"
         title="Repository name"
         placeholder="Repository"
-        value={isArchivePage ? 'Repositories' : form.repository}
+        value={isArchivePage ? 'Repositories' : repository}
         onChange={changeRepository}
         disabled={isArchivePage}
       />

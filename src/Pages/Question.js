@@ -10,32 +10,39 @@ import Forms from "../components/Forms";
 
 const QuestionsPage = () => {
 
-  const [formValue, setForm] = useState(() => {
-    let number = localStorage.getItem('number')
-    let repository = localStorage.getItem('repository')
-    let text = localStorage.getItem('text')
-    if(!number) {number = 1}
-    if(!repository) { repository = 'Undefined' } // Create new repository
-    return { number: number, repository: repository, text: text,}
+  const [number, setNumber] = useState(() => {
+    const number = localStorage.getItem("number");
+    if (number) { return number; }
+    return "0";
+  });
+  
+  const [text, setText] = useState(() => {
+    const text = localStorage.getItem('text')
+    if (!text) {return ''}
+    return text
   })
-  const form = { repository: formValue.repository, number: formValue.number, text: formValue.text,
-    set: (name, value) => {
-    localStorage.setItem(name, value)
-    setForm(prevForm => ({ ...prevForm, [name]: value }));
-  }}
 
+  const [repository, setRepository] = useState(() => {
+    const repository = localStorage.getItem('repository')
+    if (repository) { return repository }
+    return "Undefined"
+  });
 
   useEffect(() => {
     let repositoryID = localStorage.getItem("repositoryID");
     if (!repositoryID) { repositoryID = repositoryDB.add(); }
     console.log("Connect with repository", repositoryID);
   
-    storage.repository.questions(repositoryID)
+    getIndex("question", "repositoryID", repositoryID, (questions) => {
+      for (const index in questions) {
+        storage.create(questions[index])
+      }
+    })
   })
 
   return (
-    <Layout form={form} >
-      <Forms form={form} />
+    <Layout setNumber={setNumber} setText={setText} repository={repository} setRepository={setRepository} >
+      <Forms number={number} setNumber={setNumber} text={text} setText={setText} />
       <QuestionSection id='questionSection' />
     </Layout>
   );

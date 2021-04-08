@@ -1,17 +1,18 @@
 import React from "react";
 import * as S from "./styled";
 
-const FormText = ({ form }) => {
+const FormText = ({ setText, text }) => {
 
   return (
     <S.TextWrapper>
       <S.TextArea
         name={'Text question input'}
         title={'Text question input'}
-        value={form.text}
+        value={text}
         placeholder='Type a text question here...'
         onChange={({target: {value}}) => {
-          form.set('text', value)
+          setText(value)
+          localStorage.setItem('text', value)
         }}
       />
     </S.TextWrapper>
