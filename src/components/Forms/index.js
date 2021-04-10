@@ -34,8 +34,11 @@ const useTimer = (initialState = 0) => {
   const handleStart = () => {
     setIsActive(true)
     countRef.current = setInterval(() => {
-      setTimer((timer) => timer + 1)
-    }, 1000)
+      setTimer((timer) => {
+      const newTimer = timer + 1
+      localStorage.setItem('timer', newTimer)
+      return newTimer
+    })}, 1000)
   }
 
   const handlePause = () => {

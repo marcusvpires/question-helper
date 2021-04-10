@@ -51,11 +51,12 @@ export const build = ( type, value ) => { try {
     id: id,
     value: value,
     number: number,
-    attributes: { type: type, marker: null, time: timer },
+    attributes: { type: type, marker: null, time: formatTime(timer) },
     repositoryID: repositoryID
   }
 
   nextNumber(number)
+  localStorage.setItem('timer', 0)
 
   generate(question)
 
@@ -68,4 +69,11 @@ const nextNumber = (number) => {
   const next = Number(number) + 1
   document.getElementById('number').value = next
   localStorage.setItem('number', next)
+}
+
+const formatTime = (timer) => {
+  const getSeconds = `0${(timer % 60)}`.slice(-2)
+  const minutes = `${Math.floor(timer / 60)}`
+  const getMinutes = `0${minutes % 60}`.slice(-2)
+  return `${getMinutes}:${getSeconds}`
 }
