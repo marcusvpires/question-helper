@@ -4,11 +4,10 @@ import * as storage from '../../assets/storage'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
-const Navbar = ({ setRepository }) => {
+const Navbar = () => {
 
   function newRepository() {
     repositoryDB.new()
-    setRepository('')
     document.getElementById('questionSection').innerHTML = ''
     localStorage.removeItem("number");
     localStorage.removeItem('text')
@@ -17,7 +16,6 @@ const Navbar = ({ setRepository }) => {
     console.log('Copy questions')
   }
   function clearSection() {
-    setRepository('')
     storage.clear()
   }
   function openTrash() {

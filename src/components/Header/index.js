@@ -1,7 +1,13 @@
 import React from "react";
 import * as S from "./styled";
 
-export function Header({ setRepository, repository,isArchivePage }) {
+export function Header() {
+
+  const [repository, setRepository] = React.useState(() => {
+    let repository = localStorage.getItem('repository')
+    if (!repository) { repository = 'Undefined' }
+    return repository
+  })
   
   function changeRepository(e) {
     setRepository(e.target.value)
@@ -15,9 +21,8 @@ export function Header({ setRepository, repository,isArchivePage }) {
         name="Repository name"
         title="Repository name"
         placeholder="Repository"
-        value={isArchivePage ? 'Repositories' : repository}
+        value={repository}
         onChange={changeRepository}
-        disabled={isArchivePage}
       />
     </S.HeaderWrapper>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { getIndex } from "../dataBase/root";
 import { repositoryDB } from "../dataBase";
@@ -9,12 +9,6 @@ import QuestionSection from "../components/QuestionSection";
 import Forms from "../components/Forms";
 
 const QuestionsPage = () => {
-
-  const [repository, setRepository] = useState(() => {
-    const repository = localStorage.getItem('repository')
-    if (repository) { return repository }
-    return "Undefined"
-  });
 
   useEffect(() => {
     let repositoryID = localStorage.getItem("repositoryID");
@@ -28,7 +22,7 @@ const QuestionsPage = () => {
   })
 
   return (
-    <Layout repository={repository} setRepository={setRepository}  >
+    <Layout >
       <Forms />
       <QuestionSection id='questionSection' />
     </Layout>

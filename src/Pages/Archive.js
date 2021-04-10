@@ -20,7 +20,7 @@ const ArchivePage = () => {
   })
 
   return (
-    <Layout isArchivePage>
+    <Layout>
       <RepositorySection id='repositorySection' />
       <QuestionSection id='questionSection' />
     </Layout>
