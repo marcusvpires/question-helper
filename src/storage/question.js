@@ -40,7 +40,12 @@ export const build = ( type, value ) => { try {
 
   const number = localStorage.getItem('number')
   const timer = localStorage.getItem('timer')
-  if ( type === 'text' ) { value = localStorage.getItem('text') }
+  if ( type === 'text' ) {
+    document.getElementById('text').value = ''
+    value = localStorage.getItem('text')
+    localStorage.setItem('text', '')
+    console.log('Value:', value)
+  }
 
   const question = {
     id: id,

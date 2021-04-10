@@ -1,15 +1,13 @@
 import React from "react";
+import { build } from "../../../storage/question";
+
 import * as S from "./styled";
 
-const FormDisplay = ({createQuestion}) => {
+const FormDisplay = () => {
 
   return (
     <S.DisplayWrapper>
-
-      <S.Display onClick={() => { 
-        const text = localStorage.getItem('text')
-        createQuestion(text, 'text')
-      }} >Create</S.Display>
+      <S.Display onClick={() => { build('text') }} >Create</S.Display>
     </S.DisplayWrapper>
   );
 };

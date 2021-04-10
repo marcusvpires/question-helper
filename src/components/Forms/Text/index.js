@@ -18,6 +18,7 @@ const FormText = () => {
   return (
     <S.TextWrapper>
       <S.TextArea
+        id='text'
         name={'Text question input'}
         title={'Text question input'}
         placeholder='Type a text question here...'
