@@ -3,13 +3,14 @@ import React from "react";
 import * as questionStorage from '../../storage/question'
 
 import Alternative from "./Alternative";
+import Number from "./Number";
 import Text from "./Text";
 import Display from "./Display";
 import Buttons from "./Buttons";
 
 import * as S from "./styled";
 
-const Forms = ({ form }) => {
+const Forms = () => {
 
   const Timer = useTimer(0)
   
@@ -29,19 +30,17 @@ const Forms = ({ form }) => {
       const question = {
         id: id,
         value: value,
-        number: form.number,
+        number: 1,
         attributes: { type: type, marker: null, time: formatTime(Timer.timer) },
         repositoryID: repositoryID
       }
       
-      if (type === 'text') { form.handleText(''); localStorage.removeItem('text') }
-      form.handleNumber(Number(form.number) + 1)
       Timer.handleReset()
 
       questionStorage.generate(question);
 
     } catch (err) {
-      console.warn('Error on create question -', `value: ${value}, type: ${type}, number: ${form.number}`, err )
+      console.warn('Error on create question -', `value: ${value}, type: ${type}`, err )
       alert('Error on create question')
     }
   }
@@ -50,20 +49,11 @@ const Forms = ({ form }) => {
     <S.FormsWrapper >
       <S.FormsQuestion>
         Question
-        <S.FormsNumber
-          title="Question number"
-          name="Question number"
-          id="number"
-          type="number"
-          placeholder="0"
-          value={form.number}
-          onChange={ev => { form.handleNumber(ev.target.value) }}
-          min="0"
-        />
+        <Number />
       </S.FormsQuestion>
       <Alternative createQuestion={createQuestion} />
       <Buttons createQuestion={createQuestion} timer={Timer} />
-      <Text text={form.text} handleText={form.handleText} />
+      <Text />
       <Display createQuestion={createQuestion} />
     </S.FormsWrapper>
   );
