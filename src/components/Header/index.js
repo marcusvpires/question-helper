@@ -17,6 +17,7 @@ export function Header() {
   return (
     <S.HeaderWrapper>
       <S.HeaderRepository
+        id='repository'
         type="text"
         name="Repository name"
         title="Repository name"

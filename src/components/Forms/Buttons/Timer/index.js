@@ -23,7 +23,7 @@ const Timer = ({ timer }) => {
       onChange={(ev) => {
         const value =  ev.target.value.split(':')
         const seconds = Number(value[0] * 60) + Number(value[1])
-        localStorage.setItem('time', seconds)
+        localStorage.setItem('timer', seconds)
         timer.setTimer(seconds)
       }}
       value={formatTime(timer.timer)}

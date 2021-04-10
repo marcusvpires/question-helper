@@ -77,3 +77,11 @@ const formatTime = (timer) => {
   const getMinutes = `0${minutes % 60}`.slice(-2)
   return `${getMinutes}:${getSeconds}`
 }
+
+export const clearForm = () => {
+  document.getElementById('questionSection').innerHTML = ''
+  document.getElementById('number').value = 1
+  document.getElementById('text').value = ''
+  localStorage.setItem("number", 1);
+  localStorage.setItem('text', '')
+}

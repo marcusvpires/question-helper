@@ -1,22 +1,22 @@
 import React from "react"
-import { repositoryDB  } from '../../dataBase'
-import * as storage from '../../assets/storage'
+
+import { clearForm } from '../../storage/question'
+import * as repository from '../../storage/repository'
+
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
 const Navbar = () => {
 
   function newRepository() {
-    repositoryDB.new()
-    document.getElementById('questionSection').innerHTML = ''
-    localStorage.removeItem("number");
-    localStorage.removeItem('text')
+    repository.build()
+    clearForm()
   }
   function copyQuestions() {
     console.log('Copy questions')
   }
   function clearSection() {
-    storage.clear()
+    clearForm()
   }
   function openTrash() {
     console.log('Open trash')
