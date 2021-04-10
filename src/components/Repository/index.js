@@ -1,5 +1,4 @@
 import React from "react";
-import * as storage from '../../assets/storage'
 import * as questionStorage from '../../storage/question'
 
 import { getIndex } from "../../dataBase/root";
@@ -8,7 +7,7 @@ import * as S from "./styled";
 
 const Repository = ({ repository, selectRepository, setSelectRepository }) => {
 
-  const date = storage.toDate(repository.id)
+  const date = toDate(repository.id)
   const isSelect = selectRepository === repository.id
 
   const displayQuestions = () => {
@@ -29,5 +28,12 @@ const Repository = ({ repository, selectRepository, setSelectRepository }) => {
     </S.Repository>
   )
 };
+
+export const toDate = (id) => {
+  const time = new Date(id.split('-')[0] * 1000)
+  const dd = String(time.getDate()).padStart(2, '0')
+  const mm = String(time.getMonth() + 1).padStart(2, '0')
+  return(dd + '/' + mm  + '/' + time.getFullYear())
+}
 
 export default Repository;
