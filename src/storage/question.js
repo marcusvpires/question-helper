@@ -33,3 +33,27 @@ export const remove = async (id) => {
   document.getElementById(id).remove()
   root.remove("question", id) 
 }
+
+export const build = ( value, type ) => { try {
+  const id = Date.now() + '-' + Math.random().toString(36).slice(-10)
+  const repositoryID = localStorage.getItem('repositoryID')
+
+  const number = localStorage.getItem('number')
+  const timer = localStorage.getItem('timer')
+  if ( type === 'text' ) { value = localStorage.getItem('text') }
+
+  const question = {
+    id: id,
+    value: value,
+    number: number,
+    attributes: { type: type, marker: null, time: timer },
+    repositoryID: repositoryID
+  }
+
+  generate(question)
+
+} catch (err) {
+  console.warn('Error on create question -', `value: ${value}, type: ${type}`, err )
+  alert('Error on create question')
+}}
+
