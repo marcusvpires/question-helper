@@ -7,11 +7,8 @@ import * as questionStorage from '../storage/question'
 import Layout from "../components/Layout";
 import QuestionSection from "../components/QuestionSection";
 import Forms from "../components/Forms";
-import useForm from '../components/Forms/useForm'
 
 const QuestionsPage = () => {
-
-  const form = useForm()
 
   const [repository, setRepository] = useState(() => {
     const repository = localStorage.getItem('repository')
@@ -31,8 +28,8 @@ const QuestionsPage = () => {
   })
 
   return (
-    <Layout repository={repository} setRepository={setRepository} form={form}  >
-      <Forms form={form} />
+    <Layout repository={repository} setRepository={setRepository}  >
+      <Forms />
       <QuestionSection id='questionSection' />
     </Layout>
   );
