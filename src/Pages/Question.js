@@ -23,7 +23,6 @@ const QuestionsPage = () => {
     let repositoryID = localStorage.getItem("repositoryID");
     if (!repositoryID) { repositoryID = repositoryDB.add(); }
     console.log("Connect with repository", repositoryID);
-  
     getIndex("question", "repositoryID", repositoryID, (questions) => {
       for (const index in questions) {
         questionStorage.create(questions[index])
