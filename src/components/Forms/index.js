@@ -18,10 +18,10 @@ const Forms = () => {
         Question
         <Number />
       </S.FormsQuestion>
-      <Alternative />
+      <Alternative resetTimer={Timer.handleReset} />
       <Buttons timer={Timer} />
       <Text />
-      <Display />
+      <Display resetTimer={Timer.handleReset} />
     </S.FormsWrapper>
   );
 };

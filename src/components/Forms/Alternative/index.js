@@ -2,7 +2,7 @@ import React from "react";
 import { build } from "../../../storage/question";
 import * as S from "./styled";
 
-const Alternative = () => {
+const Alternative = ({ resetTimer }) => {
   const alternatives = ["A", "B", "C", "D", "E", ""];
 
   return (
@@ -15,6 +15,7 @@ const Alternative = () => {
             title={name}
             onClick={(ev) => {
               build("alternative", ev.target.value);
+              resetTimer()
             }}
             key={name}
             value={alt}

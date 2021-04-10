@@ -3,7 +3,7 @@ import { build } from "../../../../storage/question";
 
 import * as S from "./styled";
 
-const Shortcut = () => {
+const Shortcut = ({ resetTimer }) => {
 
   const [shortcut, setShortcut] = useState('')
   const [isValid, setValid] = useState(true)
@@ -12,9 +12,10 @@ const Shortcut = () => {
     let value = ev.target.value.toUpperCase().slice(-1)
     const valid = ['A','B','C','D','E','1','2','3','4','5']
     if (valid.indexOf(value) !== -1) {
-      setValid(true)
       if (Number(value)) { value = valid[Number(value) - 1] }
       build("alternative", value)
+      resetTimer()
+      setValid(true)
     } else { setValid(false) }
     setShortcut(value)
   }
