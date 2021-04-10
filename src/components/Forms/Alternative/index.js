@@ -14,7 +14,7 @@ const Alternative = () => {
             name={name}
             title={name}
             onClick={(ev) => {
-              build(ev.target.value, "alternative");
+              build("alternative", ev.target.value);
             }}
             key={name}
             value={alt}

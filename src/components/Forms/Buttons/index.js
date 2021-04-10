@@ -12,7 +12,7 @@ const FormButtons = ({ timer }) => {
       <S.Button
         onClick={() => {
           const alternatives = ["A", "B", "C", "D", "E"];
-          build(alternatives[5 * Math.random() | 0], "alternative")
+          build("alternative", alternatives[5 * Math.random() | 0])
         }}
       >Random</S.Button>
       <Shortcut />

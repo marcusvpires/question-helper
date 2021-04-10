@@ -14,7 +14,7 @@ const Shortcut = () => {
     if (valid.indexOf(value) !== -1) {
       setValid(true)
       if (Number(value)) { value = valid[Number(value) - 1] }
-      build(value, "alternative")
+      build("alternative", value)
     } else { setValid(false) }
     setShortcut(value)
   }

@@ -34,7 +34,7 @@ export const remove = async (id) => {
   root.remove("question", id) 
 }
 
-export const build = ( value, type ) => { try {
+export const build = ( type, value ) => { try {
   const id = Date.now() + '-' + Math.random().toString(36).slice(-10)
   const repositoryID = localStorage.getItem('repositoryID')
 
