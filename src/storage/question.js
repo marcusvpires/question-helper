@@ -50,6 +50,8 @@ export const build = ( value, type ) => { try {
     repositoryID: repositoryID
   }
 
+  nextNumber(number)
+
   generate(question)
 
 } catch (err) {
@@ -57,3 +59,8 @@ export const build = ( value, type ) => { try {
   alert('Error on create question')
 }}
 
+const nextNumber = (number) => {
+  const next = Number(number) + 1
+  document.getElementById('number').value = next
+  localStorage.setItem('number', next)
+}

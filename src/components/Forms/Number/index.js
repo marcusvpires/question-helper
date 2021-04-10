@@ -17,6 +17,7 @@ const FormNumber = () => {
 
   return (
     <S.NumberInput
+      id='number'
       name={'Question number'}
       title={'Question number'}
       placeholder='0'
