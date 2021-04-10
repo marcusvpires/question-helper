@@ -1,7 +1,5 @@
 import React from "react";
 
-import * as questionStorage from '../../storage/question'
-
 import Alternative from "./Alternative";
 import Number from "./Number";
 import Text from "./Text";
@@ -13,37 +11,6 @@ import * as S from "./styled";
 const Forms = () => {
 
   const Timer = useTimer(0)
-  
-  function createQuestion(value, type) {
-    try {
-      const id = Date.now() + '-' + Math.random().toString(36).slice(-10);
-      const repositoryID = localStorage.getItem('repositoryID')
-
-      const formatTime = (timer) => {
-        const getSeconds = `0${(timer % 60)}`.slice(-2)
-        const minutes = `${Math.floor(timer / 60)}`
-        const getMinutes = `0${minutes % 60}`.slice(-2)
-      
-        return `${getMinutes}:${getSeconds}`
-      }
-
-      const question = {
-        id: id,
-        value: value,
-        number: 1,
-        attributes: { type: type, marker: null, time: formatTime(Timer.timer) },
-        repositoryID: repositoryID
-      }
-      
-      Timer.handleReset()
-
-      questionStorage.generate(question);
-
-    } catch (err) {
-      console.warn('Error on create question -', `value: ${value}, type: ${type}`, err )
-      alert('Error on create question')
-    }
-  }
 
   return (
     <S.FormsWrapper >
@@ -51,10 +18,10 @@ const Forms = () => {
         Question
         <Number />
       </S.FormsQuestion>
-      <Alternative createQuestion={createQuestion} />
-      <Buttons createQuestion={createQuestion} timer={Timer} />
+      <Alternative />
+      <Buttons timer={Timer} />
       <Text />
-      <Display createQuestion={createQuestion} />
+      <Display />
     </S.FormsWrapper>
   );
 };

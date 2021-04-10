@@ -1,7 +1,8 @@
 import React from "react";
+import { build } from "../../../storage/question";
 import * as S from "./styled";
 
-const Alternative = ({ createQuestion }) => {
+const Alternative = () => {
   const alternatives = ["A", "B", "C", "D", "E", ""];
 
   return (
@@ -12,7 +13,9 @@ const Alternative = ({ createQuestion }) => {
           <S.AltButton
             name={name}
             title={name}
-            onClick={({target: {value}}) => {createQuestion(value, 'alternative')}}
+            onClick={(ev) => {
+              build(ev.target.value, "alternative");
+            }}
             key={name}
             value={alt}
           >
