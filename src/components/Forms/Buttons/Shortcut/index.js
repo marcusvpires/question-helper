@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { build } from "../../../../storage/question";
+
 import * as S from "./styled";
 
-const Shortcut = ({ createQuestion }) => {
+const Shortcut = () => {
 
   const [shortcut, setShortcut] = useState('')
   const [isValid, setValid] = useState(true)
@@ -12,7 +14,7 @@ const Shortcut = ({ createQuestion }) => {
     if (valid.indexOf(value) !== -1) {
       setValid(true)
       if (Number(value)) { value = valid[Number(value) - 1] }
-      createQuestion(value, 'alternative')
+      build(value, "alternative")
     } else { setValid(false) }
     setShortcut(value)
   }
