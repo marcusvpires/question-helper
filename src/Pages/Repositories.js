@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import * as RepoStorage from "../storage/repository";
 import { getAll } from "../dataBase/root";

@@ -26,6 +26,19 @@ export const build = () => {
   });
 };
 
+export const selectRepository = (id) => {
+  const prev = localStorage.getItem('repositoryID')
+  localStorage.setItem('repositoryID', id)
+  if (prev) { 
+    const prevElement = document.getElementById(prev).children[0].style
+    prevElement.border = '1px solid #575f66'
+    prevElement.backgroundColor = 'var(--back)'
+  }
+  const element = document.getElementById(id).children[0].style
+  element.border = '1px solid #0039aa'
+  element.backgroundColor = '#06090c'
+}
+
 export const save = () => {
   let id = localStorage.getItem("repositoryID");
   let name = localStorage.getItem("repository");
