@@ -17,6 +17,15 @@ export const create = (repository, selectRepository, setSelectRepository) => {
   wrapper.scrollIntoView({ behavior: "smooth" })
 }
 
+export const build = ( selectRepository, setSelectRepository ) => {
+  const id = createID()
+  const repository = { id: id, name: 'Undefined' }
+  create(repository, selectRepository, setSelectRepository)
+  root.put("repository", repository, (element) => {
+    console.log(`Build repository ${element.name} (${element.id})`);
+  });
+}
+
 export const save = () => {
   let id = localStorage.getItem("repositoryID")
   let name = localStorage.getItem("repository")
@@ -37,7 +46,7 @@ export const add = (init) => {
   document.getElementById('repository').value = 'Undefined'
 
   root.put("repository", { id: id, name: 'Undefined' }, (element) => {
-    console.log(`Build repository ${element.name} (${element.id})`);
+    console.log(`Add repository ${element.name} (${element.id})`);
   });
 }
 

@@ -6,11 +6,12 @@ import * as repository from '../../storage/repository'
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled"
 
-const Navbar = () => {
+const Navbar = ({ selectRepository, setSelectRepository, isRepoPage }) => {
 
   function newRepository() {
     repository.add()
-    clearForm()
+    if(isRepoPage) { repository.build(selectRepository, setSelectRepository) }
+    else { clearForm() }
   }
   function copyQuestions() {
     console.log('Copy questions')
