@@ -23,7 +23,16 @@ const Navbar = ({ isRepoPage }) => {
     console.log("Copy questions");
   }
   function clearSection() {
-    clearForm();
+    if (isRepoPage) {
+      document.getElementById('questionSection').innerHTML = ''
+      const prev = localStorage.getItem('repositoryID')
+      if (prev) { 
+        const prevElement = document.getElementById(prev).children[0].style
+        prevElement.border = '1px solid #575f66'
+        prevElement.backgroundColor = 'var(--back)'
+      }
+    }
+    else { clearForm() }
   }
   function repositories() {
     history.push('/repositories')
