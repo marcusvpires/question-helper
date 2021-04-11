@@ -5,12 +5,12 @@ export const Repository = styled.div`
   cursor: pointer;
   width: 100%;
   padding: 1.2rem;
-  background-color: ${props => props.isSelect ? '#06090c' : 'var(--back)'};
+  background-color: var(--back); //#06090c
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
-  border: 1px solid ${props => props.isSelect ? '#0039aa' : '#575f66'};
+  border: 1px solid #575f66; //#0039aa
   transition: 200ms;
 
   &:hover {

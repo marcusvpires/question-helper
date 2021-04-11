@@ -8,26 +8,16 @@ import RepositorySection from "../components/RepositorySection";
 import QuestionSection from "../components/QuestionSection";
 
 const ArchivePage = () => {
-  const [selectRepository, setSelectRepository] = useState(false);
-
   useEffect(() => {
     getAll("repository", (repository) => {
       for (const index in repository) {
-        RepoStorage.create(
-          repository[index],
-          selectRepository,
-          setSelectRepository
-        );
+        RepoStorage.create(repository[index]);
       }
     });
   });
 
   return (
-    <Layout
-      selectRepository={selectRepository}
-      setSelectRepository={setSelectRepository}
-      isRepoPage
-    >
+    <Layout isRepoPage>
       <RepositorySection id="repositorySection" />
       <QuestionSection id="questionSection" />
     </Layout>
