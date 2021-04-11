@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 
-export function Header() {
+export function Header({ isRepoPage }) {
 
   const [repository, setRepository] = React.useState(() => {
     let repository = localStorage.getItem('repository')
@@ -22,7 +22,8 @@ export function Header() {
         name="Repository name"
         title="Repository name"
         placeholder="Repository"
-        value={repository}
+        value={isRepoPage ? 'Repositories' : repository}
+        disabled={isRepoPage}
         onChange={changeRepository}
       />
     </S.HeaderWrapper>

@@ -26,10 +26,17 @@ export const build = () => {
   });
 };
 
+export const remove = async (id) => {
+  document.getElementById(id).remove()
+  root.remove("repository", id)
+  // remove questions
+}
+
 export const selectRepository = (id) => {
   const prev = localStorage.getItem('repositoryID')
   localStorage.setItem('repositoryID', id)
   if (prev) { 
+    console.log(prev)
     const prevElement = document.getElementById(prev).children[0].style
     prevElement.border = '1px solid #575f66'
     prevElement.backgroundColor = 'var(--back)'

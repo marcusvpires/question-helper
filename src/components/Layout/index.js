@@ -7,7 +7,7 @@ import * as S from "./styled";
 const Layout = ({ children, isRepoPage }) => (
   <S.LayoutWrapper>
     <GlobalStyles />
-    <Header />
+    <Header isRepoPage={isRepoPage} />
     <Navbar isRepoPage={isRepoPage} />
     <S.LayoutMain>{children}</S.LayoutMain>
   </S.LayoutWrapper>
