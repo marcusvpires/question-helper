@@ -4,7 +4,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Questions from "./Pages/Question.js";
-import Archive from "./Pages/Archive.js";
+import Repositories from "./Pages/Repositories.js";
 
 const ReactRouter = () => {
   return (
@@ -13,8 +13,8 @@ const ReactRouter = () => {
           <Route exact path="/">
             <Questions />
           </Route>
-          <Route path="/archive">
-            <Archive />
+          <Route path="/repositories">
+            <Repositories />
           </Route>
         </Switch>
     </Router>

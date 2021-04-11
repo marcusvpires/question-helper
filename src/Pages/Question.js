@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 import { getIndex } from "../dataBase/root";
-import { repositoryDB } from "../dataBase";
-import * as questionStorage from '../storage/question'
+import * as storage from '../storage/question'
+import * as repositoryStorage from '../storage/repository'
 
 import Layout from "../components/Layout";
 import QuestionSection from "../components/QuestionSection";
@@ -12,11 +12,11 @@ const QuestionsPage = () => {
 
   useEffect(() => {
     let repositoryID = localStorage.getItem("repositoryID");
-    if (!repositoryID) { repositoryID = repositoryDB.add(); }
+    if (!repositoryID) { repositoryID = repositoryStorage.add(true); }
     console.log("Connect with repository", repositoryID);
     getIndex("question", "repositoryID", repositoryID, (questions) => {
       for (const index in questions) {
-        questionStorage.create(questions[index])
+        storage.create(questions[index])
       }
     })
   })

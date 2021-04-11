@@ -9,7 +9,7 @@ import * as S from "./styled"
 const Navbar = () => {
 
   function newRepository() {
-    repository.build()
+    repository.add()
     clearForm()
   }
   function copyQuestions() {
