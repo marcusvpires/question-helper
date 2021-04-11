@@ -18,12 +18,14 @@ export const Repository = styled.div`
   }
 `;
 
-export const RepositoryName = styled.span`
+export const RepositoryName = styled.input`
   font-size: 1.2rem;
+  width: 11rem;
 `;
 
 export const RepositoryDate = styled.span`
   font-size: 1.2rem;
+  color: #8c979e;
 `;
 
 export const RepositoryIcons = styled.div`

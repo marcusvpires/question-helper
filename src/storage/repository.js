@@ -46,6 +46,13 @@ export const selectRepository = (id) => {
   element.backgroundColor = '#06090c'
 }
 
+export const saveName = (id, name) => {
+  console.log(id, name)
+  root.put("repository", { id: id, name: name }, (element) => {
+    console.log(`Save repository ${element.name} (${element.id})`);
+  });
+}
+
 export const save = () => {
   let id = localStorage.getItem("repositoryID");
   let name = localStorage.getItem("repository");

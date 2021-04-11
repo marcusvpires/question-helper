@@ -9,6 +9,14 @@ import * as I from '@styled-icons/boxicons-regular/'
 
 
 const Repository = ({ repository }) => {
+
+  const [repositoryName, setRepositoryName] = React.useState(repository.name)
+  
+  function changeRepository(e) {
+    setRepositoryName(e.target.value)
+    localStorage.setItem('repository', e.target.value)
+  }
+
   const id = repository.id
   const date = id.split("-")[1];
 
@@ -30,7 +38,15 @@ const Repository = ({ repository }) => {
   }
   return (
     <S.Repository >
-      <S.RepositoryName>{repository.name}</S.RepositoryName>
+      <S.RepositoryName
+        type="text"
+        name="Repository name"
+        title="Repository name"
+        placeholder="Undefined"
+        value={repositoryName}
+        onChange={changeRepository}
+        onBlur={() => { storage.saveName(id, repositoryName) }}
+      />
       <S.RepositoryDate>{date}</S.RepositoryDate>
       <S.RepositoryIcons>
         <S.RepositoryButton onClick={displayQuestions} ><I.FolderOpen /></S.RepositoryButton>
