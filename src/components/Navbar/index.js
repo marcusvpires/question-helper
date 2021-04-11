@@ -12,6 +12,7 @@ const Navbar = ({ isRepoPage }) => {
 
   function newRepository() {
     repository.add();
+    localStorage.setItem('repository', 'Undefined')
     if (isRepoPage) {
       repository.build();
     } else {
