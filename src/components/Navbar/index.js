@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import { clearForm } from "../../storage/question";
 import * as repository from "../../storage/repository";
@@ -7,6 +8,8 @@ import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 
 const Navbar = ({ isRepoPage }) => {
+  let history = useHistory()
+
   function newRepository() {
     repository.add();
     if (isRepoPage) {
@@ -21,20 +24,28 @@ const Navbar = ({ isRepoPage }) => {
   function clearSection() {
     clearForm();
   }
+  function repositories() {
+    history.push('/repositories')
+    console.log("Open folder");
+  }
   function openTrash() {
     console.log("Open trash");
   }
-  function folderOpen() {
-    console.log("Open folder");
+  function editRepository() {
+    history.push('/')
   }
 
   const navButtonList = [
     { name: "New repository", onClick: newRepository, icon: <I.AddToQueue /> },
     { name: "Clear section", onClick: clearSection, icon: <I.Brush /> },
     { name: "Copy questions", onClick: copyQuestions, icon: <I.CopyAlt /> },
-    { name: "Open folder", onClick: folderOpen, icon: <I.FolderOpen /> },
+    { name: "Repositories", onClick: repositories, icon: <I.FolderOpen /> },
     { name: "Open trash", onClick: openTrash, icon: <I.Trash /> },
-  ];
+  ]
+
+  if (isRepoPage) {
+    navButtonList[3] = { name: "Edit repository", onClick: editRepository, icon: <I.Edit /> }
+  }
 
   return (
     <S.NavWrapper>

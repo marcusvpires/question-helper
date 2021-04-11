@@ -1,4 +1,6 @@
 import React from "react";
+import * as storage from '../../storage/repository'
+
 import * as S from "./styled";
 
 export function Header({ isRepoPage }) {
@@ -25,6 +27,7 @@ export function Header({ isRepoPage }) {
         value={isRepoPage ? 'Repositories' : repository}
         disabled={isRepoPage}
         onChange={changeRepository}
+        onBlur={storage.save}
       />
     </S.HeaderWrapper>
   );

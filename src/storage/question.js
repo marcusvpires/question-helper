@@ -31,7 +31,7 @@ export const generate = async (question) => {
 
 export const remove = async (id) => {
   document.getElementById(id).remove()
-  root.remove("question", id) 
+  root.remove("question", id)
 }
 
 export const build = ( type, value ) => { try {

@@ -90,3 +90,22 @@ export const getIndex = (storage, key, value, back = () => {}) => {
     }
   }
 }
+
+export const deleteIndex = (storage, key, value) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readwrite');
+    const store = transaction.objectStore(storage);
+    const req = store.index(key).openCursor()
+    req.onsuccess = (ev) => {
+      const cursor = ev.target.result;
+      if (cursor) { 
+        if (value === cursor.key) { cursor.delete() }
+        cursor.continue()
+      }
+    }
+  }
+}

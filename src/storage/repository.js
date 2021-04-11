@@ -29,7 +29,7 @@ export const build = () => {
 export const remove = async (id) => {
   document.getElementById(id).remove()
   root.remove("repository", id)
-  // remove questions
+  root.deleteIndex("question", "repositoryID", id)
 }
 
 export const selectRepository = (id) => {

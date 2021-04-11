@@ -32,8 +32,10 @@ const Repository = ({ repository }) => {
     <S.Repository >
       <S.RepositoryName>{repository.name}</S.RepositoryName>
       <S.RepositoryDate>{date}</S.RepositoryDate>
-      <S.RepositoryButton onClick={displayQuestions} ><I.FolderOpen /></S.RepositoryButton>
-      <S.RepositoryButton onClick={remove} ><I.Trash /></S.RepositoryButton>
+      <S.RepositoryIcons>
+        <S.RepositoryButton onClick={displayQuestions} ><I.FolderOpen /></S.RepositoryButton>
+        <S.RepositoryButton onClick={remove} ><I.Trash /></S.RepositoryButton>
+      </S.RepositoryIcons>
     </S.Repository>
   );
 };

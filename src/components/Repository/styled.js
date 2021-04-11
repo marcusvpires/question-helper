@@ -26,6 +26,10 @@ export const RepositoryDate = styled.span`
   font-size: 1.2rem;
 `;
 
+export const RepositoryIcons = styled.div`
+  display: flex;
+`;
+
 export const RepositoryButton = styled.div`
   cursor: pointer;
   width: 1.8rem;
