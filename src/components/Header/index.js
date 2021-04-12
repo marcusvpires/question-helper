@@ -1,6 +1,7 @@
 import React from "react";
 import * as storage from '../../storage/repository'
 
+import { Github } from '@styled-icons/boxicons-logos/Github'
 import * as S from "./styled";
 
 export function Header({ isRepoPage }) {
@@ -29,6 +30,11 @@ export function Header({ isRepoPage }) {
         onChange={changeRepository}
         onBlur={storage.save}
       />
+
+      <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
+        <S.HeaderIcon><Github /></S.HeaderIcon>
+        <S.HeaderLabel>Github</S.HeaderLabel>
+      </S.HeaderLink>
     </S.HeaderWrapper>
   );
 }

@@ -22,6 +22,7 @@ const Repository = ({ repository }) => {
 
   const displayQuestions = () => {
     storage.selectRepository(id)
+    localStorage.setItem('repository', repository.name)
     document.getElementById("questionSection").innerHTML = "";
     getIndex("question", "repositoryID", id, (questions) => {
       for (const index in questions) {
