@@ -22,7 +22,7 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
     }
     else {
       element.backgroundColor = `var(--${button})`
-      element.border = `1px solid var(--${button})`
+      element.border = `1px solid var(--${button}Icon)`
       question.attributes.marker = button
       setMarker(button)
     }

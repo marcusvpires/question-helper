@@ -105,12 +105,12 @@ const GlobalStyles = createGlobalStyle`
     --blueDark: #051d4d;
     --blue: #0d3584;
     --black: #020405;
-    --correct: green;
-    --correctIcon: green;
-    --erro: red;
-    --erroIcon: red;
-    --marker: purple;
-    --markerIcon: purple;
+    --correct: #065011;
+    --correctIcon: #08ad21;
+    --erro: #850909;
+    --erroIcon: #d81a11;
+    --marker: #6e40c9;
+    --markerIcon: #8957e5;
   }
 
 `
