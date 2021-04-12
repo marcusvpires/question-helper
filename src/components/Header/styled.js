@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.section`
   background-color: var(--back);
@@ -21,6 +22,24 @@ export const HeaderRepository = styled.input`
   font-size: 1.4rem;
 `
 
+export const HeaderLinks = styled.div`
+  display: flex;
+`
+
+export const HeaderRedirect = styled(Link)`
+  display: flex;
+  color: var(--primary);
+  text-decoration: none;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  transition: 200ms;
+
+  &:hover {
+    background-color: var(--blueDark);
+  }
+`
+
 export const HeaderLink = styled.a`
   display: flex;
   color: var(--primary);
@@ -29,6 +48,7 @@ export const HeaderLink = styled.a`
   border-radius: 5px;
   padding: 0.5rem 0.8rem;
   transition: 200ms;
+  margin: 0 1.5rem;
 
   &:hover {
     background-color: var(--blueDark);
