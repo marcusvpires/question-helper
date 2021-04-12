@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Questions from "./Pages/Question.js";
 import Repositories from "./Pages/Repositories.js";
+import About from "./Pages/About.js";
 
 const ReactRouter = () => {
   return (
@@ -15,6 +16,9 @@ const ReactRouter = () => {
           </Route>
           <Route path="/repositories">
             <Repositories />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
         </Switch>
     </Router>
