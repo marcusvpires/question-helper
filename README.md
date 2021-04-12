@@ -17,12 +17,6 @@
 </h4>
 
 
-<h2 align="center">	
-	<a href="https://question-helper.netlify.app/" >
-		🚀 See the live demo 🚀
-	</a>	
-</h2>
-
 <div id="motivacao" />
 
 ## Motivação
