@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { clearForm } from "../../storage/question";
+import { clearForm, copyQuestions } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
 import * as I from "@styled-icons/boxicons-regular/";
@@ -18,9 +18,6 @@ const Navbar = ({ isRepoPage }) => {
     } else {
       clearForm();
     }
-  }
-  function copyQuestions() {
-    console.log("Copy questions");
   }
   function clearSection() {
     if (isRepoPage) {
