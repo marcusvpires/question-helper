@@ -6,6 +6,7 @@ const QuestionSection = styled.ul`
   border-left: 1px solid #6f757a;
   padding: 1rem 2rem;
   overflow: auto;
+  scrollbar-width: thin;
   user-select: none;  
 `
 

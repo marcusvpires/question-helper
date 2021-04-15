@@ -14,8 +14,8 @@ export const Question = styled.div`
 
 export const Title = styled.span`
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
   max-width: 15rem;
   color: #8c979e;
   width: 12.8rem;

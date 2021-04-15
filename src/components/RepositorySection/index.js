@@ -5,6 +5,7 @@ const RepositoriesWrapper = styled.ul`
   width: 30rem;
   padding: 1rem;
   overflow: auto;
+  scrollbar-width: thin;
 `
 
 export default RepositoriesWrapper
