@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalStyles from "../../styles/global";
+import GlobalStyles from "../../Assets/GlobalStyles";
 import Header from "../Header";
 import Navbar from "../Navbar";
 import * as S from "./styled";

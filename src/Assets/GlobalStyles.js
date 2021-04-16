@@ -79,6 +79,8 @@ const GlobalStyles = createGlobalStyle`
   	height: auto;
   }
 
+  // ==============================  Class Name  ============================== //
+
   .QuestionWrapper {
     width: 100%;
     border: 1px solid  ${props => props.marker ? `var(--${props.marker})` : '#6f757a'};
