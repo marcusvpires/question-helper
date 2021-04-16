@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import Question from "../components/Question";
+import CopyQuestions from "../components/CopyQuestions";
 import * as root from "../dataBase/root";
 
 export const create = async (question) => {
@@ -94,28 +95,40 @@ export const clearForm = () => {
   localStorage.setItem("text", "");
 };
 
-export const copyQuestions = () => {
+export const displayCopy = () => {
+  let container = document.getElementById('copyContainer')
+  if (container) {
+    console.log(container)
+    container.remove()
+  } else {
+    container = document.createElement('div')
+    container.id = 'copyContainer'
+    document.getElementById('root').appendChild(container)
+    console.log(container)
+    ReactDOM.render(
+      <CopyQuestions />,
+      document.getElementById('copyContainer')
+    );
+  }
+}
+
+export const copyQuestions = (format) => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    let format = "";
-    const templateInput = "Questão [number] - [value]";
-    const template = templateInput.split("|");
+    let result = ''
     for (const index in questions) {
       const q = questions[index];
-      let str = "Questão [number] - [value]";
+      let str = format
       const matched = str.match(/\[.+?\]/g)
       for (const i in matched) {
         const key = matched[i].replace('[', '').replace(']', '')
-        try {
-          str = str.replaceAll(matched[i], q[key])
-        }
-        catch (e) {
-          console.log(e)
-          alert(`${matched[i]} is an invalid key`)
+        try { str = str.replaceAll(matched[i], q[key]) }
+        catch (e) { console.log(e); alert(`${matched[i]} is an invalid key`)
         }
       }
-      console.log(str)
-      // console.log(matched)
+    result += str + '\n'  
     }
+    console.log(result)
+    document.getElementById('copyResult').value = result
   })
 }

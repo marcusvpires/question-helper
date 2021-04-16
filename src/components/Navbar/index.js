@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { clearForm, copyQuestions } from "../../storage/question";
+import { clearForm, displayCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
 import * as I from "@styled-icons/boxicons-regular/";
@@ -45,7 +45,7 @@ const Navbar = ({ isRepoPage }) => {
   const navButtonList = [
     { name: "New repository", onClick: newRepository, icon: <I.AddToQueue /> },
     { name: "Clear section", onClick: clearSection, icon: <I.Brush /> },
-    { name: "Copy questions", onClick: copyQuestions, icon: <I.CopyAlt /> },
+    { name: "Copy questions", onClick: displayCopy, icon: <I.CopyAlt /> },
     { name: "Repositories", onClick: repositories, icon: <I.FolderOpen /> },
     { name: "Open trash", onClick: openTrash, icon: <I.Trash /> },
   ]

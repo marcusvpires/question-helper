@@ -15,6 +15,8 @@ export const TextArea = styled.textarea`
 	color: var(--primary);
 	resize: none;
   padding: .8rem;
+	overflow: auto;
+	scrollbar-width: thin;
 
   &:focus {
     outline: none;
