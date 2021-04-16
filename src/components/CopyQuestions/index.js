@@ -43,8 +43,8 @@ const Copy = () => {
 
   const copy = () => {
     const element = document.getElementById("copyResult");
-    console.log(element);
-    document.execCommand("copy");
+    element.select()
+    document.execCommand('copy')
   };
 
   return (

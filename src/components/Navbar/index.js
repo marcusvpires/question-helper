@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import { clearForm, displayCopy } from "../../storage/question";
+import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
 import * as I from "@styled-icons/boxicons-regular/";
@@ -31,9 +31,11 @@ const Navbar = ({ isRepoPage }) => {
     }
     else { clearForm() }
   }
+  function copy() {
+    console.log(QuickCopy('Questão [number] - [value]'))
+  }
   function repositories() {
     history.push('/repositories')
-    console.log("Open folder");
   }
   function openTrash() {
     console.log("Open trash");
@@ -45,7 +47,7 @@ const Navbar = ({ isRepoPage }) => {
   const navButtonList = [
     { name: "New repository", onClick: newRepository, icon: <I.AddToQueue /> },
     { name: "Clear section", onClick: clearSection, icon: <I.Brush /> },
-    { name: "Copy questions", onClick: displayCopy, icon: <I.CopyAlt /> },
+    { name: "Copy questions", onClick: copy, icon: <I.CopyAlt />, more: displayCopy },
     { name: "Repositories", onClick: repositories, icon: <I.FolderOpen /> },
     { name: "Open trash", onClick: openTrash, icon: <I.Trash /> },
   ]
@@ -57,15 +59,22 @@ const Navbar = ({ isRepoPage }) => {
   return (
     <S.NavWrapper>
       {navButtonList.map((e) => (
-        <S.NavButton
-          name={e.name}
-          title={e.name}
-          key={e.name}
-          onClick={e.onClick}
-        >
-          <S.NavIcon>{e.icon}</S.NavIcon>
-          <S.NavText>{e.name}</S.NavText>
-        </S.NavButton>
+        <S.NavItem>
+          <S.NavButton
+            name={e.name}
+            title={e.name}
+            key={e.name}
+            onClick={e.onClick}
+          >
+            <S.NavIcon>{e.icon}</S.NavIcon>
+            <S.NavText>{e.name}</S.NavText>
+          </S.NavButton>
+          { e.more && 
+            <S.NavMore onClick={e.more}>
+              <S.NavMoreIcon><I.RightArrow /></S.NavMoreIcon>
+            </S.NavMore>
+          }
+        </S.NavItem>
       ))}
     </S.NavWrapper>
   );

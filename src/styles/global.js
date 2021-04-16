@@ -94,6 +94,14 @@ const GlobalStyles = createGlobalStyle`
     margin-bottom: .8rem;
   }
 
+  .copyTextarea {
+    position: absolute;
+    top: -99;
+    left: -99;
+    width: 1rem;
+    height: 1rem;
+  }
+
   // ==============================  Color theme  ============================== //
 
   body {

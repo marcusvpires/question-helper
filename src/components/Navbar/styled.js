@@ -8,13 +8,35 @@ export const NavWrapper = styled.section`
   padding-top: 5rem;
 `
 
+export const NavItem = styled.div`
+  width: 100%;
+  display: flex;
+`
+
+export const NavMore = styled.button`
+  color: var(--primary);
+  background-color: transparent;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  
+   &:hover {
+    background-color: var(--blueDark)
+  }
+`
+
+export const NavMoreIcon = styled.div`
+  width: 1rem;
+  height: 1rem;
+`
+
 export const NavButton = styled.button`
+  color: var(--primary);
   background-color: transparent;
   border: none;
   border-radius: 2px;
-  color: var(--primary);
   cursor: pointer;
-  padding: 1.2rem 1rem;
+  padding: 1.2rem 0.5rem 1.2rem 1rem;
   width: 100%;
   display: flex;
   align-items: center;

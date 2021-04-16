@@ -115,20 +115,39 @@ export const displayCopy = () => {
 export const copyQuestions = (format) => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    let result = ''
-    for (const index in questions) {
-      const q = questions[index];
-      let str = format
-      const matched = str.match(/\[.+?\]/g)
-      for (const i in matched) {
-        const key = matched[i].replace('[', '').replace(']', '')
-        try { str = str.replaceAll(matched[i], q[key]) }
-        catch (e) { console.log(e); alert(`${matched[i]} is an invalid key`)
-        }
-      }
-    result += str + '\n'  
-    }
-    console.log(result)
+    const result = formatToCopy(format, questions)
     document.getElementById('copyResult').value = result
   })
+}
+
+export const QuickCopy = () => {
+  const repositoryID = localStorage.getItem("repositoryID");
+  root.getIndex("question", "repositoryID", repositoryID, (questions) => {
+    const result = formatToCopy('Questão [number] - [value]', questions)
+    console.log(result)
+    const textarea = document.createElement('textarea')
+    textarea.classList.add('copyTextarea')
+    textarea.value = result
+    document.getElementById('root').appendChild(textarea)
+    textarea.select()
+    document.execCommand('copy')
+    textarea.remove()
+  })
+}
+
+export const formatToCopy = (format, questions) => {
+  let result = ''
+  for (const index in questions) {
+    const q = questions[index];
+    let str = format
+    const matched = str.match(/\[.+?\]/g)
+    for (const i in matched) {
+      const key = matched[i].replace('[', '').replace(']', '')
+      try { str = str.replaceAll(matched[i], q[key]) }
+      catch (e) { console.log(e); alert(`${matched[i]} is an invalid key`)
+      }
+    }
+  result += str + '\n'  
+  }
+  return result
 }
