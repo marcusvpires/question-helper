@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { copyQuestions } from "../../storage/question";
 
+import About from './About'
+
 import { CopyAlt } from "@styled-icons/boxicons-regular/CopyAlt";
 import { X } from "@styled-icons/boxicons-regular/X";
 import * as S from "./styled";
@@ -49,6 +51,7 @@ const Copy = () => {
     <Fragment>
       <S.CopyBack />
       <S.CopyWrapper>
+        <About />
         <S.CopyContainer>
           <S.CopyHeader>
             <S.CopyFormatInput

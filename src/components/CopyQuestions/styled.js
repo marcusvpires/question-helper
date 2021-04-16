@@ -26,7 +26,7 @@ export const CopyBack = styled.div`
 export const CopyContainer = styled.div`
   width: 50%;
   min-height: 80vh;
-  background-color: var(--backDark);
+  background-color: var(--back);
   border: 1px solid var(--third);
   border-radius: 5px;
   padding: 2rem;
