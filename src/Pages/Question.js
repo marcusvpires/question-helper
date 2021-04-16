@@ -16,13 +16,12 @@ const QuestionsPage = () => {
     if (!repositoryID) { repositoryID = repositoryStorage.add(true); }
     console.log("Connect with repository", repositoryID);
     getIndex("question", "repositoryID", repositoryID, (questions) => {
-      console.log(questions)
       let lastQuestion = questions[questions.length - 1]
       let number = 1 
       if (lastQuestion) { number = lastQuestion.number}
-      console.log('Number:', number)
       localStorage.setItem('number', number)
       document.getElementById('number').value = number
+      document.getElementById("questionSection").innerHTML = ''
       for (const index in questions) {
         storage.create(questions[index])
       }
