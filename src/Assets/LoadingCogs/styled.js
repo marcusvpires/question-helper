@@ -5,8 +5,6 @@ export const Wrapper = styled.div`
   height: 100%;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
 const rotate = keyframes`
@@ -30,15 +28,17 @@ const reverse = keyframes`
 export const Cog = styled.div`
   font-size: 4vh;
   border-radius: .25em;
-  border: solid .55em var(--cog-colour, #EEE);
+  border: solid .55em ${props => props.border};
   display: inline-block;
   padding: 1.125em;
   animation: ${props => props.reverse ? rotate : reverse} 2.5s linear infinite;
-  position: relative;
-  top: 10rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin: ${props => props.margin};
 
   &::before {
-    border: solid .55em var(--cog-colour, #EEE);
+    border: solid .55em ${props => props.border};
     padding: 1.125em;
     position: absolute;
     content: "";
@@ -49,7 +49,7 @@ export const Cog = styled.div`
   &::after {
     content: "";
     position: absolute;
-    border: solid 1em var(--cog-colour, #EEE);
+    border: solid 1em ${props => props.color};
     padding:  .375em;
     border-radius: 1.8125em;
     transform: translate(-1.375em, -1.375em);
