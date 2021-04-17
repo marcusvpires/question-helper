@@ -107,6 +107,8 @@ export const exportRepository = () => {
 
 export const exportAll = () => {
   root.exportDB((repositories, questions) => {
+    console.log('Repositories', repositories)
+    console.log('Questions', questions)
     const headerRepositories = `Type: dataBase, Object: repository\n`
     let blob = convertRepositoriesToExport(repositories, headerRepositories);
     const headerQuestions = `Type: dataBase, Object: question\n`
@@ -133,7 +135,7 @@ const saveFile = (blob, filename) => {
 }
 
 const convertRepositoriesToExport = (repositories, header) => {
-  let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
+  let cvsFile = header + "ID;Name\n";
   for (const i in repositories) { cvsFile += processRepository(repositories[i]); }
   const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
   return blob;

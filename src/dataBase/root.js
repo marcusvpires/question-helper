@@ -77,7 +77,7 @@ export const exportDB = (back = () => {}) => {
 
   request.onsuccess = (e) => {
     const db = e.target.result;
-    const transaction = db.transaction(['repository'], 'repository');
+    const transaction = db.transaction(['repository'], 'readonly');
     const store = transaction.objectStore('repository');
     store.getAll().onsuccess = (ev) => {
       exportQuestions(ev.target.result);

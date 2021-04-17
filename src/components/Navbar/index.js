@@ -56,7 +56,7 @@ const Navbar = ({ isRepoPage }) => {
     },
     {
       name: "Export",
-      onClick: repository.exportRepository,
+      onClick: repository.exportAll,
       icon: <I.CopyAlt />,
       more: displayCopy,
     },
