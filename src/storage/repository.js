@@ -106,13 +106,15 @@ export const exportRepository = () => {
 };
 
 export const exportAll = () => {
-  root.exportDB((repositories, questions) => {
+  root.getDatabase((repositories, questions) => {
     console.log('Repositories', repositories)
     console.log('Questions', questions)
     const headerRepositories = `Type: dataBase, Object: repository\n`
-    let blob = convertRepositoriesToExport(repositories, headerRepositories);
+    let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
+    console.log('dataBase', dataBase)
     const headerQuestions = `Type: dataBase, Object: question\n`
-    blob += convertQuestionsToExport(questions, headerQuestions);
+    dataBase += convertQuestionsToExport(questions, headerQuestions)
+    const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
     saveFile(blob, 'dataBase')
   });
 };
@@ -137,8 +139,7 @@ const saveFile = (blob, filename) => {
 const convertRepositoriesToExport = (repositories, header) => {
   let cvsFile = header + "ID;Name\n";
   for (const i in repositories) { cvsFile += processRepository(repositories[i]); }
-  const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
-  return blob;
+  return cvsFile
 };
 
 const processRepository = (r) => {
@@ -148,8 +149,7 @@ const processRepository = (r) => {
 const convertQuestionsToExport = (questions, header) => {
   let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
   for (const i in questions) { cvsFile += processQuestion(questions[i]); }
-  const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
-  return blob;
+  return cvsFile
 };
 
 const processQuestion = (q) => {

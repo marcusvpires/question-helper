@@ -71,7 +71,7 @@ export const getAll = (storage, back = () => {}) => {
   }
 }
 
-export const exportDB = (back = () => {}) => {
+export const getDatabase = (back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
 
@@ -80,21 +80,21 @@ export const exportDB = (back = () => {}) => {
     const transaction = db.transaction(['repository'], 'readonly');
     const store = transaction.objectStore('repository');
     store.getAll().onsuccess = (ev) => {
-      exportQuestions(ev.target.result);
-    }
-  }
-}
+      const repositories = ev.target.result
+      
+      const request = dataBase()
+      request.onerror = onRequestError
 
-const exportQuestions = (repositoryData, back = () => {}) => {
-  const request = dataBase();
-  request.onerror = onRequestError;
-
-  request.onsuccess = (e) => {
-    const db = e.target.result;
-    const transaction = db.transaction(['question'], 'readonly');
-    const store = transaction.objectStore('question');
-    store.getAll().onsuccess = (ev) => {
-      back(repositoryData, ev.target.result);
+      request.onsuccess = (e) => {
+        const db = e.target.result;
+        const transaction = db.transaction(['question'], 'readonly');
+        const store = transaction.objectStore('question');
+        store.getAll().onsuccess = (ev) => {
+          const request = dataBase()
+          request.onerror = onRequestError
+          back(repositories, ev.target.result)
+        }
+      }
     }
   }
 }
