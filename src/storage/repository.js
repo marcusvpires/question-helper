@@ -27,31 +27,31 @@ export const build = () => {
 };
 
 export const remove = async (id) => {
-  document.getElementById(id).remove()
-  root.remove("repository", id)
-  root.deleteIndex("question", "repositoryID", id)
-}
+  document.getElementById(id).remove();
+  root.remove("repository", id);
+  root.deleteIndex("question", "repositoryID", id);
+};
 
 export const selectRepository = (id) => {
-  const prev = localStorage.getItem('repositoryID')
-  localStorage.setItem('repositoryID', id)
-  if (prev) { 
-    console.log(prev)
-    const prevElement = document.getElementById(prev).children[0].style
-    prevElement.border = '1px solid #575f66'
-    prevElement.backgroundColor = 'var(--back)'
+  const prev = localStorage.getItem("repositoryID");
+  localStorage.setItem("repositoryID", id);
+  if (prev) {
+    console.log(prev);
+    const prevElement = document.getElementById(prev).children[0].style;
+    prevElement.border = "1px solid #575f66";
+    prevElement.backgroundColor = "var(--back)";
   }
-  const element = document.getElementById(id).children[0].style
-  element.border = '1px solid #0039aa'
-  element.backgroundColor = '#06090c'
-}
+  const element = document.getElementById(id).children[0].style;
+  element.border = "1px solid #0039aa";
+  element.backgroundColor = "#06090c";
+};
 
 export const saveName = (id, name) => {
-  console.log(id, name)
+  console.log(id, name);
   root.put("repository", { id: id, name: name }, (element) => {
     console.log(`Save repository ${element.name} (${element.id})`);
   });
-}
+};
 
 export const save = () => {
   let id = localStorage.getItem("repositoryID");
@@ -94,35 +94,74 @@ const createID = () => {
   return `Repository-${date}-${Date.now()}-${random}`;
 };
 
-const exportRepository = () => {
+export const exportRepository = () => {
+  const repositoryID = localStorage.getItem("repositoryID");
+  root.getIndex("question", "repositoryID", repositoryID, (questions) => {
+    const repository = localStorage.getItem("repository");
+    const blob = convertQuestionsToExport(questions);
+    saveFile(blob, repository)
+  });
+};
 
+export const exportAll = () => {
+  const repositoryID = localStorage.getItem("repositoryID");
+  root.getIndex("question", "repositoryID", repositoryID, (questions) => {
+    const repository = localStorage.getItem("repository");
+    const blob = convertQuestionsToExport(questions);
+    saveFile(blob, repository)
+  });
+};
+
+const saveFile = (blob, filename) => {
+  if (navigator.msSaveBlob) {
+    navigator.msSaveBlob(blob, filename + '.cvs');
+  } else {
+    let link = document.createElement("a");
+    if (link.download !== undefined) {
+      let url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", filename + '.cvs');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+}
 }
 
-export const convetToCVS = (filename, rows) => {
+const convertQuestionsToExport = (questions) => {
+  const repositoryID = localStorage.getItem("repositoryID");
+  const repository = localStorage.getItem("repository");
+  let cvsFile = `Type: repository, RepositoryID: ${repositoryID}, Repository: ${repository}\n`;
+  cvsFile = cvsFile + "ID,value,number,type,marker,time,repositoryID\n";
+  for (const i in questions) { cvsFile += processQuestion(questions[i]); }
+  const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
+  return blob;
+};
 
-  var processRow = function (row) {
-      var finalVal = '';
-      for (var j = 0; j < row.length; j++) {
-          var innerValue = row[j] === null ? '' : row[j].toString();
-          if (row[j] instanceof Date) {
-              innerValue = row[j].toLocaleString();
-          };
-          var result = innerValue.replace(/"/g, '""');
-          if (result.search(/("|,|\n)/g) >= 0)
-              result = '"' + result + '"';
-          if (j > 0)
-              finalVal += '   ,';
-          finalVal += result;
-      }
-      return finalVal + '\n';
-  };
-
-  var csvFile = '';
-  for (var i = 0; i < rows.length; i++) {
-      csvFile += processRow(rows[i]);
-  }
-
-  console.log(csvFile)
-  var blob = new Blob([csvFile], { type: 'text/csv;charset=utf-8;' });
-  return blob
+const processQuestion = (q) => {
+  console.log('Question:', q)
+  return `${f(q.id)};${f(q.value)};${f(q.number)};${f(q.attributes.type)};${f(q.attributes.marker)};${f(q.attributes.time)};${f(q.repositoryID)}\n`
 }
+
+const f = (value) => {
+  let innerValue = ""
+  if (value) { innerValue = value.toString() }
+  let result = innerValue.replace(/"/g, '""')
+  if (result.search(/("|,|\n)/g) >= 0) { result = '"' + result + '"' }
+  return result
+}
+
+/*
+{
+  id:1618617326204-jn9wh0uaio,
+  value:A,
+  number:1,
+  attributes:{
+    type:alternative,
+    marker:null,
+    time:00:00
+  },
+  repositoryID:Repository-16/04/19-1618612417181-v517iz81
+}
+*/
