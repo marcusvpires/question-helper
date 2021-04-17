@@ -106,9 +106,11 @@ export const exportRepository = () => {
 };
 
 export const exportAll = () => {
-  root.getAll("question", (questions) => {
-    let header = `Type: dataBase, Object: questions\n`
-    const blob = convertQuestionsToExport(questions, header);
+  root.exportDB((repositories, questions) => {
+    const headerRepositories = `Type: dataBase, Object: repository\n`
+    let blob = convertRepositoriesToExport(repositories, headerRepositories);
+    const headerQuestions = `Type: dataBase, Object: question\n`
+    blob += convertQuestionsToExport(questions, headerQuestions);
     saveFile(blob, 'dataBase')
   });
 };
@@ -130,6 +132,17 @@ const saveFile = (blob, filename) => {
   }
 }
 
+const convertRepositoriesToExport = (repositories, header) => {
+  let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
+  for (const i in repositories) { cvsFile += processRepository(repositories[i]); }
+  const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
+  return blob;
+};
+
+const processRepository = (r) => {
+  return `${f(r.id)};${f(r.name)}\n`
+}
+
 const convertQuestionsToExport = (questions, header) => {
   let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
   for (const i in questions) { cvsFile += processQuestion(questions[i]); }
@@ -138,7 +151,6 @@ const convertQuestionsToExport = (questions, header) => {
 };
 
 const processQuestion = (q) => {
-  console.log('Question:', q)
   return `${f(q.id)};${f(q.value)};${f(q.number)};${f(q.attributes.type)};${f(q.attributes.marker)};${f(q.attributes.time)};${f(q.repositoryID)}\n`
 }
 
