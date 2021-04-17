@@ -97,18 +97,19 @@ const createID = () => {
 export const exportRepository = () => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
+    const repositoryID = localStorage.getItem("repositoryID");
     const repository = localStorage.getItem("repository");
-    const blob = convertQuestionsToExport(questions);
+    let header = `Type: repository, RepositoryID: ${repositoryID}, Repository: ${repository}\n`
+    const blob = convertQuestionsToExport(questions, header);
     saveFile(blob, repository)
   });
 };
 
 export const exportAll = () => {
-  const repositoryID = localStorage.getItem("repositoryID");
-  root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    const repository = localStorage.getItem("repository");
-    const blob = convertQuestionsToExport(questions);
-    saveFile(blob, repository)
+  root.getAll("question", (questions) => {
+    let header = `Type: dataBase, Object: questions\n`
+    const blob = convertQuestionsToExport(questions, header);
+    saveFile(blob, 'dataBase')
   });
 };
 
@@ -126,14 +127,11 @@ const saveFile = (blob, filename) => {
       link.click();
       document.body.removeChild(link);
     }
-}
+  }
 }
 
-const convertQuestionsToExport = (questions) => {
-  const repositoryID = localStorage.getItem("repositoryID");
-  const repository = localStorage.getItem("repository");
-  let cvsFile = `Type: repository, RepositoryID: ${repositoryID}, Repository: ${repository}\n`;
-  cvsFile = cvsFile + "ID,value,number,type,marker,time,repositoryID\n";
+const convertQuestionsToExport = (questions, header) => {
+  let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
   for (const i in questions) { cvsFile += processQuestion(questions[i]); }
   const blob = new Blob([cvsFile], { type: "text/cvs;charset=utf-8;" });
   return blob;

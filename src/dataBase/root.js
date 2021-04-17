@@ -71,6 +71,34 @@ export const getAll = (storage, back = () => {}) => {
   }
 }
 
+export const exportDB = (back = () => {}) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction(['repository'], 'repository');
+    const store = transaction.objectStore('repository');
+    store.getAll().onsuccess = (ev) => {
+      exportQuestions(ev.target.result);
+    }
+  }
+}
+
+const exportQuestions = (repositoryData, back = () => {}) => {
+  const request = dataBase();
+  request.onerror = onRequestError;
+
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction(['question'], 'readonly');
+    const store = transaction.objectStore('question');
+    store.getAll().onsuccess = (ev) => {
+      back(repositoryData, ev.target.result);
+    }
+  }
+}
+
 export const getIndex = (storage, key, value, back = () => {}) => {
   const request = dataBase();
   request.onerror = onRequestError;
