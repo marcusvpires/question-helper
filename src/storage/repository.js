@@ -2,6 +2,20 @@ import ReactDOM from "react-dom";
 import Repository from "../components/Repository";
 import * as root from "../dataBase/root";
 
+
+// =============================================================================== //
+//    Change repository database data and insert elements directly into the DOM    //
+// =============================================================================== //
+
+/*
+
+  ID Structure: Repository-(date)-(timestamp)-(random)
+  Database: { id: RepositoryID, name: Repository  }
+  localStorage: repositoryID, repository
+
+*/
+
+
 export const create = (repository) => {
   let wrapper = document.getElementById(repository.id);
   if (!wrapper) {
