@@ -23,7 +23,7 @@ const Navbar = ({ isRepoPage }) => {
       onClick: () => { 
         confirm( 
           'confirmClear', {
-            title: 'Want to clear the session',
+            title: 'Want to clear the session ?',
             desc: 'All questions on this form together with all the information on the form will be permanently deleted',
           }, clearSection,
           { isRepoPage: isRepoPage }
@@ -121,3 +121,4 @@ const openTrash = () => {
 }
 
 export default Navbar;
+ 

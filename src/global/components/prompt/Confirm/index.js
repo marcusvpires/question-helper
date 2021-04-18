@@ -35,13 +35,13 @@ const Confirm = ({ id, message, back, props }) =>  {
     <D.PopBack />
     <D.Popup>
       <S.Wrapper reverse={reverse} >
-        <D.Flex color='#ff908b'>
-          <D.Icon size='2rem'><I.Bulb /></D.Icon>
+        <D.Flex color='#3e93ff'>
+          <D.Icon size='2rem'><I.Error /></D.Icon>
           <D.Strong>{message.title}</D.Strong>
         </D.Flex>
         <D.Text>{message.desc}</D.Text>
         <D.Flex justify='end'>
-          <D.Button onClick={() => {
+          <D.Button margin='0 1rem' onClick={() => {
             setReverse(true)
             setTimeout(() => { document.getElementById(id).remove() }, 150)
           }}>Cancel</D.Button>
@@ -49,7 +49,7 @@ const Confirm = ({ id, message, back, props }) =>  {
             setReverse(true)
             setTimeout(() => {
               document.getElementById(id).remove()
-              if (back) { back(...props) }
+              if (back) { back(Object.values(props)) }
             }, 150)
           }}>Confirm</D.Button>
         </D.Flex>

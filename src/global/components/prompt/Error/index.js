@@ -35,7 +35,7 @@ const ErroBox = ({ id, message }) => {
         <S.Wrapper reverse={reverse}>
           <D.Flex color="#ff908b">
             <D.Icon size="2rem">
-              <I.Error />
+              <I.Ghost />
             </D.Icon>
             <D.Strong>{message.title}</D.Strong>
           </D.Flex>

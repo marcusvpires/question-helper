@@ -9,7 +9,8 @@ export const style = {
 // =============================================================================== //
 
 export const Button = styled.button`
-	background-color: var(--blueDark);
+	background-color: ${ props => props.back ? props.back : 'var(--blueDark)' };
+  margin: ${props => props.margin && props.margin};
 	border-radius: 2px;
 	border: none;
 	padding: .6rem .8rem;
