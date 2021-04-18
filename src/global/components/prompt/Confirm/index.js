@@ -11,21 +11,24 @@ import * as D from '../../../Design'
 
   Render element and add directly in root
   To call function displayConfirm('id', {
-    title: ----,
-    desc: -----,
+    title: --------------,
+    desc: ---------------,
+    back: ---------------,
+    props: { --:--, ... },
   })
 
 /" ------------------------------------------------------------------------------ */
 
-const displayConfirm = (id, message) => {
+const displayConfirm = (id, message, back, props) => {
   screen(id)
+  if (!back) { console.warn(`The confirm message ${message.title} don't have return`) }
   render (
-    <Confirm id={id} message={message} />,
+    <Confirm id={id} message={message} back={back} props={props} />,
     document.getElementById(id)
   )
 }
 
-const Confirm = ({ id, message }) =>  {
+const Confirm = ({ id, message, back, props }) =>  {
   const [reverse, setReverse] = useState(false)
   return (
   <Fragment>
@@ -41,6 +44,13 @@ const Confirm = ({ id, message }) =>  {
           <D.Button onClick={() => {
             setReverse(true)
             setTimeout(() => { document.getElementById(id).remove() }, 150)
+          }}>Cancel</D.Button>
+          <D.Button onClick={() => {
+            setReverse(true)
+            setTimeout(() => {
+              document.getElementById(id).remove()
+              if (back) { back(...props) }
+            }, 150)
           }}>Confirm</D.Button>
         </D.Flex>
       </S.Wrapper>

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 import erro from "../../global/components/prompt/Error";
+import confirm from "../../global/components/prompt/Confirm";
 
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -19,7 +20,15 @@ const Navbar = ({ isRepoPage }) => {
     },
     {
       name: "Clear section",
-      onClick: () => { clearSection(isRepoPage) },
+      onClick: () => { 
+        confirm( 
+          'confirmClear', {
+            title: 'Want to clear the session',
+            desc: 'All questions on this form together with all the information on the form will be permanently deleted',
+          }, clearSection,
+          { isRepoPage: isRepoPage }
+        )
+      },
       icon: <I.Brush />,
     },
     {
