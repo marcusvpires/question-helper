@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
-import erro from '../../global/components/prompt/Error'
+import erro from "../../global/components/prompt/Error";
 
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -11,53 +11,20 @@ import * as S from "./styled";
 const Navbar = ({ isRepoPage }) => {
   let history = useHistory();
 
-  function newRepository() {
-    repository.add();
-    localStorage.setItem("repository", "Undefined");
-    if (isRepoPage) {
-      repository.build();
-    } else {
-      clearForm();
-    }
-  }
-  function clearSection() {
-    if (isRepoPage) {
-      document.getElementById("questionSection").innerHTML = "";
-      const prev = localStorage.getItem("repositoryID");
-      if (prev) {
-        const prevElement = document.getElementById(prev).children[0].style;
-        prevElement.border = "1px solid #575f66";
-        prevElement.backgroundColor = "var(--back)";
-      }
-    } else {
-      clearForm();
-    }
-  }
-  function copy() {
-    console.log(QuickCopy("Questão [number] - [value]"));
-  }
-  function repositories() {
-    history.push("/repositories");
-  }
-  function openTrash() {
-    console.log("Open trash")
-    const title = 'Error on build question'
-    erro('errorBuild', {
-      title: title,
-      desc: 'You may want to reload the page and try build question again.'
-    })
-
-  }
-  function editRepository() {
-    history.push("/");
-  }
-
   const navButtonList = [
-    { name: "New repository", onClick: newRepository, icon: <I.AddToQueue /> },
-    { name: "Clear section", onClick: clearSection, icon: <I.Brush /> },
+    {
+      name: "New repository",
+      onClick: () => { newRepository(isRepoPage) },
+      icon: <I.AddToQueue />,
+    },
+    {
+      name: "Clear section",
+      onClick: () => { clearSection(isRepoPage) },
+      icon: <I.Brush />,
+    },
     {
       name: "Copy questions",
-      onClick: copy,
+      onClick: () => { QuickCopy("Questão [number] - [value]") },
       icon: <I.CopyAlt />,
       more: displayCopy,
     },
@@ -65,18 +32,25 @@ const Navbar = ({ isRepoPage }) => {
       name: "Export",
       onClick: repository.exportAll,
       icon: <I.CopyAlt />,
-      more: displayCopy,
     },
-    { name: "Repositories", onClick: repositories, icon: <I.FolderOpen /> },
-    { name: "Open trash", onClick: openTrash, icon: <I.Trash /> },
+    {
+      name: "Repositories",
+      onClick: () => { history.push("/repositories") },
+      icon: <I.FolderOpen />,
+    },
+    {
+      name: "Open trash",
+      onClick: openTrash,
+      icon: <I.Trash />
+    },
   ];
 
   if (isRepoPage) {
-    navButtonList[3] = {
+      navButtonList[4] = {
       name: "Edit repository",
-      onClick: editRepository,
+      onClick: () => { history.push("/") },
       icon: <I.Edit />,
-    };
+    }
   }
 
   return (
@@ -99,5 +73,42 @@ const Navbar = ({ isRepoPage }) => {
     </S.NavWrapper>
   );
 };
+
+const newRepository = (isRepoPage) => {
+  try {
+    repository.add();
+    localStorage.setItem("repository", "Undefined");
+    if (isRepoPage) {
+      repository.build();
+    } else {
+      clearForm();
+    }
+  } catch (ev) {
+    const title = "Error creating a new repository";
+    console.error(title, ev);
+    erro("errorNewRepository", {
+      title: title,
+    });
+  }
+};
+
+const clearSection = (isRepoPage) => {
+  try {
+    if (isRepoPage) {
+      document.getElementById("questionSection").innerHTML = "";
+      const prev = localStorage.getItem("repositoryID");
+      if (prev) {
+        const prevElement = document.getElementById(prev).children[0].style;
+        prevElement.border = "1px solid #575f66";
+        prevElement.backgroundColor = "var(--back)";
+      }
+    } else { clearForm() }
+  } catch (ev) {}
+}
+
+const openTrash = () => {
+  const title = "Role in development"
+  erro("errorTrash", { title: title })
+}
 
 export default Navbar;

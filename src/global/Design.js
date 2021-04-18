@@ -33,6 +33,33 @@ export const Button = styled.button`
 	}
 `
 
+export const Link = styled.a`
+	background-color: #115c1f;
+	border-radius: 2px;
+	border: none;
+	padding: .5rem .8rem;
+	letter-spacing: 0.069rem;
+  text-decoration: none;
+  color: var(--primary);
+	font-size: 1rem;
+	cursor: pointer;
+	transition: 200ms;
+  margin: ${props => props.margin && props.margin};
+
+	&:hover {
+		background-color: #177629;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		transition: 50ms;
+		background-color: #0c8522;
+	}
+`
+
 // =============================================================================== //
 //                                      Popup                                      //
 // =============================================================================== //
