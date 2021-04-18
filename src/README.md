@@ -1,12 +1,15 @@
 ## Database
 Estrutura do objeto `repository`:
+
 Composição do ID: Repository-(date)-(timestamp)-(random). Além da indexedDB, o ID e o nome são salvos no localStorage com as chaves repositoryID, repository respectivamente.
+
 `
 { 
   id: Repository-(date)-(timestamp)-(random),
   name: ----,
 }
 `
+
 `database` - Responsável por criar a estrutura do banco de dados caso não exista e fazer request
 `root` - 
 
