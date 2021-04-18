@@ -4,7 +4,7 @@ import { getIndex } from "../dataBase/root";
 import * as storage from '../storage/question'
 import * as repositoryStorage from '../storage/repository'
 
-import LoadingCogs from "../Assets/LoadingCogs";
+import LoadingCogs from "../global/components/LoadingCogs";
 import Layout from "../components/Layout";
 import QuestionSection from "../components/QuestionSection";
 import Forms from "../components/Forms";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import displayErroBox from '../../Assets/GlobalComponents/ErroBox'
+import displayErroBox from '../../global/components/ErroBox'
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
