@@ -1,4 +1,4 @@
-import Error from '../global/components/prompt/Error'
+import errorAlert from '../global/components/prompt/Error'
 import * as root from "../dataBase/root";
 
 // =============================================================================== //
@@ -6,17 +6,27 @@ import * as root from "../dataBase/root";
 // =============================================================================== //
 
 export const exportDatabase = () => {
-  root.getDatabase((repositories, questions) => {
-    console.log('Repositories', repositories)
-    console.log('Questions', questions)
-    const headerRepositories = `Type: dataBase, Object: repository\n`
-    let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-    console.log('dataBase', dataBase)
-    const headerQuestions = `Type: dataBase, Object: question\n`
-    dataBase += convertQuestionsToExport(questions, headerQuestions)
-    const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
-    saveFile(blob, 'dataBase')
-  });
+  try {
+    root.getDatabase((repositories, questions) => {
+      console.log('Repositories', repositories)
+      console.log('Questions', questions)
+      const headerRepositories = `Type: dataBase, Object: repository\n`
+      let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
+      console.log('dataBase', dataBase)
+      const headerQuestions = `Type: dataBase, Object: question\n`
+      dataBase += convertQuestionsToExport(questions, headerQuestions)
+      const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
+      saveFile(blob, 'dataBase')
+    });
+  } catch (ev) {
+    const title = 'Error on export database'
+    errorAlert('errorRemove', {
+      title: title,
+      desc: 'You may want to reload the page and try export database again.'
+    })
+    console.log(title, ev)
+
+  }
 }
 
 export const exportRepository = () => {
@@ -31,6 +41,7 @@ export const exportRepository = () => {
 };
 
 export const exportAll = () => {
+  try {
   root.getDatabase((repositories, questions) => {
     console.log('Repositories', repositories)
     console.log('Questions', questions)
@@ -42,9 +53,18 @@ export const exportAll = () => {
     const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
     saveFile(blob, 'dataBase')
   });
+  } catch (ev) {
+    const title = 'Error on export database'
+    errorAlert('errorRemove', {
+      title: title,
+      desc: 'You may want to reload the page and try export database again.'
+    })
+    console.log(title, ev)
+  }
 };
 
 const saveFile = (blob, filename) => {
+  try {
   if (navigator.msSaveBlob) {
     navigator.msSaveBlob(blob, filename + '.cvs');
   } else {
@@ -58,6 +78,14 @@ const saveFile = (blob, filename) => {
       link.click();
       document.body.removeChild(link);
     }
+  }
+  } catch (ev) {
+    const title = 'Error on save file'
+    errorAlert('errorSaveFile', {
+      title: title,
+      desc: 'You may want to reload the page and try export database again.'
+    })
+    console.log(title, ev)
   }
 }
 
