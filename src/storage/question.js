@@ -3,6 +3,27 @@ import Question from "../components/Question";
 import CopyQuestions from "../components/CopyQuestions";
 import * as root from "../dataBase/root";
 
+// =============================================================================== //
+//     Change question database data and insert elements directly into the DOM     //
+// =============================================================================== //
+
+/* ------------------------------------------------------------------------------- "/"
+
+  question: {
+    id: Question-(timestamp)-(random),
+    value: ----,
+    number: ---,
+    attributes:
+    {
+      type: [ alternative, text ],
+      marker: [ marker, correct, erro ],
+      time: --:--,
+    },
+    repositoryID: Repository-(date)-(timestamp)-(random)
+  }
+
+/" ------------------------------------------------------------------------------ */
+
 export const create = async (question) => {
   let wrapper = document.getElementById(question.id);
   if (!wrapper) {
@@ -96,58 +117,61 @@ export const clearForm = () => {
 };
 
 export const displayCopy = () => {
-  let container = document.getElementById('copyContainer')
+  let container = document.getElementById("copyContainer");
   if (container) {
-    console.log(container)
-    container.remove()
+    console.log(container);
+    container.remove();
   } else {
-    container = document.createElement('div')
-    container.id = 'copyContainer'
-    document.getElementById('root').appendChild(container)
-    console.log(container)
+    container = document.createElement("div");
+    container.id = "copyContainer";
+    document.getElementById("root").appendChild(container);
+    console.log(container);
     ReactDOM.render(
       <CopyQuestions />,
-      document.getElementById('copyContainer')
+      document.getElementById("copyContainer")
     );
   }
-}
+};
 
 export const copyQuestions = (format) => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    const result = formatToCopy(format, questions)
-    document.getElementById('copyResult').value = result
-  })
-}
+    const result = formatToCopy(format, questions);
+    document.getElementById("copyResult").value = result;
+  });
+};
 
 export const QuickCopy = () => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    const result = formatToCopy('Questão [number] - [value]', questions)
-    console.log(result)
-    const textarea = document.createElement('textarea')
-    textarea.classList.add('copyTextarea')
-    textarea.value = result
-    document.getElementById('root').appendChild(textarea)
-    textarea.select()
-    document.execCommand('copy')
-    textarea.remove()
-  })
-}
+    const result = formatToCopy("Questão [number] - [value]", questions);
+    console.log(result);
+    const textarea = document.createElement("textarea");
+    textarea.classList.add("copyTextarea");
+    textarea.value = result;
+    document.getElementById("root").appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  });
+};
 
 export const formatToCopy = (format, questions) => {
-  let result = ''
+  let result = "";
   for (const index in questions) {
     const q = questions[index];
-    let str = format
-    const matched = str.match(/\[.+?\]/g)
+    let str = format;
+    const matched = str.match(/\[.+?\]/g);
     for (const i in matched) {
-      const key = matched[i].replace('[', '').replace(']', '')
-      try { str = str.replaceAll(matched[i], q[key]) }
-      catch (e) { console.log(e); alert(`${matched[i]} is an invalid key`)
+      const key = matched[i].replace("[", "").replace("]", "");
+      try {
+        str = str.replaceAll(matched[i], q[key]);
+      } catch (e) {
+        console.log(e);
+        alert(`${matched[i]} is an invalid key`);
       }
     }
-  result += str + '\n'  
+    result += str + "\n";
   }
-  return result
-}
+  return result;
+};

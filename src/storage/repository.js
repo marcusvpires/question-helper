@@ -6,13 +6,15 @@ import * as root from "../dataBase/root";
 //    Change repository database data and insert elements directly into the DOM    //
 // =============================================================================== //
 
-/*
+/* ------------------------------------------------------------------------------- "/"
 
-  ID Structure: Repository-(date)-(timestamp)-(random)
-  Database: { id: RepositoryID, name: Repository  }
   localStorage: repositoryID, repository
+  repository: { 
+    id: Repository-(date)-(timestamp)-(random),
+    name: Repository
+  }
 
-*/
+/" ------------------------------------------------------------------------------ */
 
 
 export const create = (repository) => {
