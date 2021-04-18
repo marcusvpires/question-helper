@@ -104,6 +104,14 @@ const GlobalStyles = createGlobalStyle`
     height: 1rem;
   }
 
+  .screen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
   // ==============================  Color theme  ============================== //
 
   body {
