@@ -61,7 +61,7 @@ export const remove = async (id) => {
 
 export const build = (type, value) => {
   try {
-    const id = Date.now() + "-" + Math.random().toString(36).slice(-10);
+    const id = newID()
     const repositoryID = localStorage.getItem("repositoryID");
 
     const number = localStorage.getItem("number");
@@ -175,3 +175,13 @@ export const formatToCopy = (format, questions) => {
   }
   return result;
 };
+
+
+// =============================================================================== //
+//                                     Assets                                      //
+// =============================================================================== //
+
+const newID = () => {
+  const random = Math.random().toString(36).slice(-10)
+  return `Question-${Date.now()}-${random}`
+}
