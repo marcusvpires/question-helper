@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import displayErroBox from '../../global/components/ErroBox'
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
@@ -41,11 +40,6 @@ const Navbar = ({ isRepoPage }) => {
   }
   function openTrash() {
     console.log("Open trash")
-    const message = {
-      title: 'Error in open database',
-      desc: 'The local database could not be initialized. Make sure you are not in an incognito window, your browser is compatible with indexedDB and has not blocked access.'
-    }
-    displayErroBox('erroBox', message)
   }
   function editRepository() {
     history.push("/");

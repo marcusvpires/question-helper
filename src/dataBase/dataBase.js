@@ -1,13 +1,14 @@
+import errorAlert from '../global/components/prompt/Error'
+
 export default function dataBase() {
   const request = indexedDB.open("dataBase", 5);
   
   request.onerror = (e) => {
-    alert('Database Error')
-    console.log('Database Error', e);
-  }
-
-  request.onsuccess = (e) => {
-    console.log('Database Opened');
+    errorAlert('erroAlert', {
+      title: 'Error in open database',
+      desc: 'The local database could not be initialized. Make sure you are not in an incognito window, your browser is compatible with indexedDB and has not blocked access.'
+    })
+    console.log('Error in open database:', e);
   }
 
   request.onupgradeneeded = (e) => {

@@ -1,4 +1,4 @@
-import 
+import Error from '../global/components/prompt/Error'
 import * as root from "../dataBase/root";
 
 // =============================================================================== //

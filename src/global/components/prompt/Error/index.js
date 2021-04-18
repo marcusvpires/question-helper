@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
 
 import { render } from "react-dom";
-import { screen } from "../assets";
+import { screen } from "../../assets";
 
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled";
-import * as D from '../../Design'
+import * as D from '../../../Design'
 
 /* ------------------------------------------------------------------------------- "/"
 

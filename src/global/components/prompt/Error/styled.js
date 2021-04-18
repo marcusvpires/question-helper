@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components"
-import { style } from '../../Design'
+import { style } from '../../../Design'
 
 const fadeIn = keyframes`
  0% { transform: scale(.5); opacity: 0; }
