@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
+import erro from '../../global/components/prompt/Error'
 
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -40,6 +41,12 @@ const Navbar = ({ isRepoPage }) => {
   }
   function openTrash() {
     console.log("Open trash")
+    const title = 'Error on build question'
+    erro('errorBuild', {
+      title: title,
+      desc: 'You may want to reload the page and try build question again.'
+    })
+
   }
   function editRepository() {
     history.push("/");
