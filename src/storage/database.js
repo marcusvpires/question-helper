@@ -1,5 +1,9 @@
 import * as root from "../dataBase/root";
 
+// =============================================================================== //
+//                                 Export database                                 //
+// =============================================================================== //
+
 export const exportDatabase = () => {
   root.getDatabase((repositories, questions) => {
     console.log('Repositories', repositories)

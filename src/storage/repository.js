@@ -2,7 +2,6 @@ import ReactDOM from "react-dom";
 import Repository from "../components/Repository";
 import * as root from "../dataBase/root";
 
-
 // =============================================================================== //
 //    Change repository database data and insert elements directly into the DOM    //
 // =============================================================================== //
