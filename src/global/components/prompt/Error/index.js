@@ -7,6 +7,16 @@ import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled";
 import * as D from '../../Design'
 
+/* ------------------------------------------------------------------------------- "/"
+
+  Render element and add directly in root
+  To call function displayErroBox('id', {
+    title: ----,
+    desc: -----,
+  })
+
+/" ------------------------------------------------------------------------------ */
+
 const displayErroBox = (id, message) => {
   screen(id)
   render (

@@ -1,6 +1,9 @@
+
+
 export const screen = (id) => {
   const element = document.createElement('div')
-  element.id = id
+  // Necessary global className '.screen'.
   element.classList.add('screen')
+  element.id = id
   document.getElementById('root').appendChild(element)
 }
