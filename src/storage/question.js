@@ -1,6 +1,9 @@
 import ReactDOM from "react-dom";
+
+import errorAlert from '../global/components/prompt/Error'
 import Question from "../components/Question";
 import CopyQuestions from "../components/CopyQuestions";
+
 import * as root from "../dataBase/root";
 
 // =============================================================================== //
@@ -25,6 +28,7 @@ import * as root from "../dataBase/root";
 /" ------------------------------------------------------------------------------ */
 
 export const create = async (question) => {
+  try {
   let wrapper = document.getElementById(question.id);
   if (!wrapper) {
     wrapper = document.createElement("li");
@@ -42,6 +46,14 @@ export const create = async (question) => {
     document.getElementById(question.id)
   );
   wrapper.scrollIntoView({ behavior: "smooth" });
+  } catch (ev) {
+    const title = 'Error on create question'
+    errorAlert('errorRemove', {
+      title: title,
+      desc: 'You may want to reload the page and try export database again.'
+    })
+    console.log(title, ev)
+  }
 };
 
 export const update = async (question) => {
@@ -49,7 +61,6 @@ export const update = async (question) => {
 };
 
 export const generate = async (question) => {
-  console.log(this);
   create(question);
   root.put("question", question);
 };
@@ -85,13 +96,13 @@ export const build = (type, value) => {
     localStorage.setItem("timer", 0);
 
     generate(question);
-  } catch (err) {
-    console.warn(
-      "Error on create question -",
-      `value: ${value}, type: ${type}`,
-      err
-    );
-    alert("Error on create question");
+  } catch (ev) {
+    const title = 'Error on build question'
+    errorAlert('errorBuild', {
+      title: title,
+      desc: 'You may want to reload the page and try build question again.'
+    })
+    console.log(title, ev)
   }
 };
 
@@ -117,6 +128,7 @@ export const clearForm = () => {
 };
 
 export const displayCopy = () => {
+  try {
   let container = document.getElementById("copyContainer");
   if (container) {
     console.log(container);
@@ -131,6 +143,14 @@ export const displayCopy = () => {
       document.getElementById("copyContainer")
     );
   }
+  } catch (ev) {
+    const title = 'Error on display copy config'
+    errorAlert('errorDisplayQuestion', {
+      title: title,
+      desc: 'You may want to reload the page and try display question config again.'
+    })
+    console.log(title, ev)
+  }
 };
 
 export const copyQuestions = (format) => {
@@ -142,6 +162,7 @@ export const copyQuestions = (format) => {
 };
 
 export const QuickCopy = () => {
+  try {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
     const result = formatToCopy("Questão [number] - [value]", questions);
@@ -154,6 +175,14 @@ export const QuickCopy = () => {
     document.execCommand("copy");
     textarea.remove();
   });
+  } catch (ev) {
+    const title = 'Error on copy questions'
+    errorAlert('errorBuild', {
+      title: title,
+      desc: 'You may want to reload the page and try copy questions again.'
+    })
+    console.log(title, ev)
+  }
 };
 
 export const formatToCopy = (format, questions) => {
