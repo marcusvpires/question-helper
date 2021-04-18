@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
+import displayErroBox from '../../Assets/GlobalComponents/ErroBox'
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 
@@ -40,6 +41,7 @@ const Navbar = ({ isRepoPage }) => {
   }
   function openTrash() {
     console.log("Open trash");
+    displayErroBox()
   }
   function editRepository() {
     history.push("/");

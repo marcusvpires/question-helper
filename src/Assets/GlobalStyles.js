@@ -110,6 +110,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100vh;
     top: 0;
     left: 0;
+    visibility: none;
   }
 
   // ==============================  Color theme  ============================== //

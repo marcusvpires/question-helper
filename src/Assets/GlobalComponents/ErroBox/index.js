@@ -1,24 +1,25 @@
 import React from "react";
+
 import { render } from "react-dom";
-import { PopUp, screen } from "../assets";
+import { screen } from "../assets";
 
 import * as S from "./styled";
 
 const displayErroBox = () => {
-  const root = screen('erroScreen')
-  render(
+  screen('erroScreen')
+  render (
     <ErroBox />,
-    root
+    document.getElementById("erroScreen")
   )
 }
 
-const ErroBox = () => {
-  return (
-    <PopUp>
-      <S.Wrapper>
-      </S.Wrapper>
-    </PopUp>
-  )
-}
+const ErroBox = () =>  (
+  <S.Wrapper>
+    <S.Back />
+    <S.Container>
+      Hello
+    </S.Container>
+  </S.Wrapper>
+)
 
 export default displayErroBox
