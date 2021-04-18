@@ -40,8 +40,12 @@ const Navbar = ({ isRepoPage }) => {
     history.push("/repositories");
   }
   function openTrash() {
-    console.log("Open trash");
-    displayErroBox()
+    console.log("Open trash")
+    const message = {
+      title: 'Error in open database',
+      desc: 'The local database could not be initialized. Make sure you are not in an incognito window, your browser is compatible with indexedDB and has not blocked access.'
+    }
+    displayErroBox('erroBox', message)
   }
   function editRepository() {
     history.push("/");
