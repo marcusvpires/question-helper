@@ -5,6 +5,7 @@ import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
 import * as repository from "../../storage/repository";
 import erro from "../../global/components/prompt/Error";
 import confirm from "../../global/components/prompt/Confirm";
+import input from "../../global/components/prompt/Input";
 
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -15,8 +16,20 @@ const Navbar = ({ isRepoPage }) => {
   const navButtonList = [
     {
       name: "New repository",
-      onClick: () => { newRepository(isRepoPage) },
+      onClick: () => { newRepository('Undefined', isRepoPage) },
       icon: <I.AddToQueue />,
+      more: () => {
+        input(
+          'repositoryName',
+          { title:  'Create new repository', question: 'Type the name of the repository'}, newRepository, [isRepoPage]
+        )
+      }
+    },
+    {
+      name: "Copy questions",
+      onClick: () => { QuickCopy("Questão [number] - [value]") },
+      icon: <I.CopyAlt />,
+      more: displayCopy,
     },
     {
       name: "Clear section",
@@ -30,12 +43,6 @@ const Navbar = ({ isRepoPage }) => {
         )
       },
       icon: <I.Brush />,
-    },
-    {
-      name: "Copy questions",
-      onClick: () => { QuickCopy("Questão [number] - [value]") },
-      icon: <I.CopyAlt />,
-      more: displayCopy,
     },
     {
       name: "Export",
@@ -83,23 +90,21 @@ const Navbar = ({ isRepoPage }) => {
   );
 };
 
-const newRepository = (isRepoPage) => {
+const newRepository = (name, isRepoPage) => {
   try {
-    repository.add();
-    localStorage.setItem("repository", "Undefined");
-    if (isRepoPage) {
-      repository.build();
-    } else {
-      clearForm();
+    localStorage.setItem("repository", name)
+    if (isRepoPage) { repository.build(name) } 
+    else {
+      repository.add(false, name) 
+      clearForm() 
     }
   } catch (ev) {
     const title = "Error creating a new repository";
     console.error(title, ev);
-    erro("errorNewRepository", {
-      title: title,
-    });
+    erro("errorNewRepository", { title: title} );
   }
 };
+
 
 const clearSection = (isRepoPage) => {
   try {
