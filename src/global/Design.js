@@ -8,6 +8,23 @@ export const style = {
 //                                      Input                                      //
 // =============================================================================== //
 
+export const Input = styled.input`
+	background-color: ${ props => props.back ? props.back : 'var(--black)' };
+  margin: ${props => props.margin && props.margin};
+  ${style.border}
+	padding: .6rem .8rem;
+  width: 100%;
+  color: var(--primary);
+	font-size: 1rem;
+  margin: ${props => props.margin ? props.margin : '0 0 1rem'};
+  &:focus {
+    border: 1px solid var(--blue);
+  }
+  &:invalid {
+    border: 1px solid red;
+  }
+`
+
 export const Button = styled.button`
 	background-color: ${ props => props.back ? props.back : 'var(--blueDark)' };
   margin: ${props => props.margin && props.margin};

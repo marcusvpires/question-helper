@@ -38,10 +38,11 @@ const Input = ({ id, message, back, props }) =>  {
     <D.Popup>
       <S.Wrapper reverse={reverse} >
         <D.Flex color='#3e93ff'>
-          <D.Icon size='2rem'><I.Error /></D.Icon>
+          <D.Icon size='2rem'><I.File /></D.Icon>
           <D.Strong>{message.title}</D.Strong>
         </D.Flex>
         <D.Text>{message.question}</D.Text>
+        <D.Input maxLength='50' id='promptInput' />
         <D.Flex justify='end'>
           <D.Button margin='0 1rem' onClick={() => {
             setReverse(true)
@@ -50,8 +51,9 @@ const Input = ({ id, message, back, props }) =>  {
           <D.Button onClick={() => {
             setReverse(true)
             setTimeout(() => {
+              const name = document.getElementById('promptInput').value
               document.getElementById(id).remove()
-              if (back) { back(...props) }
+              if (back) { back(name, ...props) }
             }, 150)
           }}>Confirm</D.Button>
         </D.Flex>
