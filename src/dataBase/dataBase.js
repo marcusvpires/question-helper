@@ -8,7 +8,7 @@ export default function dataBase() {
       title: 'Error in open database',
       desc: 'The local database could not be initialized. Make sure you are not in an incognito window, your browser is compatible with indexedDB and has not blocked access.'
     })
-    console.log('Error in open database:', e);
+    console.error('Error in open database:', e);
   }
 
   request.onupgradeneeded = (e) => {

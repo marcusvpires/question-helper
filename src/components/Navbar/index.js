@@ -26,7 +26,7 @@ const Navbar = ({ isRepoPage }) => {
             title: 'Want to clear the session ?',
             desc: 'All questions on this form together with all the information on the form will be permanently deleted',
           }, clearSection,
-          { isRepoPage: isRepoPage }
+          [ isRepoPage ]
         )
       },
       icon: <I.Brush />,
@@ -103,6 +103,7 @@ const newRepository = (isRepoPage) => {
 
 const clearSection = (isRepoPage) => {
   try {
+    repository.clear()
     if (isRepoPage) {
       document.getElementById("questionSection").innerHTML = "";
       const prev = localStorage.getItem("repositoryID");

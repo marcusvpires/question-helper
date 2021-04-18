@@ -5,7 +5,6 @@ import Navbar from "../Navbar";
 import * as S from "./styled";
 
 const Layout = ({ children, isRepoPage }) => {
-  console.log('Is repository:', isRepoPage)
   return (
   <S.LayoutWrapper>
     <GlobalStyles />

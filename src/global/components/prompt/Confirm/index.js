@@ -49,7 +49,7 @@ const Confirm = ({ id, message, back, props }) =>  {
             setReverse(true)
             setTimeout(() => {
               document.getElementById(id).remove()
-              if (back) { back(Object.values(props)) }
+              if (back) { back(...props) }
             }, 150)
           }}>Confirm</D.Button>
         </D.Flex>

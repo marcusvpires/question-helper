@@ -8,11 +8,8 @@ import * as root from "../dataBase/root";
 export const exportDatabase = () => {
   try {
     root.getDatabase((repositories, questions) => {
-      console.log('Repositories', repositories)
-      console.log('Questions', questions)
       const headerRepositories = `Type: dataBase, Object: repository\n`
       let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-      console.log('dataBase', dataBase)
       const headerQuestions = `Type: dataBase, Object: question\n`
       dataBase += convertQuestionsToExport(questions, headerQuestions)
       const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
@@ -22,9 +19,8 @@ export const exportDatabase = () => {
     const title = 'Error on export database'
     errorAlert('errorRemove', {
       title: title,
-      desc: 'You may want to reload the page and try export database again.'
     })
-    console.log(title, ev)
+    console.warn(title, ev)
 
   }
 }
@@ -43,11 +39,8 @@ export const exportRepository = () => {
 export const exportAll = () => {
   try {
   root.getDatabase((repositories, questions) => {
-    console.log('Repositories', repositories)
-    console.log('Questions', questions)
     const headerRepositories = `Type: dataBase, Object: repository\n`
     let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-    console.log('dataBase', dataBase)
     const headerQuestions = `Type: dataBase, Object: question\n`
     dataBase += convertQuestionsToExport(questions, headerQuestions)
     const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
@@ -57,9 +50,8 @@ export const exportAll = () => {
     const title = 'Error on export database'
     errorAlert('errorRemove', {
       title: title,
-      desc: 'You may want to reload the page and try export database again.'
     })
-    console.log(title, ev)
+    console.warn(title, ev)
   }
 };
 
@@ -83,9 +75,8 @@ const saveFile = (blob, filename) => {
     const title = 'Error on save file'
     errorAlert('errorSaveFile', {
       title: title,
-      desc: 'You may want to reload the page and try export database again.'
     })
-    console.log(title, ev)
+    console.warn(title, ev)
   }
 }
 

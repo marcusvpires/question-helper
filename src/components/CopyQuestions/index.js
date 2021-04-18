@@ -31,7 +31,6 @@ const Copy = () => {
       setValid(true);
     }
     for (const index in matched) {
-      console.log(validStr.indexOf(matched[index]), matched[index]);
       if (validStr.indexOf(matched[index]) === -1) {
         setValid(false);
         return;
@@ -80,7 +79,6 @@ const Copy = () => {
             <S.CopyButton
               padding="0.9rem"
               onClick={() => {
-                console.log("Remove");
                 document.getElementById("copyContainer").remove();
               }}
             >

@@ -14,7 +14,7 @@ const QuestionsPage = () => {
   useEffect(() => {
     let repositoryID = localStorage.getItem("repositoryID");
     if (!repositoryID) { repositoryID = repositoryStorage.add(true); }
-    console.log("Connect with repository", repositoryID);
+    console.info("Connect with repository", repositoryID);
     getIndex("question", "repositoryID", repositoryID, (questions) => {
       let lastQuestion = questions[questions.length - 1]
       let number = 1 

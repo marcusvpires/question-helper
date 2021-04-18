@@ -52,7 +52,7 @@ export const create = async (question) => {
       title: title,
       desc: 'You may want to reload the page and try export database again.'
     })
-    console.log(title, ev)
+    console.error(title, ev)
   }
 };
 
@@ -81,7 +81,6 @@ export const build = (type, value) => {
       document.getElementById("text").value = "";
       value = localStorage.getItem("text");
       localStorage.setItem("text", "");
-      console.log("Value:", value);
     }
 
     const question = {
@@ -102,7 +101,7 @@ export const build = (type, value) => {
       title: title,
       desc: 'You may want to reload the page and try build question again.'
     })
-    console.log(title, ev)
+    console.error(title, ev)
   }
 };
 
@@ -120,9 +119,9 @@ const formatTime = (timer) => {
 };
 
 export const clearForm = () => {
-  document.getElementById("questionSection").innerHTML = "";
   document.getElementById("number").value = 1;
   document.getElementById("text").value = "";
+  document.getElementById("questionSection").innerHTML = "";
   localStorage.setItem("number", 1);
   localStorage.setItem("text", "");
 };
@@ -130,18 +129,15 @@ export const clearForm = () => {
 export const displayCopy = () => {
   try {
   let container = document.getElementById("copyContainer");
-  if (container) {
-    console.log(container);
-    container.remove();
-  } else {
+  if (container) { container.remove() }
+  else {
     container = document.createElement("div");
     container.id = "copyContainer";
     document.getElementById("root").appendChild(container);
-    console.log(container);
     ReactDOM.render(
       <CopyQuestions />,
       document.getElementById("copyContainer")
-    );
+    )
   }
   } catch (ev) {
     const title = 'Error on display copy config'
@@ -149,7 +145,7 @@ export const displayCopy = () => {
       title: title,
       desc: 'You may want to reload the page and try display question config again.'
     })
-    console.log(title, ev)
+    console.error(title, ev)
   }
 };
 
@@ -166,7 +162,6 @@ export const QuickCopy = () => {
   const repositoryID = localStorage.getItem("repositoryID");
   root.getIndex("question", "repositoryID", repositoryID, (questions) => {
     const result = formatToCopy("Questão [number] - [value]", questions);
-    console.log(result);
     const textarea = document.createElement("textarea");
     textarea.classList.add("copyTextarea");
     textarea.value = result;
@@ -181,7 +176,7 @@ export const QuickCopy = () => {
       title: title,
       desc: 'You may want to reload the page and try copy questions again.'
     })
-    console.log(title, ev)
+    console.error(title, ev)
   }
 };
 
@@ -196,8 +191,7 @@ export const formatToCopy = (format, questions) => {
       try {
         str = str.replaceAll(matched[i], q[key]);
       } catch (e) {
-        console.log(e);
-        alert(`${matched[i]} is an invalid key`);
+        console.warn(`${matched[i]} is an invalid key`, e);
       }
     }
     result += str + "\n";

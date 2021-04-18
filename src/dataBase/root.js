@@ -1,19 +1,13 @@
 import dataBase from './dataBase';
 import errorAlert from '../global/components/prompt/Error'
 
-const onRequestError = (e) => {
-  alert('Database request error')
-  console.log('Database request error', e);
-}
-
 export const add = async (storage, element, back = () => {}) => {
   const request = dataBase();
   request.onerror = (ev) => {
     errorAlert('errorAdd', {
       title: `Error on add ${storage} in database `,
-      desc: `You may want to reload the page and try to add ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -29,9 +23,8 @@ export const put = async (storage, element, back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorPut', {
       title: `Error on put ${storage} in database `,
-      desc: `You may want to reload the page and try to put ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -47,9 +40,8 @@ export const remove = (storage, key, back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorRemove', {
       title: `Error on remove ${storage} in database `,
-      desc: `You may want to reload the page and try to remove ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -66,9 +58,8 @@ export const removeAll = (storage, back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorRemove', {
       title: `Error on remove ${storage} in database `,
-      desc: `You may want to reload the page and try to remove ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -85,9 +76,8 @@ export const getAll = (storage, back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorGetAll', {
       title: `Error on get ${storage} in database `,
-      desc: `You may want to reload the page and try to get ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -104,9 +94,8 @@ export const getDatabase = (back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorGetDatabase', {
       title: `Error on get database in database `,
-      desc: `You may want to reload the page and try to get database again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -116,7 +105,12 @@ export const getDatabase = (back = () => {}) => {
       const repositories = ev.target.result
       
       const request = dataBase()
-      request.onerror = onRequestError
+      request.onerror = (ev) => {
+        errorAlert('errorGetAll', {
+          title: `Error on get database `,
+        })
+        console.error('Database request error', ev)
+      };
 
       request.onsuccess = (e) => {
         const db = e.target.result;
@@ -124,7 +118,12 @@ export const getDatabase = (back = () => {}) => {
         const store = transaction.objectStore('question');
         store.getAll().onsuccess = (ev) => {
           const request = dataBase()
-          request.onerror = onRequestError
+          request.onerror = (ev) => {
+            errorAlert('errorGetAll', {
+              title: `Error on get database `,
+            })
+            console.error('Database request error', ev)
+          };
           back(repositories, ev.target.result)
         }
       }
@@ -137,9 +136,8 @@ export const getIndex = (storage, key, value, back = () => {}) => {
   request.onerror = (ev) => {
     errorAlert('errorGetIndex', {
       title: `Error on get ${storage} in database `,
-      desc: `You may want to reload the page and try to get ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
@@ -162,9 +160,8 @@ export const deleteIndex = (storage, key, value) => {
   request.onerror = (ev) => {
     errorAlert('errorAdd', {
       title: `Error on delete ${storage} in database `,
-      desc: `You may want to reload the page and try to delete ${storage} again.`
     })
-    console.log('Database request error', ev)
+    console.error('Database request error', ev)
   };
   request.onsuccess = (e) => {
     const db = e.target.result;
