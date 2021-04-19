@@ -18,7 +18,7 @@ const Navbar = ({ isRepoPage }) => {
     {
       name: "New repository",
       onClick: () => {
-        alert('newRepositoryAlert', 'The new repository was created successfully', 'info')
+        alert('newRepositoryAlert', 'Repository was created successfully', 'info')
         newRepository('Undefined', isRepoPage)
       },
       icon: <I.AddToQueue />,

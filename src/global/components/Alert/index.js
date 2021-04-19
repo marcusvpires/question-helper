@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { render } from "react-dom";
 
 import * as I from '@styled-icons/boxicons-regular/'
@@ -15,7 +15,6 @@ import * as D from '../../Design'
 const displayAlert = (id, info, type) => {
   const element = document.createElement('div')
   element.id = id
-  console.log(element)
   document.getElementById('root').appendChild(element)
   render (
     <Alert id={id} info={info} type={type} />,
@@ -24,17 +23,18 @@ const displayAlert = (id, info, type) => {
 }
 
 const Alert = ({ id, info, type }) =>  {
-  const [reverse, setReverse] = useState(false)
   const options = { info: { color: 'var(--blueDark)', icon: <I.Bell /> }}
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById(id).remove()
+      const element = document.getElementById(id)
+      if (element) { element.remove() }
+      else { console.info("Can't remove alert element", element) }
     }, 4000)
   })
   return (
     <S.Position>
     <S.Container>
-    <S.Wrapper reverse={reverse} back={options[type].color} >
+    <S.Wrapper back={options[type].color} >
       <D.Flex color='#3e93ff'>
         <D.Icon size='1.5rem'>{options[type].icon}</D.Icon>
         <D.h3>{info}</D.h3>
