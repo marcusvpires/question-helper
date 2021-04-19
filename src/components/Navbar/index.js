@@ -31,7 +31,10 @@ const Navbar = ({ isRepoPage }) => {
     },
     {
       name: "Copy questions",
-      onClick: () => { QuickCopy("Questão [number] - [value]") },
+      onClick: () => { 
+        alert('copyAlert', 'Successfully copied questions', 'info')
+        QuickCopy("Questão [number] - [value]")
+      },
       icon: <I.CopyAlt />,
       more: displayCopy,
     },
