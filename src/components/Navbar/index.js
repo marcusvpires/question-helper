@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { clearForm, displayCopy, QuickCopy } from "../../storage/question";
+import { exportDatabase } from "../../storage/database";
 import * as repository from "../../storage/repository";
 import erro from "../../global/components/prompt/Error";
 import confirm from "../../global/components/prompt/Confirm";
@@ -53,7 +54,7 @@ const Navbar = ({ isRepoPage }) => {
     },
     {
       name: "Export",
-      onClick: repository.exportAll,
+      onClick: exportDatabase,
       icon: <I.CopyAlt />,
     },
     {

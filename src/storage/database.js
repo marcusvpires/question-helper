@@ -8,9 +8,9 @@ import * as root from "../dataBase/root";
 export const exportDatabase = () => {
   try {
     root.getDatabase((repositories, questions) => {
-      const headerRepositories = `Type: dataBase, Object: repository\n`
+      const headerRepositories = `Type: dataBase; Object: repository\n`
       let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-      const headerQuestions = `Type: dataBase, Object: question\n`
+      const headerQuestions = `||Type: dataBase; Object: question\n`
       dataBase += convertQuestionsToExport(questions, headerQuestions)
       const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
       saveFile(blob, 'dataBase')
@@ -24,36 +24,6 @@ export const exportDatabase = () => {
 
   }
 }
-
-export const exportRepository = () => {
-  const repositoryID = localStorage.getItem("repositoryID");
-  root.getIndex("question", "repositoryID", repositoryID, (questions) => {
-    const repositoryID = localStorage.getItem("repositoryID");
-    const repository = localStorage.getItem("repository");
-    let header = `Type: repository, RepositoryID: ${repositoryID}, Repository: ${repository}\n`
-    const blob = convertQuestionsToExport(questions, header);
-    saveFile(blob, repository)
-  });
-};
-
-export const exportAll = () => {
-  try {
-  root.getDatabase((repositories, questions) => {
-    const headerRepositories = `Type: dataBase, Object: repository\n`
-    let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-    const headerQuestions = `Type: dataBase, Object: question\n`
-    dataBase += convertQuestionsToExport(questions, headerQuestions)
-    const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
-    saveFile(blob, 'dataBase')
-  });
-  } catch (ev) {
-    const title = 'Error on export database'
-    errorAlert('errorRemove', {
-      title: title,
-    })
-    console.warn(title, ev)
-  }
-};
 
 const saveFile = (blob, filename) => {
   try {
@@ -91,7 +61,7 @@ const processRepository = (r) => {
 }
 
 const convertQuestionsToExport = (questions, header) => {
-  let cvsFile = header + "ID,value,number,type,marker,time,repositoryID\n";
+  let cvsFile = header + "ID;value;number;type;marker;time;repositoryID\n";
   for (const i in questions) { cvsFile += processQuestion(questions[i]); }
   return cvsFile
 };
@@ -103,7 +73,6 @@ const processQuestion = (q) => {
 const f = (value) => {
   let innerValue = ""
   if (value) { innerValue = value.toString() }
-  let result = innerValue.replace(/"/g, '""')
-  if (result.search(/("|,|\n)/g) >= 0) { result = '"' + result + '"' }
+  let result = innerValue.replaceAll(';', '/&&::').replaceAll('||', '/&&[[')
   return result
 }
