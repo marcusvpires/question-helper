@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from "./styled";
-import * as D from '../../../Design'
+import * as D from '../../Design'
 
 /* ------------------------------------------------------------------------------- "/"
 
@@ -15,7 +15,8 @@ import * as D from '../../../Design'
 const displayAlert = (id, info, type) => {
   const element = document.createElement('div')
   element.id = id
-  document.getElementById(id).appendChild(element)
+  console.log(element)
+  document.getElementById('root').appendChild(element)
   render (
     <Alert id={id} info={info} type={type} />,
     document.getElementById(id)
@@ -24,16 +25,23 @@ const displayAlert = (id, info, type) => {
 
 const Alert = ({ id, info, type }) =>  {
   const [reverse, setReverse] = useState(false)
-  const options = {
-    info: { color: 'red', icon: <I.File /> }
-  }
+  const options = { info: { color: 'var(--blueDark)', icon: <I.Bell /> }}
+  useEffect(() => {
+    setTimeout(() => {
+      document.getElementById(id).remove()
+    }, 4000)
+  })
   return (
+    <S.Position>
+    <S.Container>
     <S.Wrapper reverse={reverse} back={options[type].color} >
       <D.Flex color='#3e93ff'>
-        <D.Icon size='2rem'>{options[type].icon}</D.Icon>
-        <D.Strong>{info}</D.Strong>
+        <D.Icon size='1.5rem'>{options[type].icon}</D.Icon>
+        <D.h3>{info}</D.h3>
       </D.Flex>
     </S.Wrapper>
+    </S.Container>
+    </S.Position>
 )}
 
 export default displayAlert

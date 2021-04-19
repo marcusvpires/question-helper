@@ -79,7 +79,7 @@ export const Link = styled.a`
 `
 
 // =============================================================================== //
-//                                      Popup                                      //
+//                                      Text                                       //
 // =============================================================================== //
 
 export const Strong = styled.span`
@@ -91,6 +91,10 @@ export const Strong = styled.span`
 export const Text = styled.p`
   font-size: .8rem;
   padding: .8rem 0;
+`
+
+export const h3 = styled.h3`
+  font-size: 1.1rem;
 `
 
 // =============================================================================== //

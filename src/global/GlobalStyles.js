@@ -81,6 +81,10 @@ const GlobalStyles = createGlobalStyle`
 
   // ==============================  Class Name  ============================== //
 
+  .root {
+    overflow: hidden;
+  }
+
   .QuestionWrapper {
     width: 100%;
     border: 1px solid  ${props => props.marker ? `var(--${props.marker})` : '#6f757a'};

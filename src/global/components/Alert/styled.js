@@ -1,18 +1,37 @@
 import styled, { keyframes } from "styled-components"
-import { style } from '../../../Design'
 
-const fadeIn = keyframes`
- 0% { transform: scale(.5); opacity: 0; }
- 100% { transform: scale(1); opacity: 1; }
+const fade = keyframes`
+ 0%   { left: 40rem; }
+ 5%   { left:  0rem; }
+ 95%  { left:  0rem; }
+ 100% { left: 40rem; }
 `
 
-const fadeOut = keyframes`
- 0% { transform: scale(1); opacity: 1; }
- 100% { transform: scale(.5); opacity: 0; }
+export const Position = styled.div`
+  position: absolute;
+  top: calc(100% - 5rem);
+  left: 0;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+`
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  overflow: hidden;
 `
 
 export const Wrapper = styled.div`
   background-color: ${props => props.back};
-  padding: 1rem 1.5rem;
-  animation: 150ms ${props => props.reverse ? fadeOut : fadeIn } linear 1;
+  padding: .8rem 1.5rem .8rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 5px 0 0 5px;
+  position: relative;
+  z-index: 100;
+  left: 40rem;
+  animation: 4s ${fade} linear 1;
 `

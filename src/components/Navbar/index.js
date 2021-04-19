@@ -6,6 +6,7 @@ import * as repository from "../../storage/repository";
 import erro from "../../global/components/prompt/Error";
 import confirm from "../../global/components/prompt/Confirm";
 import input from "../../global/components/prompt/Input";
+import alert from '../../global/components/Alert'
 
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
@@ -16,7 +17,10 @@ const Navbar = ({ isRepoPage }) => {
   const navButtonList = [
     {
       name: "New repository",
-      onClick: () => { newRepository('Undefined', isRepoPage) },
+      onClick: () => {
+        alert('newRepositoryAlert', 'The new repository was created successfully', 'info')
+        newRepository('Undefined', isRepoPage)
+      },
       icon: <I.AddToQueue />,
       more: () => {
         input(
