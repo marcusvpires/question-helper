@@ -1,9 +1,13 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const FormsWrapper = styled.section`
   height: 100%;
   width: 24rem;
   padding: 2rem;
+  ${media.lessThan("medium")`
+
+  `}
 `
 
 export const FormsQuestion = styled.div`
@@ -19,4 +23,5 @@ export const FormsNumber = styled.input`
     box-shadow: none;
     color: red;
   }
+  
 `

@@ -1,5 +1,6 @@
 import { style } from '../../global/Design'
 import styled, { keyframes } from "styled-components"
+import media from "styled-media-query"
 
 export const NavWrapper = styled.section`
   background-color: var(--back);
@@ -7,6 +8,9 @@ export const NavWrapper = styled.section`
   width: 12.5rem;
   position: absolute;
   padding-top: 5rem;
+  ${media.lessThan("large")`
+    width: 3.8rem;
+  `}
 `
 
 export const NavItem = styled.div`
@@ -24,6 +28,10 @@ export const NavMore = styled.button`
    &:hover {
     background-color: var(--blueDark)
   }
+
+  ${media.lessThan("large")`
+    display: none;
+  `}
 `
 
 export const NavMoreIcon = styled.div`
@@ -51,6 +59,9 @@ export const NavButton = styled.button`
 export const NavText = styled.span`
   text-align: start;
   font-size: 1rem;
+  ${media.lessThan("large")`
+    display: none;
+  `}
 `
 
 export const NavIcon = styled.div`
