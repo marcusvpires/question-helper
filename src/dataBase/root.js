@@ -35,6 +35,25 @@ export const put = async (storage, element, back = () => {}) => {
   }
 }
 
+export const putMany = async (storage, arr, load = () => {}) => {
+  const request = dataBase();
+  request.onerror = (ev) => {
+    errorAlert('errorPutMany', {
+      title: `Error on put ${storage} in database `,
+    })
+    console.error('Database request error', ev)
+  };
+  request.onsuccess = (e) => {
+    const db = e.target.result;
+    const transaction = db.transaction([storage], 'readwrite');
+    arr.forEach((element, index) => {
+      const store = transaction.objectStore(storage);
+      store.put(element);
+      load(index)
+    })
+  }
+}
+
 export const remove = (storage, key, back = () => {}) => {
   const request = dataBase();
   request.onerror = (ev) => {

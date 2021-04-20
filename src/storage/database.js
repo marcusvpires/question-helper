@@ -8,10 +8,8 @@ import * as root from "../dataBase/root";
 export const exportDatabase = () => {
   try {
     root.getDatabase((repositories, questions) => {
-      const headerRepositories = `Type: dataBase; Object: repository\n`
-      let dataBase = convertRepositoriesToExport(repositories, headerRepositories);
-      const headerQuestions = `||Type: dataBase; Object: question\n`
-      dataBase += convertQuestionsToExport(questions, headerQuestions)
+      let dataBase = convertRepositoriesToExport(repositories);
+      dataBase += convertQuestionsToExport(questions)
       const blob = new Blob([dataBase], { type: "text/cvs;charset=utf-8;" });
       saveFile(blob, 'dataBase')
     });
@@ -21,7 +19,6 @@ export const exportDatabase = () => {
       title: title,
     })
     console.warn(title, ev)
-
   }
 }
 
@@ -50,30 +47,30 @@ const saveFile = (blob, filename) => {
   }
 }
 
-const convertRepositoriesToExport = (repositories, header) => {
-  let cvsFile = header + "ID;Name\n";
+const convertRepositoriesToExport = (repositories) => {
+  let cvsFile = '';
   for (const i in repositories) { cvsFile += processRepository(repositories[i]); }
   return cvsFile
 };
 
 const processRepository = (r) => {
-  return `${f(r.id)};${f(r.name)}\n`
+  return `(r);${f(r.id)};${f(r.name)}\n`
 }
 
-const convertQuestionsToExport = (questions, header) => {
-  let cvsFile = header + "ID;value;number;type;marker;time;repositoryID\n";
+const convertQuestionsToExport = (questions) => {
+  let cvsFile = '';
   for (const i in questions) { cvsFile += processQuestion(questions[i]); }
   return cvsFile
 };
 
 const processQuestion = (q) => {
-  return `${f(q.id)};${f(q.value)};${f(q.number)};${f(q.attributes.type)};${f(q.attributes.marker)};${f(q.attributes.time)};${f(q.repositoryID)}\n`
+  return `(q);${f(q.id)};${f(q.value)};${f(q.number)};${f(q.attributes.type)};${f(q.attributes.marker)};${f(q.attributes.time)};${f(q.repositoryID)}\n`
 }
 
 const f = (value) => {
   let innerValue = ""
   if (value) { innerValue = value.toString() }
-  let result = innerValue.replaceAll(';', '/&&::').replaceAll('||', '/&&[[')
+  let result = innerValue.replaceAll(';', '/&&::').replaceAll('\n', '/&&nn')
   return result
 }
 
@@ -82,6 +79,39 @@ const f = (value) => {
 //                                 Import database                                 //
 // =============================================================================== //
 
-export const importDatabase = (info, data) => {
-  console.log(data)
+export const importDatabase = (info, csv) => {
+  const arr = csv.split('\n')
+  const questions = []
+  const repositories = []
+  for (const index in arr) {
+    const row = arr[index].split(';')
+    if (row[0] === '(q)') { questions.push(formatQuestion(row)) }
+    else if (row[0] === '(r)') { repositories.push(formatRepository(row)) }
+  }
+  root.putMany('repository', repositories, (index) => {console.log('Repository:', index)})
+  root.putMany('question', questions, (index) => {console.log('Question:', index)})
+}
+
+export const formatQuestion = (arr) => {
+  const question = {
+    id: arr[1],
+    value: arr[2],
+    number: arr[3],
+    attributes:
+    {
+      type: arr[4],
+      marker: arr[5],
+      time: arr[6],
+    },
+    repositoryID: arr[7]
+  }
+  return question
+}
+
+export const formatRepository = (arr) => {
+  const repository = { 
+    id: arr[1],
+    name: arr[2]
+  }
+  return repository
 }
