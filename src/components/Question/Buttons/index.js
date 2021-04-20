@@ -1,13 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 import * as D from "../../../global/Design";
 
 const Buttons = ({ question, type, displayText, text, save, remove }) => {
   const [marker, setMarker] = useState(question.attributes.marker);
+  const [show, setShow] = useState(false)
   const id = question.id
 
-  const isMarker = (btn) => { if (marker === btn) { return marker + "Icon"; } };
+  const isMarker = (Marker) => { if (marker === Marker) { return `var(--${Marker}Icon)`; } };
 
   const handleMarker = (id, button) => {
     console.info('Set marker', button, id)
@@ -42,8 +43,8 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
   })}
 
   return (
-    <div>
-      <S.BtnWrapper>
+    <S.BtnWrapper>
+    <S.BtnContainer show={show} compact>
         {buttons.map(btn => {
           let onClick; let color; let rotate
 
@@ -57,48 +58,23 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
             onClick = () => {handleMarker(id, btn.marker)} 
           }
           return (
-            <D.ButtonIcon size='1.8rem'
+            <D.ButtonIcon size='1.8rem' key={btn.name}
               onClick={onClick}
               color={color}
               rotate={rotate}
             >{btn.icon}
             </D.ButtonIcon>
         )})}
-      </S.BtnWrapper>
+      </S.BtnContainer>
 
       <S.CompactButtons>
-        <D.ButtonIcon size='1.8rem'>
+        <D.ButtonIcon size='1.8rem' onClick={() => { setShow(!show) }}>
           <I.DotsVerticalRounded />
         </D.ButtonIcon>
       </S.CompactButtons>
 
-    </div>
+    </S.BtnWrapper>
   );
 };
 
 export default Buttons;
-
-/* 
-
-      {type === "text" && (
-        <S.BtnIcon
-          onClick={() => { displayText();}}
-          marker={text.color}
-          rotate={text.rotate}
-          ><I.CaretUpSquare />
-        </S.BtnIcon>
-      )}
-
-
-      <S.BtnIcon
-        onClick={() => {handleMarker(id, "erro");}}
-        marker={isMarker("erro")}
-        ><I.ErrorAlt />
-      </S.BtnIcon>
-
-      <S.BtnIcon
-        onClick={() => { remove(id) }}
-        ><I.Trash />
-      </S.BtnIcon>
-
-*/
