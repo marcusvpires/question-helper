@@ -35,7 +35,9 @@ export const put = async (storage, element, back = () => {}) => {
   }
 }
 
-export const putMany = async (storage, arr, load = () => {}, props) => {
+export const putMany = async (
+  storage, arr, load = () => {}, props = [], back = () => {}, propsBack = []
+  ) => {
   const request = dataBase();
   request.onerror = (ev) => {
     errorAlert('errorPutMany', {
@@ -51,6 +53,7 @@ export const putMany = async (storage, arr, load = () => {}, props) => {
       store.put(element);
       load(index, ...props)
     })
+    back(...propsBack)
   }
 }
 

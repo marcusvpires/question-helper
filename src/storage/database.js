@@ -79,7 +79,7 @@ const f = (value) => {
 //                                 Import database                                 //
 // =============================================================================== //
 
-export const importDatabase = (info, csv) => {
+export const importDatabase = (info, csv, close) => {
   const arr = csv.split('\n')
   const questions = []
   const repositories = []
@@ -97,7 +97,9 @@ export const importDatabase = (info, csv) => {
   }, [length])
   root.putMany('question', questions, (index, length, sum) => {
     console.log(`[${index + sum + 1}-${length}] repository`)
-  }, [length, sum])
+  }, [length, sum], (close) => {
+    console.log(close)
+  }, ['Finish data'])
 }
 
 export const formatQuestion = (arr) => {
