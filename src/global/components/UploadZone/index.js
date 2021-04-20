@@ -69,59 +69,45 @@ const Dropzone = () => {
     }
 
     const fileSize = (size) => {
-        if (size === 0) {
-          return '0 Bytes';
-        }
-        const k = 1024;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-        const i = Math.floor(Math.log(size) / Math.log(k));
-        return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      if (size === 0) { return '0 Bytes' }
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+      const i = Math.floor(Math.log(size) / Math.log(k));
+      return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
     const removeFile = (name) => {
-        const index = validFiles.findIndex(e => e.name === name);
-        const index2 = selectedFiles.findIndex(e => e.name === name);
-        const index3 = unsupportedFiles.findIndex(e => e.name === name);
-        validFiles.splice(index, 1);
-        selectedFiles.splice(index2, 1);
-        setValidFiles([...validFiles]);
-        setSelectedFiles([...selectedFiles]);
-        if (index3 !== -1) {
-            unsupportedFiles.splice(index3, 1);
-            setUnsupportedFiles([...unsupportedFiles]);
-        }
+      const index = validFiles.findIndex(e => e.name === name);
+      const index2 = selectedFiles.findIndex(e => e.name === name);
+      const index3 = unsupportedFiles.findIndex(e => e.name === name);
+      validFiles.splice(index, 1);
+      selectedFiles.splice(index2, 1);
+      setValidFiles([...validFiles]);
+      setSelectedFiles([...selectedFiles]);
+      if (index3 !== -1) {
+        unsupportedFiles.splice(index3, 1);
+        setUnsupportedFiles([...unsupportedFiles]);
+      }
     }
 
     const uploadFiles = async () => {
-        uploadModalRef.current.style.display = 'block';
-        uploadRef.current.innerHTML = 'File(s) Uploading...';
-        for (let i = 0; i < validFiles.length; i++) {
-            const formData = new FormData();
-            formData.append('image', validFiles[i]);
-            formData.append('key', '');
-            console.log(formData)
-
-            setValidFiles([...validFiles]);
-            setSelectedFiles([...validFiles]);
-            setUnsupportedFiles([...validFiles]);
-        }
+      for (let i = 0; i < validFiles.length; i++) {
+        const reader = new FileReader()
+        reader.onload = (ev) => { console.log(validFiles[i].name, '--', ev.target.result) }
+        reader.readAsBinaryString(validFiles[i]);
+      }
     }
-
-    const closeUploadModal = () => {
-        uploadModalRef.current.style.display = 'none';
-    }
-
 
     return (
         <S.Wrapper>
           {unsupportedFiles.length === 0 && validFiles.length ? <button className="file-upload-btn" onClick={() => uploadFiles()}>Upload Files</button> : ''} 
           {unsupportedFiles.length ? <p>Please remove all unsupported files.</p> : ''}
           <S.Drop
-              onDragOver={dragOver}
-              onDragEnter={dragEnter}
-              onDragLeave={dragLeave}
-              onDrop={fileDrop}
-              onClick={fileInputClicked}
+            onDragOver={dragOver}
+            onDragEnter={dragEnter}
+            onDragLeave={dragLeave}
+            onDrop={fileDrop}
+            onClick={fileInputClicked}
           >
           <D.Icon size='2rem'>
             <I.Upload />
@@ -145,17 +131,6 @@ const Dropzone = () => {
             )}
           </S.Files>
           
-          
-          <div className="upload-modal" ref={uploadModalRef}>
-              <div className="overlay"></div>
-              <div className="close" onClick={(() => closeUploadModal())}>X</div>
-              <div className="progress-container">
-                  <span ref={uploadRef}></span>
-                  <div className="progress">
-                      <div className="progress-bar" ref={progressRef}></div>
-                  </div>
-              </div>
-          </div>
         </S.Wrapper>
     );
 }
