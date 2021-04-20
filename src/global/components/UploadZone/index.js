@@ -7,6 +7,7 @@ import * as D from '../../Design'
 
 const UploadZone = ({ close }) => {
   const fileInputRef = useRef()
+  const [loading, setLoadin] = useState(true)
   const [selectedFiles, setSelectedFiles] = useState([])
   const [validFiles, setValidFiles] = useState([])
   const [unsupportedFiles, setUnsupportedFiles] = useState([])
@@ -88,22 +89,25 @@ const UploadZone = ({ close }) => {
   return (
     <S.Wrapper>
 
-      <S.Drop
-        onDragOver={(ev) => {ev.preventDefault()}}
-        onDragEnter={(ev) => {ev.preventDefault()}}
-        onDragLeave={(ev) => {ev.preventDefault()}}
-        onDrop={fileDrop}
-        onClick={fileInputClicked}
-      >
-      <D.Icon size='2rem'><I.Upload /></D.Icon>
-      <D.h3 align='center' >Drag and drop files here click to select file</D.h3>
-      <S.FileInput
-        ref={fileInputRef}
-        type="file"
-        multiple
-        onChange={filesSelected}
-      />
-      </S.Drop>
+
+      {true ? <S.Loading><S.Progress /></S.Loading> :
+        <S.Drop
+          onDragOver={(ev) => {ev.preventDefault()}}
+          onDragEnter={(ev) => {ev.preventDefault()}}
+          onDragLeave={(ev) => {ev.preventDefault()}}
+          onDrop={fileDrop}
+          onClick={fileInputClicked}
+        >
+        <D.Icon size='2rem'><I.Upload /></D.Icon>
+        <D.h3 align='center' >Drag and drop files here click to select file</D.h3>
+        <S.FileInput
+          ref={fileInputRef}
+          type="file"
+          multiple
+          onChange={filesSelected}
+        />
+        </S.Drop>
+      }
 
       <S.Files> 
         {validFiles.map((data, i) =>

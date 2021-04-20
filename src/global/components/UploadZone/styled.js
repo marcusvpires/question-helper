@@ -44,3 +44,19 @@ export const FileSize = styled.span`
   font-size: 1rem;
   color: #585d72;
 `
+
+export const Loading = styled.div`
+  width: 100%;
+  height: 2rem;
+  background-color: var(--black);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+`
+
+export const Progress = styled.div`
+  width: 50%;
+  height: 100%;
+  background-color: var(--blue);
+  border-radius: 5px 0 0 5px;
+
+`
