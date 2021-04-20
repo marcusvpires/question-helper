@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { importDatabase } from '../../../storage/database'
 
 import * as I from '@styled-icons/boxicons-regular/'
 import * as S from './styled'
 import * as D from '../../Design'
-import './Dropzone.css'
 
 const UploadZone = ({ close }) => {
   const fileInputRef = useRef()
@@ -80,7 +80,7 @@ const UploadZone = ({ close }) => {
   const uploadFiles = async () => {
     for (let i = 0; i < validFiles.length; i++) {
       const reader = new FileReader()
-      reader.onload = (ev) => { console.log(validFiles[i].name, '--', ev.target.result) }
+      reader.onload = (ev) => { importDatabase( validFiles[i], ev.target.result) }
       reader.readAsBinaryString(validFiles[i]);
     }
   }

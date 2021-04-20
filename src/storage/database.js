@@ -76,3 +76,12 @@ const f = (value) => {
   let result = innerValue.replaceAll(';', '/&&::').replaceAll('||', '/&&[[')
   return result
 }
+
+
+// =============================================================================== //
+//                                 Import database                                 //
+// =============================================================================== //
+
+export const importDatabase = (info, data) => {
+  console.log(data)
+}
