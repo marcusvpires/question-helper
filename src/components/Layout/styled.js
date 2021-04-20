@@ -9,7 +9,7 @@ export const LayoutMain = styled.main`
   height: calc(100vh - 5rem);
   width: calc(100% - 12.5rem);
   position: absolute;
-  top: 4.4rem;
+  top: 5rem;
   left: 12.5rem;
   background-color: var(--backDark);
   display: flex;
@@ -18,7 +18,7 @@ export const LayoutMain = styled.main`
     width: calc(100% - 3.8rem);
   `}
   ${media.lessThan("400px")`
-    top: rem;
+    top: 4.4rem;
     height: 100vh;
     left: 0;
     width: 100%;
