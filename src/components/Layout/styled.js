@@ -19,6 +19,8 @@ export const LayoutMain = styled.main`
   `}
   ${media.lessThan("medium")`
     height: 100vh;
+    left: 0;
+    width: 100%;
     flex-wrap: wrap;
     overflow: auto;
   `}

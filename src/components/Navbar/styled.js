@@ -9,6 +9,9 @@ export const NavWrapper = styled.section`
   position: absolute;
   padding-top: 5rem;
   ${media.lessThan("large")`
+    width: 3.8rem;
+  `}
+  ${media.lessThan("medium")`
     width: 100%;
     bottom: 0;
     display: flex;
@@ -64,7 +67,7 @@ export const NavButton = styled.button`
     background-color: var(--blueDark)
   }
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     width: auto;
     border-radius: 10px;
   `}
