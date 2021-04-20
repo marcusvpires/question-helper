@@ -7,8 +7,6 @@ import './Dropzone.css';
 
 const Dropzone = () => {
     const fileInputRef = useRef();
-    const modalImageRef = useRef();
-    const modalRef = useRef();
     const progressRef = useRef();
     const uploadRef = useRef();
     const uploadModalRef = useRef();
@@ -30,35 +28,21 @@ const Dropzone = () => {
         
     }, [selectedFiles]);
 
-    const preventDefault = (e) => {
-        e.preventDefault();
-        // e.stopPropagation();
-    }
-
-    const dragOver = (e) => {
-        preventDefault(e);
-    }
-
-    const dragEnter = (e) => {
-        preventDefault(e);
-    }
-
-    const dragLeave = (e) => {
-        preventDefault(e);
-    }
+    const dragOver  = (e) => { e.preventDefault() }
+    const dragEnter = (e) => { e.preventDefault() }
+    const dragLeave = (e) => { e.preventDefault() }
 
     const fileDrop = (e) => {
-        preventDefault(e);
-        const files = e.dataTransfer.files;
-        if (files.length) {
-            handleFiles(files);
-        }
+      console.log('>> fileDrop:', e.dataTransfer.files)
+      e.preventDefault()
+      const files = e.dataTransfer.files;
+      if (files.length) { handleFiles(files) }
     }
 
     const filesSelected = () => {
-        if (fileInputRef.current.files.length) {
-            handleFiles(fileInputRef.current.files);
-        }
+      if (fileInputRef.current.files.length) {
+        handleFiles(fileInputRef.current.files);
+      }
     }
 
     const fileInputClicked = () => {
@@ -66,25 +50,24 @@ const Dropzone = () => {
     }
 
     const handleFiles = (files) => {
-        for(let i = 0; i < files.length; i++) {
-            if (validateFile(files[i])) {
-                setSelectedFiles(prevArray => [...prevArray, files[i]]);
-            } else {
-                files[i]['invalid'] = true;
-                setSelectedFiles(prevArray => [...prevArray, files[i]]);
-                setErrorMessage('File type not permitted');
-                setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
-            }
+      for(let i = 0; i < files.length; i++) {
+        if (validateFile(files[i])) {
+          files[i]['invalid'] = false
+          setSelectedFiles(prevArray => [...prevArray, files[i]])
+        } 
+        else {
+          files[i]['invalid'] = true;
+          setSelectedFiles(prevArray => [...prevArray, files[i]]);
+          setErrorMessage('File type not permitted');
+          setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
         }
+      }
     }
 
     const validateFile = (file) => {
-        const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/x-icon'];
-        if (validTypes.indexOf(file.type) === -1) {
-            return false;
-        }
-
-        return true;
+      console.log('>> Valid file', file.name.slice(-4) === '.cvs', `(${file.name.slice(-4)})` )
+      if (file.name.slice(-4) === '.cvs') { return true }
+      return false;
     }
 
     const fileSize = (size) => {
@@ -95,10 +78,6 @@ const Dropzone = () => {
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
         const i = Math.floor(Math.log(size) / Math.log(k));
         return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    }
-
-    const fileType = (fileName) => {
-        return fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
     }
 
     const removeFile = (name) => {
@@ -113,20 +92,6 @@ const Dropzone = () => {
             unsupportedFiles.splice(index3, 1);
             setUnsupportedFiles([...unsupportedFiles]);
         }
-    }
-
-    const openImageModal = (file) => {
-        const reader = new FileReader();
-        modalRef.current.style.display = "block";
-        reader.readAsDataURL(file);
-        reader.onload = function(e) {
-            modalImageRef.current.style.backgroundImage = `url(${e.target.result})`;
-        }
-    }
-
-    const closeModal = () => {
-        modalRef.current.style.display = "none";
-        modalImageRef.current.style.backgroundImage = 'none';
     }
 
     const uploadFiles = async () => {
@@ -164,45 +129,35 @@ const Dropzone = () => {
             <I.Upload />
           </D.Icon>
           <D.h3 align='center' >Drag and drop files here click to select file</D.h3>
-          <input
+          <S.FileInput
               ref={fileInputRef}
-              className="file-input"
               type="file"
               multiple
               onChange={filesSelected}
           />
           </S.Drop>
-                <div className="file-display-container">
-                    {
-                        validFiles.map((data, i) => 
-                            <div className="file-status-bar" key={i}>
-                                <div onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)}>
-                                    <div className="file-type-logo"></div>
-                                    <div className="file-type">{fileType(data.name)}</div>
-                                    <span className={`file-name ${data.invalid ? 'file-error' : ''}`}>{data.name}</span>
-                                    <span className="file-size">({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
-                                </div>
-                                <div className="file-remove" onClick={() => removeFile(data.name)}>X</div>
-                            </div>
-                        )
-                    }
-                </div>
-            <div className="modal" ref={modalRef}>
-                <div className="overlay"></div>
-                <span className="close" onClick={(() => closeModal())}>X</span>
-                <div className="modal-image" ref={modalImageRef}></div>
-            </div>
+          <S.Files> 
+            {validFiles.map((data, i) =>
+              <S.File key={i}>
+                <D.Icon><I.File /></D.Icon>
+                <D.p>{data.name}</D.p>
+                <span className={`file-name ${data.invalid ? 'file-error' : ''}`}>{data.name}</span>
+                <span className="file-size">({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
+                <div className="file-remove" onClick={() => removeFile(data.name)}>X</div>
+              </S.File>
+            )}
+          </S.Files>
 
-            <div className="upload-modal" ref={uploadModalRef}>
-                <div className="overlay"></div>
-                <div className="close" onClick={(() => closeUploadModal())}>X</div>
-                <div className="progress-container">
-                    <span ref={uploadRef}></span>
-                    <div className="progress">
-                        <div className="progress-bar" ref={progressRef}></div>
-                    </div>
-                </div>
-            </div>
+          <div className="upload-modal" ref={uploadModalRef}>
+              <div className="overlay"></div>
+              <div className="close" onClick={(() => closeUploadModal())}>X</div>
+              <div className="progress-container">
+                  <span ref={uploadRef}></span>
+                  <div className="progress">
+                      <div className="progress-bar" ref={progressRef}></div>
+                  </div>
+              </div>
+          </div>
         </S.Wrapper>
     );
 }

@@ -98,6 +98,11 @@ export const h3 = styled.h3`
   ${props => props.align && 'text-align:' + props.align + ';'}
 `
 
+export const p = styled.h3`
+  font-size: 1rem;
+  ${props => props.align && 'text-align:' + props.align + ';'}
+`
+
 // =============================================================================== //
 //                                    Container                                    //
 // =============================================================================== //

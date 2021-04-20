@@ -16,5 +16,17 @@ export const Drop = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   color: #77a5ff;;
-  border: 2px #77a5ff dashed
+  border: 2px #77a5ff dashed;
+`
+
+export const FileInput = styled.input`
+  display: none;
+`
+
+export const Files = styled.div`
+  width: 100%;
+`
+
+export const File = styled.div`
+  width: 100%;
 `
