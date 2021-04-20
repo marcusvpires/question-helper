@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 import * as D from "../../../global/Design";
@@ -42,30 +42,37 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
   })}
 
   return (
-    <S.BtnWrapper>
-      {buttons.map(btn => {
-        let onClick
-        let color
-        let rotate
-        if (btn.onClick) { onClick = btn.onClick }
-        if (btn.rotate) {
-          rotate = text.rotate
-          color = text.color
-        }
-        if (btn.marker) { 
-          color=isMarker(btn.marker)
-          onClick = () => {handleMarker(id, btn.marker)} 
-        }
-        return (
-          <D.ButtonIcon size='1.8rem'
-            onClick={onClick}
-            color={color}
-            rotate={rotate}
-          >
-            {btn.icon}
-          </D.ButtonIcon>
-      )})}
-    </S.BtnWrapper>
+    <div>
+      <S.BtnWrapper>
+        {buttons.map(btn => {
+          let onClick; let color; let rotate
+
+          if (btn.onClick) { onClick = btn.onClick }
+          if (btn.rotate) {
+            rotate = text.rotate
+            color = text.color
+          }
+          if (btn.marker) { 
+            color=isMarker(btn.marker)
+            onClick = () => {handleMarker(id, btn.marker)} 
+          }
+          return (
+            <D.ButtonIcon size='1.8rem'
+              onClick={onClick}
+              color={color}
+              rotate={rotate}
+            >{btn.icon}
+            </D.ButtonIcon>
+        )})}
+      </S.BtnWrapper>
+
+      <S.CompactButtons>
+        <D.ButtonIcon size='1.8rem'>
+          <I.DotsVerticalRounded />
+        </D.ButtonIcon>
+      </S.CompactButtons>
+
+    </div>
   );
 };
 

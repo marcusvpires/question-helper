@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const Question = styled.div`
   cursor: default;
@@ -22,5 +23,8 @@ export const Title = styled.span`
 `
 
 export const Time = styled.span`
-    color: #8c979e;
+  color: #8c979e;
+  ${media.lessThan("1230px")`
+    display: none;
+  `}
 `
