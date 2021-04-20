@@ -11,10 +11,10 @@ const QuestionSection = styled.ul`
   user-select: none;  
 
   ${media.lessThan("medium")`
-    width: 3.8rem;
     border-top: 1px solid #6f757a;
     border-left: none;
     width: 100%;
+    padding: 1rem;
   `}
 `
 

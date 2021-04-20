@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const ShortcutWrapper = styled.div`
 `
@@ -20,4 +21,10 @@ export const Shortcut = styled.input`
 		outline-color: ${props => props.valid ? 'var(--blue)' : 'red'};
 		outline-style: solid;
 	}
+	${media.lessThan("400px")`
+		padding: .6rem .7rem;
+		font-size: .9rem;
+		width: 5.5rem;
+		height: 2.3rem;
+  `}
 `

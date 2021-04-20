@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const AltWrapper = styled.section`
   width: 100%;
@@ -8,6 +9,9 @@ export const AltWrapper = styled.section`
   background-color: var(--black);
   display: flex;
   justify-content: space-around;
+  ${media.lessThan("400px")`
+    padding: .8rem;
+  `}
 `
 
 export const AltButton = styled.button`
@@ -28,4 +32,9 @@ export const AltButton = styled.button`
     transition: 50ms;
     background-color: var(--blue);
   }
+  ${media.lessThan("400px")`
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: .9rem;
+  `}
 `

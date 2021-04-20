@@ -1,11 +1,12 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const Number = styled.div`
 `
 
 export const NumberText = styled.span`
   font-size: 1rem;
-`
+` 
 
 export const NumberInput = styled.input`
   font-size: 1rem;
@@ -15,5 +16,9 @@ export const NumberInput = styled.input`
     box-shadow: none;
     color: red;
   }
+  ${media.lessThan("400px")`
+    width: 2rem;
+    padding: 0 0 0 .4rem;
+  `}
 `
 

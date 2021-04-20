@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const BtnWrapper = styled.div`
 	margin: 1rem 0;
@@ -30,16 +31,8 @@ export const Button = styled.button`
 		transition: 50ms;
 		background-color: var(--blue);
 	}
-`
-
-export const Shortcut = styled.input`
-	border-radius: 2px;
-	background-color: var(--blueDark);
-	width: 6.5rem;
-	height: 2.4rem;
-
-	&::placeholder {
-		color: var(--primary);
-		opacity: 1;
-	}
+	${media.lessThan("400px")`
+		padding: .6rem .7rem;
+		font-size: .9rem;
+  `}
 `

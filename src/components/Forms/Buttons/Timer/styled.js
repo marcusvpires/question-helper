@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const TimerWrapper = styled.div`
 	color: var(--primary);
@@ -12,6 +13,10 @@ export const TimerWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	height: 2.4rem;
+	${media.lessThan("400px")`
+		font-size: .9rem;
+		height: 2.3rem;
+  `}
 `
 
 export const Timer = styled.input`
@@ -20,6 +25,10 @@ export const Timer = styled.input`
 	width: 4rem;
 	padding: 0;
 	margin: 0 0 0 .8rem;
+	${media.lessThan("400px")`
+		font-size: .9rem;
+		width: 3.8rem;
+  `}
 `
 
 export const TimerButton = styled.button`
@@ -32,4 +41,7 @@ export const TimerButton = styled.button`
 	color: var(--primary);
 	border-left: 2px solid var(--back);
 	cursor: pointer;
+	${media.lessThan("400px")`
+		width: 1.8rem;
+  `}
 `

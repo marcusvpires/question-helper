@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
 
 const GlobalStyles = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -93,6 +94,9 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${props => props.marker ? `var(--${props.marker})` : 'var(--blueDark)'};
     cursor: pointer;
     margin: .8rem 0;
+    ${media.lessThan("400px")`
+    padding-left: .8rem;
+    `}
   }
 
   .RepositoryWrapper {
