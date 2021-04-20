@@ -38,11 +38,11 @@ const ImportDatabase = ({ id }) => {
       <D.PopBack />
       <D.Popup>
         <S.ImportWrapper reverse={reverse}>
-          <D.Flex color="#ff908b">
+          <D.Flex color="var(--primary)">
             <D.Icon size="2rem">
-              <I.Ghost />
+              <I.Import />
             </D.Icon>
-            <D.Strong>Import files</D.Strong>
+            <D.Strong>Import .CVS files</D.Strong>
           </D.Flex>
 
           <UploadZone close={close}/>

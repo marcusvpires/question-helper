@@ -20,17 +20,6 @@ const Repository = ({ repository }) => {
   const id = repository.id
   const date = id.split("-")[1];
 
-  const displayQuestions = () => {
-    storage.selectRepository(id)
-    localStorage.setItem('repository', repository.name)
-    document.getElementById("questionSection").innerHTML = "";
-    getIndex("question", "repositoryID", id, (questions) => {
-      for (const index in questions) {
-        questionStorage.create(questions[index]);
-      }
-    });
-  };
-
   const remove = () => {
     if (id === localStorage.getItem('repositoryID')) {
       localStorage.removeItem('repositoryID')
@@ -38,19 +27,20 @@ const Repository = ({ repository }) => {
     storage.remove(id)
   }
   return (
-    <S.Repository >
+    <S.Repository>
       <S.RepositoryName
         type="text"
         name="Repository name"
         title="Repository name"
         placeholder="Undefined"
         value={repositoryName}
+        onClick={() => { storage.displayQuestions(repository) }}
         onChange={changeRepository}
         onBlur={() => { storage.saveName(id, repositoryName) }}
       />
       <S.RepositoryDate>{date}</S.RepositoryDate>
       <S.RepositoryIcons>
-        <S.RepositoryButton onClick={displayQuestions} ><I.FolderOpen /></S.RepositoryButton>
+        <S.RepositoryButton onClick={() => { storage.displayQuestions(repository) }} ><I.FolderOpen /></S.RepositoryButton>
         <S.RepositoryButton onClick={remove} ><I.Trash /></S.RepositoryButton>
       </S.RepositoryIcons>
     </S.Repository>

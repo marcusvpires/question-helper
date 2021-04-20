@@ -193,7 +193,10 @@ export const deleteIndex = (storage, key, value) => {
     req.onsuccess = (ev) => {
       const cursor = ev.target.result;
       if (cursor) { 
-        if (value === cursor.key) { cursor.delete() }
+        if (value === cursor.key) { 
+          console.info('Delete question --', value)
+          cursor.delete() 
+        }
         cursor.continue()
       }
     }

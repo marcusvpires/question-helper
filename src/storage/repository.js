@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import Repository from "../components/Repository";
+import * as questionStorage from "./question";
 import * as root from "../dataBase/root";
 
 // =============================================================================== //
@@ -37,6 +38,7 @@ export const build = (name) => {
   create(repository);
   root.put("repository", repository, (element) => {
     console.info(`Build repository ${element.name} (${element.id})`);
+    displayQuestions(element)
   });
 };
 
@@ -96,4 +98,15 @@ const createID = () => {
   const date = `${d}/${m}/${y}`;
   const random = Math.random().toString(36).slice(-8);
   return `Repository-${date}-${Date.now()}-${random}`;
+}
+
+export const displayQuestions = (repository) => {
+  selectRepository(repository.id)
+  localStorage.setItem('repository', repository.name)
+  document.getElementById("questionSection").innerHTML = "";
+  root.getIndex("question", "repositoryID", repository.id, (questions) => {
+    for (const index in questions) {
+      questionStorage.create(questions[index]);
+    }
+  });
 }
