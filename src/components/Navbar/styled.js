@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import { style } from '../../global/Design'
+import styled, { keyframes } from "styled-components"
 
 export const NavWrapper = styled.section`
   background-color: var(--back);
@@ -56,4 +57,23 @@ export const NavIcon = styled.div`
   margin-right: 0.8rem;
   width: 1.5rem;
   height: 1.5rem;
+`
+
+
+export const ImportWrapper = styled.div`
+  ${style.border};
+  width: 25rem;
+  background-color: var(--back);
+  padding: 1rem 1.5rem;
+  animation: 150ms ${props => props.reverse ? fadeOut : fadeIn } linear 1;
+`
+
+const fadeIn = keyframes`
+ 0% { transform: scale(.5); opacity: 0; }
+ 100% { transform: scale(1); opacity: 1; }
+`
+
+const fadeOut = keyframes`
+ 0% { transform: scale(1); opacity: 1; }
+ 100% { transform: scale(.5); opacity: 0; }
 `
