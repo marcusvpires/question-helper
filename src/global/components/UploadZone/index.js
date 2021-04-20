@@ -7,7 +7,7 @@ import * as D from '../../Design'
 
 const UploadZone = ({ close }) => {
   const fileInputRef = useRef()
-  const [loading, setLoadin] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [selectedFiles, setSelectedFiles] = useState([])
   const [validFiles, setValidFiles] = useState([])
   const [unsupportedFiles, setUnsupportedFiles] = useState([])
@@ -81,7 +81,7 @@ const UploadZone = ({ close }) => {
   const uploadFiles = async () => {
     for (let i = 0; i < validFiles.length; i++) {
       const reader = new FileReader()
-      reader.onload = (ev) => { importDatabase( validFiles[i], ev.target.result) }
+      reader.onload = (ev) => { importDatabase( ev.target.result, close, 'loadingBar') }
       reader.readAsBinaryString(validFiles[i]);
     }
   }
@@ -90,7 +90,7 @@ const UploadZone = ({ close }) => {
     <S.Wrapper>
 
 
-      {true ? <S.Loading><S.Progress /></S.Loading> :
+      {loading ? <S.Loading><S.Progress id='loadingBar' /></S.Loading> :
         <S.Drop
           onDragOver={(ev) => {ev.preventDefault()}}
           onDragEnter={(ev) => {ev.preventDefault()}}
@@ -126,7 +126,10 @@ const UploadZone = ({ close }) => {
           margin='0 1rem'
         >Cancel</D.Button>
         <D.Button
-          onClick={uploadFiles}
+          onClick={() => {
+            setLoading(true)
+            uploadFiles()
+          }}
           disabled={validFiles.length === 0 || unsupportedFiles.length > 0}
         >Confirm</D.Button>
       </D.Flex>

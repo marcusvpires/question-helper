@@ -25,7 +25,6 @@ const Repository = ({ repository }) => {
     localStorage.setItem('repository', repository.name)
     document.getElementById("questionSection").innerHTML = "";
     getIndex("question", "repositoryID", id, (questions) => {
-      document.getElementById('QuestionWrapper').innerHTML = ''
       for (const index in questions) {
         questionStorage.create(questions[index]);
       }

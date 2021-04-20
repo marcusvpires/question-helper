@@ -79,7 +79,7 @@ const f = (value) => {
 //                                 Import database                                 //
 // =============================================================================== //
 
-export const importDatabase = (info, csv, close) => {
+export const importDatabase = (csv, close, loadingID) => {
   const arr = csv.split('\n')
   const questions = []
   const repositories = []
@@ -92,14 +92,17 @@ export const importDatabase = (info, csv, close) => {
   const sum = repositories.length
   const length = questions.length + sum
 
-  root.putMany('repository', repositories, (index, length) => {
-    console.log(`[${index}-${length}] repository`)
-  }, [length])
-  root.putMany('question', questions, (index, length, sum) => {
-    console.log(`[${index + sum + 1}-${length}] repository`)
-  }, [length, sum], (close) => {
-    console.log(close)
-  }, ['Finish data'])
+  root.putMany('repository', repositories, (index, length, loadingID) => {
+    const progress = (100*(index))/length
+    document.getElementById(loadingID).style.width = `${progress}%`
+  }, [length, loadingID])
+
+  root.putMany('question', questions, (index, length, sum, loadingID) => {
+    const progress = (100*(index + sum))/length
+    document.getElementById('loadingBar').style.width = `${progress}%`
+  }, [length, sum, loadingID], (close) => {
+    close()
+  }, [close])
 }
 
 export const formatQuestion = (arr) => {
