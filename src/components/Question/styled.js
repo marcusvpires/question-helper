@@ -23,6 +23,9 @@ export const Title = styled.span`
   max-width: 15rem;
   color: #8c979e;
   width: 12.8rem;
+  ${media.lessThan("medium")`
+		width: 9rem;
+  `}
 `
 
 export const Time = styled.span`

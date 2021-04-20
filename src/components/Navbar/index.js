@@ -76,17 +76,21 @@ const Navbar = ({ isRepoPage }) => {
     },
   ];
 
+  if (window.innerWidth < 768) {
+    navButtonList.splice(3, 1)
+    navButtonList.splice(3, 1)
+  }
+
   if (isRepoPage) {
-      navButtonList[5] = {
+    let index = 5
+    if (window.innerWidth < 768) {
+      index = 3
+    }
+    navButtonList[index] = {
       name: "Edit repository",
       onClick: () => { history.push("/") },
       icon: <I.Edit />,
     }
-  }
-
-  if (window.innerWidth < 768) {
-    navButtonList.splice(3, 1)
-    navButtonList.splice(4, 1)
   }
 
   return (

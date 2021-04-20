@@ -15,6 +15,8 @@ const QuestionSection = styled.ul`
     border-left: none;
     width: 100%;
     padding: 1rem;
+    height: auto;
+    padding-bottom: 7rem;
   `}
 `
 

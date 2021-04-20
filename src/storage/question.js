@@ -45,7 +45,9 @@ export const create = async (question) => {
     <Question question={question} />,
     document.getElementById(question.id)
   );
-  wrapper.scrollIntoView({ behavior: "smooth" });
+  if (window.innerWidth > 400) {
+    wrapper.scrollIntoView({ behavior: "smooth" });
+  }
   } catch (ev) {
     const title = 'Error on create question'
     errorAlert('errorRemove', {

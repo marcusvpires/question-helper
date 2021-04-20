@@ -11,7 +11,7 @@ export const NavWrapper = styled.section`
   ${media.lessThan("large")`
     width: 3.8rem;
   `}
-  ${media.lessThan("medium")`
+  ${media.lessThan("400px")`
     width: 100%;
     bottom: 0;
     display: flex;
@@ -19,6 +19,7 @@ export const NavWrapper = styled.section`
     z-index: 50;
     padding: 0;
     justify-content: space-around;
+    position: fixed;
   `}
 `
 
