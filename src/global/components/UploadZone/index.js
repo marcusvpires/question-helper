@@ -135,7 +135,7 @@ const Dropzone = ({ close }) => {
             </D.Button>
             <D.Button
               onClick={uploadFiles}
-              disabled={true}
+              disabled={validFiles.length === 0 || unsupportedFiles.length > 0}
             >
               Confirm
             </D.Button>
