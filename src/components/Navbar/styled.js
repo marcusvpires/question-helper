@@ -9,13 +9,22 @@ export const NavWrapper = styled.section`
   position: absolute;
   padding-top: 5rem;
   ${media.lessThan("large")`
-    width: 3.8rem;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    height: auto;
+    z-index: 50;
+    padding: 0;
+    justify-content: space-around;
   `}
 `
 
 export const NavItem = styled.div`
   width: 100%;
   display: flex;
+  ${media.lessThan("large")`
+    width: auto;
+  `}
 `
 
 export const NavMore = styled.button`
@@ -54,6 +63,11 @@ export const NavButton = styled.button`
   &:hover {
     background-color: var(--blueDark)
   }
+
+  ${media.lessThan("large")`
+    width: auto;
+    border-radius: 10px;
+  `}
 `
 
 export const NavText = styled.span`
@@ -68,6 +82,9 @@ export const NavIcon = styled.div`
   margin-right: 0.8rem;
   width: 1.5rem;
   height: 1.5rem;
+  ${media.lessThan("large")`
+    margin: 0;
+  `}
 `
 
 

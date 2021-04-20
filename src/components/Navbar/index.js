@@ -84,6 +84,11 @@ const Navbar = ({ isRepoPage }) => {
     }
   }
 
+  if (window.innerWidth < 768) {
+    navButtonList.splice(3, 1)
+    navButtonList.splice(4, 1)
+  }
+
   return (
     <S.NavWrapper>
       {navButtonList.map((e) => (
