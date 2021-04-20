@@ -36,12 +36,19 @@ export const Button = styled.button`
 	font-size: 1rem;
 	cursor: pointer;
 	transition: 200ms;
-	&:hover {	background-color: #002776; }
-	&:focus { outline: none;	}
-	&:active {
-		transition: 50ms;
-		background-color: var(--blue);
-	}
+
+  ${props => props.disabled ? `
+    cursor: not-allowed;
+    background-color: #091331;
+    color: var(--secondary);
+  ` : ` 
+    &:hover {	background-color: #002776; }
+    &:focus { outline: none;	}
+    &:active {
+      transition: 50ms;
+      background-color: var(--blue);
+    }
+  `}
 `
 
 export const ButtonIcon = styled.div`
@@ -71,15 +78,9 @@ export const Link = styled.a`
 	cursor: pointer;
 	transition: 200ms;
   margin: ${props => props.margin && props.margin};
-
-	&:hover {
-		background-color: #177629;
-	}
-
-	&:focus {
-		outline: none;
-	}
-
+  
+	&:hover { background-color: #177629; }
+	&:focus { outline: none; }
 	&:active {
 		transition: 50ms;
 		background-color: #0c8522;

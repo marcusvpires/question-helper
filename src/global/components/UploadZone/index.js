@@ -97,8 +97,6 @@ const Dropzone = ({ close }) => {
 
     return (
         <S.Wrapper>
-          {unsupportedFiles.length === 0 && validFiles.length ? <button className="file-upload-btn" onClick={() => uploadFiles()}>Upload Files</button> : ''} 
-          {unsupportedFiles.length ? <p>Please remove all unsupported files.</p> : ''}
           <S.Drop
             onDragOver={dragOver}
             onDragEnter={dragEnter}
@@ -131,11 +129,13 @@ const Dropzone = ({ close }) => {
           <D.Flex justify="end">
             <D.Button
               onClick={close}
+              margin='0 1rem'
             >
               Cancel
             </D.Button>
             <D.Button
               onClick={uploadFiles}
+              disabled={true}
             >
               Confirm
             </D.Button>
