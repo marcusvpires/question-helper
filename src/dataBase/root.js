@@ -35,7 +35,7 @@ export const put = async (storage, element, back = () => {}) => {
   }
 }
 
-export const putMany = async (storage, arr, load = () => {}) => {
+export const putMany = async (storage, arr, load = () => {}, props) => {
   const request = dataBase();
   request.onerror = (ev) => {
     errorAlert('errorPutMany', {
@@ -49,7 +49,7 @@ export const putMany = async (storage, arr, load = () => {}) => {
     arr.forEach((element, index) => {
       const store = transaction.objectStore(storage);
       store.put(element);
-      load(index)
+      load(index, ...props)
     })
   }
 }

@@ -88,8 +88,16 @@ export const importDatabase = (info, csv) => {
     if (row[0] === '(q)') { questions.push(formatQuestion(row)) }
     else if (row[0] === '(r)') { repositories.push(formatRepository(row)) }
   }
-  root.putMany('repository', repositories, (index) => {console.log('Repository:', index)})
-  root.putMany('question', questions, (index) => {console.log('Question:', index)})
+
+  const sum = repositories.length
+  const length = questions.length + sum
+
+  root.putMany('repository', repositories, (index, length) => {
+    console.log(`[${index}-${length}] repository`)
+  }, [length])
+  root.putMany('question', questions, (index, length, sum) => {
+    console.log(`[${index + sum + 1}-${length}] repository`)
+  }, [length, sum])
 }
 
 export const formatQuestion = (arr) => {
