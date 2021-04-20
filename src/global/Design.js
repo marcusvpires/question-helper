@@ -61,7 +61,7 @@ export const ButtonIcon = styled.div`
   border-radius: 2px;
   display: flex;
   align-items: center;
-  color: var(--secondary);
+  color: ${props => props.color ? props.color : 'var(--secondary)'};
   transition: 200ms;
   &:hover { background-color: var(--blueDark); }
 `
