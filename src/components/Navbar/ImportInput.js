@@ -24,7 +24,15 @@ const displayImport = (id) => {
 };
 
 const ImportDatabase = ({ id }) => {
-  const [reverse, setReverse] = useState(false);
+  const [reverse, setReverse] = useState(false)
+
+  const close = () => {
+    setReverse(true);
+    setTimeout(() => {
+      document.getElementById(id).remove();
+    }, 150);
+  }
+
   return (
     <Fragment>
       <D.PopBack />
@@ -37,30 +45,8 @@ const ImportDatabase = ({ id }) => {
             <D.Strong>Import files</D.Strong>
           </D.Flex>
 
-          <UploadZone />
+          <UploadZone close={close}/>
 
-          <D.Flex justify="end">
-            <D.Button
-              onClick={() => {
-                setReverse(true);
-                setTimeout(() => {
-                  document.getElementById(id).remove();
-                }, 150);
-              }}
-            >
-              Cancel
-            </D.Button>
-            <D.Button
-              onClick={() => {
-                setReverse(true);
-                setTimeout(() => {
-                  document.getElementById(id).remove();
-                }, 150);
-              }}
-            >
-              Confirm
-            </D.Button>
-          </D.Flex>
         </S.ImportWrapper>
       </D.Popup>
     </Fragment>

@@ -5,11 +5,8 @@ import * as S from './styled'
 import * as D from '../../Design'
 import './Dropzone.css';
 
-const Dropzone = () => {
+const Dropzone = ({ close }) => {
     const fileInputRef = useRef();
-    const progressRef = useRef();
-    const uploadRef = useRef();
-    const uploadModalRef = useRef();
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [validFiles, setValidFiles] = useState([]);
     const [unsupportedFiles, setUnsupportedFiles] = useState([]);
@@ -130,6 +127,19 @@ const Dropzone = () => {
               </S.File>
             )}
           </S.Files>
+
+          <D.Flex justify="end">
+            <D.Button
+              onClick={close}
+            >
+              Cancel
+            </D.Button>
+            <D.Button
+              onClick={uploadFiles}
+            >
+              Confirm
+            </D.Button>
+          </D.Flex>
           
         </S.Wrapper>
     );
