@@ -1,8 +1,5 @@
 import React from "react";
-
-import * as questionStorage from "../../storage/question";
 import * as storage from "../../storage/repository";
-import { getIndex } from "../../dataBase/root";
 
 import * as S from "./styled";
 import * as I from '@styled-icons/boxicons-regular/'
