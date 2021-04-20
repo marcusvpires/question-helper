@@ -77,7 +77,7 @@ const Navbar = ({ isRepoPage }) => {
   ];
 
   if (isRepoPage) {
-      navButtonList[4] = {
+      navButtonList[5] = {
       name: "Edit repository",
       onClick: () => { history.push("/") },
       icon: <I.Edit />,
