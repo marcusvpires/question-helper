@@ -10,4 +10,11 @@ export const Drop = styled.div`
   height: 8rem;
   margin-bottom: 1rem;
   border-radius: 2px;
+  padding: .8rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #77a5ff;;
+  border: 2px #77a5ff dashed
 `

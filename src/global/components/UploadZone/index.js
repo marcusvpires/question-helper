@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 
+import * as I from '@styled-icons/boxicons-regular/'
 import * as S from './styled'
+import * as D from '../../Design'
 import './Dropzone.css';
 
 const Dropzone = () => {
@@ -149,28 +151,27 @@ const Dropzone = () => {
 
     return (
         <S.Wrapper>
-            <div className="container">
-                {unsupportedFiles.length === 0 && validFiles.length ? <button className="file-upload-btn" onClick={() => uploadFiles()}>Upload Files</button> : ''} 
-                {unsupportedFiles.length ? <p>Please remove all unsupported files.</p> : ''}
-                <S.Drop
-                    onDragOver={dragOver}
-                    onDragEnter={dragEnter}
-                    onDragLeave={dragLeave}
-                    onDrop={fileDrop}
-                    onClick={fileInputClicked}
-                >
-                    <div className="drop-message">
-                        <div className="upload-icon"></div>
-                        Drag & Drop files here or click to select file(s)
-                    </div>
-                    <input
-                        ref={fileInputRef}
-                        className="file-input"
-                        type="file"
-                        multiple
-                        onChange={filesSelected}
-                    />
-                </S.Drop>
+          {unsupportedFiles.length === 0 && validFiles.length ? <button className="file-upload-btn" onClick={() => uploadFiles()}>Upload Files</button> : ''} 
+          {unsupportedFiles.length ? <p>Please remove all unsupported files.</p> : ''}
+          <S.Drop
+              onDragOver={dragOver}
+              onDragEnter={dragEnter}
+              onDragLeave={dragLeave}
+              onDrop={fileDrop}
+              onClick={fileInputClicked}
+          >
+          <D.Icon size='2rem'>
+            <I.Upload />
+          </D.Icon>
+          <D.h3 align='center' >Drag and drop files here click to select file</D.h3>
+          <input
+              ref={fileInputRef}
+              className="file-input"
+              type="file"
+              multiple
+              onChange={filesSelected}
+          />
+          </S.Drop>
                 <div className="file-display-container">
                     {
                         validFiles.map((data, i) => 
@@ -186,7 +187,6 @@ const Dropzone = () => {
                         )
                     }
                 </div>
-            </div>
             <div className="modal" ref={modalRef}>
                 <div className="overlay"></div>
                 <span className="close" onClick={(() => closeModal())}>X</span>

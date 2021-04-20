@@ -95,6 +95,7 @@ export const Text = styled.p`
 
 export const h3 = styled.h3`
   font-size: 1.1rem;
+  ${props => props.align && 'text-align:' + props.align + ';'}
 `
 
 // =============================================================================== //
