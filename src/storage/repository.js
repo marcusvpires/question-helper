@@ -66,6 +66,7 @@ export const saveName = (id, name) => {
 export const save = () => {
   let id = localStorage.getItem("repositoryID");
   let name = localStorage.getItem("repository");
+  console.info('>> Save repository', name, id)
   if (!id) {
     id = createID();
     localStorage.setItem("repositoryID", id);
