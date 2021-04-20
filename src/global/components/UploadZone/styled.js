@@ -28,5 +28,11 @@ export const Files = styled.div`
 `
 
 export const File = styled.div`
+  display: flex;
+  align-items: center;
+  padding: .4rem;
+  border-radius: 2px;
+  background-color: var(--backDark);
+  border: 2px solid var(--blueDark);
   width: 100%;
 `
