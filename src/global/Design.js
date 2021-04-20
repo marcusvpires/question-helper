@@ -36,19 +36,27 @@ export const Button = styled.button`
 	font-size: 1rem;
 	cursor: pointer;
 	transition: 200ms;
-
-	&:hover {
-		background-color: #002776;
-	}
-
-	&:focus {
-		outline: none;
-	}
-
+	&:hover {	background-color: #002776; }
+	&:focus { outline: none;	}
 	&:active {
 		transition: 50ms;
 		background-color: var(--blue);
 	}
+`
+
+export const ButtonIcon = styled.div`
+  cursor: pointer;
+  ${ props => `
+    height: ${props.size ? props.size : '1.5rem'};
+    width: ${props.size ? props.size : '1.5rem'};
+  `}
+  padding: 0.3rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  color: var(--secondary);
+  transition: 200ms;
+  &:hover { background-color: var(--blueDark); }
 `
 
 export const Link = styled.a`
@@ -101,6 +109,7 @@ export const h3 = styled.h3`
 export const p = styled.h3`
   font-size: 1rem;
   ${props => props.align && 'text-align:' + props.align + ';'}
+  ${props => props.color && 'color:' + props.color + ';'}
 `
 
 // =============================================================================== //

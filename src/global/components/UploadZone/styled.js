@@ -30,9 +30,17 @@ export const Files = styled.div`
 export const File = styled.div`
   display: flex;
   align-items: center;
-  padding: .4rem;
+  justify-content: space-between;
+  padding: 1rem;
   border-radius: 2px;
   background-color: var(--backDark);
-  border: 2px solid var(--blueDark);
+  border: 2px solid ${props => props.invalid ? 'red' : 'var(--blueDark)'};
   width: 100%;
+  margin-bottom: 1rem;
+`
+
+export const FileSize = styled.span`
+  font-weight: 600;
+  font-size: 1rem;
+  color: #585d72;
 `

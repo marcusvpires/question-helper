@@ -13,7 +13,6 @@ const Dropzone = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [validFiles, setValidFiles] = useState([]);
     const [unsupportedFiles, setUnsupportedFiles] = useState([]);
-    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         let filteredArr = selectedFiles.reduce((acc, current) => {
@@ -58,7 +57,6 @@ const Dropzone = () => {
         else {
           files[i]['invalid'] = true;
           setSelectedFiles(prevArray => [...prevArray, files[i]]);
-          setErrorMessage('File type not permitted');
           setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
         }
       }
@@ -138,16 +136,16 @@ const Dropzone = () => {
           </S.Drop>
           <S.Files> 
             {validFiles.map((data, i) =>
-              <S.File key={i}>
+              <S.File key={i} invalid={data.invalid} >
                 <D.Icon><I.File /></D.Icon>
                 <D.p>{data.name}</D.p>
-                <span className={`file-name ${data.invalid ? 'file-error' : ''}`}>{data.name}</span>
-                <span className="file-size">({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
-                <div className="file-remove" onClick={() => removeFile(data.name)}>X</div>
+                <S.FileSize>{fileSize(data.size)}</S.FileSize>
+                <D.ButtonIcon size='2rem' onClick={() => removeFile(data.name)}><I.Trash /></D.ButtonIcon>
               </S.File>
             )}
           </S.Files>
-
+          
+          
           <div className="upload-modal" ref={uploadModalRef}>
               <div className="overlay"></div>
               <div className="close" onClick={(() => closeUploadModal())}>X</div>
