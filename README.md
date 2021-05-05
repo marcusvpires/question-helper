@@ -9,7 +9,9 @@
  <a href="#motivacao">Motivação</a> |
  <a href="#solucoes">Soluções</a> |
  <a href="#compatibilidade">Compatibilidade</a> |
- <a href="#estrutura">Estrutura</a>
+ <a href="#estrutura">Estrutura</a> |
+ <a href="#database">Database</a> |
+ <a href="#storage">Storage</a>
 </p>
 
 <h4 align="center"> 
@@ -59,6 +61,8 @@ A versão mobile ainda está sendo desenvolvida
   - Design: Styled components global, tem como objetivo facilitar o design para diferentes plataformas como o media query, contudo, apenas os componentes mais recentes utilizam.
   - Components: São os componentes mais isolados que eu pretendo usar em projetos futuros, dessa forma, possuem uma documentação melhor.
 
+<div id="database" />
+
 ## Database
 
 Objeto **repository**: `{ id: Repository-(date)-(timestamp)-(random), name: ----, }`.
@@ -85,6 +89,8 @@ Objeto **question**:
 `database` - Responsável por criar a estrutura do banco de dados caso não exista e fazer request
 
 `root` - Exporta as principais funções para obter, adicionar ou editar dados. Todas as funções do root possuem como parâmetro uma função chamada "back" que será executada após as alterações, obtendo como parâmetro o resultado da busca.
+
+<div id="storage" />
 
 ## Storage
 
