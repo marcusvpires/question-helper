@@ -12,6 +12,7 @@
  <a href="#estrutura">Estrutura</a> |
  <a href="#database">Database</a> |
  <a href="#storage">Storage</a>
+ <a href="#futuro">Futuro</a>
 </p>
 
 <h4 align="center"> 
@@ -52,12 +53,12 @@ A versão mobile ainda está sendo desenvolvida
 	
 <div id="estrutura" />
 
-## Estrutura
+# Estrutura
 
-- Components: componentes renderizados pelo react
-- Data base: inicia e conecta com a IndexedDB
-- Storage: funções que conectam o DOM com a database
-- Global: 
+- __Components__: componentes renderizados pelo react
+- __Data base__: inicia e conecta com a IndexedDB
+- __Storage__: funções que conectam o DOM com a database
+- __Global__: 
   - Design: Styled components global, tem como objetivo facilitar o design para diferentes plataformas como o media query, contudo, apenas os componentes mais recentes utilizam.
   - Components: São os componentes mais isolados que eu pretendo usar em projetos futuros, dessa forma, possuem uma documentação melhor.
 
@@ -100,7 +101,18 @@ Conecta o banco de dados com o DOM, chamando o modulo "root" para base para obte
 
 Pelas minhas pesquisas, acredito que as melhores práticas seria alterar os dados apenas pelo **useState**, contudo, os valores dos inputs são chamados de diversos componentes diferentes, como a navbar, dessa forma, o useState deveria ser declarado na raiz da pagina, deixando o programa mais **lento e complexo**. Alem disso, fica mais simples de alterar o valor após uma consulta ao indexedDB.
 
+<div id="futuro" />
 
+## Planos para o futuro
+
+__Banco de dados na nuvem__: Além da indexeDB para a utilisação local e ofline, __estou desenvolvendo__ uma atualização que vai possibilitar o salvamento na nuvem, poré, é preciso criar um __sistema de altenticação__ primeiro. Estou avaliando utilizar o MongoBD ou criar um banco de dados em MySQL com o Prisma. Outro problema é limitar a quantidade de armasenamento disponível para cada usuario.
+
+__Categorias__: Desenvolver um sistema de categorias e matérias para os repositórios e os respectivos filtros.
+
+__Modo correção__: O usuário poderá selecionar entre (correto, meio certo e erraado) ou colocar uma nota de 0 a 100. Outro recurço será a possibilidade de colocar comentários no texto.
+__Enunciado__: Sistema para colocar imagens e textos como enunciado da questão
+
+__Integração com a plataforma oficial__: Caso a plataforma que eu utiliso ou a minha escola tiver interesse, existe a possibilidade de transformar o meu projeto na plataforma oficial para a realização de provas e atividades.
 
 
 
