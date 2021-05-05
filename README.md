@@ -44,11 +44,11 @@ Os inputs também são controlados pelo DOM, pois como os inputs são alterados 
 A plataforma foi desenvolvida no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, principalmente o css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.
 A versão mobile ainda está sendo desenvolvida
 
-
-
-<img src="./public/readme/m-questions.png" alt="Mobile version questions" width="22%" ><span>  </span>
-<img src="./public/readme/m-forms.png" alt="Mobile version forms" width="22%"><span>  </span>
-<img src="./public/readme/tablet.png" alt="Tablet version" width="52.4%" align="right">
+<div class="border d-flex flex-justify-around">
+ <img src="./public/readme/m-questions.png" alt="Mobile version questions" width="20%">
+ <img src="./public/readme/m-forms.png" alt="Mobile version forms" width="20%">
+ <img src="./public/readme/tablet.png" alt="Tablet version" width="50%">
+</div>
 	
 <div id="estrutura" />
 
