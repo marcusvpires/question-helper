@@ -6,12 +6,12 @@
 <p align="center">Plataforma desenvolvida para salver o gabarito de provas e atividades durante o EAD. Tem como objetivo suprir as dificuldades das provas online, visto que, muitos plataformas não salvam os dados, dessa forma, em uma possível queda de energia ou eventual problema que exija um recarregamento da pagina, todos as respostas são perdidas. Ademais, a plataforma permite salvar os gabaritos em repositórios, permitindo a arquivação dos dados de forma mais organizada.</p>
 
 <p align="center">
- <a href="#motivacao">Motivação</a> |
- <a href="#solucoes">Soluções</a> |
- <a href="#compatibilidade">Compatibilidade</a> |
- <a href="#estrutura">Estrutura</a> |
- <a href="#database">Database</a> |
- <a href="#storage">Storage</a> |
+ <a href="#motivacao">Motivação</a>  •
+ <a href="#solucoes">Soluções</a>  •
+ <a href="#compatibilidade">Compatibilidade</a>  •
+ <a href="#estrutura">Estrutura</a>  •
+ <a href="#database">Database</a>  •
+ <a href="#storage">Storage</a>  •
  <a href="#futuro">Futuro</a>
 </p>
 
