@@ -42,8 +42,7 @@ Os imputs tambem são controlados pelo DOM, pois como os inputs são alterados p
 
 A plataforma foi desenvolvide no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, esprecialmente no css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.
 
-Ainda não desenvolvi o layout de outros tamanhos de monitor e mobile.
-
+A versão mobile ainda está sendo desenvolvida
 <div id="estrutura" />
 
 ## Estrutura
