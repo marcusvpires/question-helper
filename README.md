@@ -50,3 +50,13 @@ A versão mobile ainda está sendo desenvolvida
 - Components: componentes renderisados pelo react
 - Data base: inicia e conecta com a IndexedDB
 - Storage: funções que conectam o DOM com a database
+- Global: 
+  - Design: Styled components global, tem como objetivo facilitar o design para diferentes plataformas como o media query, contudo, apenas os compenentes mais recentes utilizam.
+  - Components: São os componentes mais isolados que eu pretendo usar em projetos futuros, dessa forma, possuem uma documentação melhor.
+
+
+
+
+
+
+
