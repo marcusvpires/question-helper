@@ -19,8 +19,9 @@
 	🚧  Under construction...  🚧
 </h4>
 
-
 <div id="motivacao" />
+
+<br />
 
 ## :scream: Motivação
 
@@ -29,6 +30,8 @@ Durante o EAD, a minha escola contratou uma plataforma para as aulas, contudo, a
 Ademais, as questões não eram salvas automaticamente, dessa forma, era necessário salvar cada questão antes de passar para a próxima questão. O problema é que, em muitos casos, eu esquecia de salvar. Consequentemente, eu preciso fazer a mesma questão várias vezes. Da mesma forma, as ocilações na internet impossibilitavam o carregamento da questão seguinte.
 
 <div id="solucoes" />
+
+<br />
 
 ## :rocket: Suluções
 
@@ -41,8 +44,9 @@ Os inputs também são controlados pelo DOM, pois como os inputs são alterados 
 
 <div id="compatibilidade" />
 
-## :dizzy: Compatibilidade
+<br />
 
+## :dizzy: Compatibilidade
 
 A plataforma foi desenvolvida no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, principalmente o css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.
 A versão mobile ainda está sendo desenvolvida
@@ -52,6 +56,8 @@ A versão mobile ainda está sendo desenvolvida
 <img src="./public/readme/tablet.png" alt="Tablet version" width="52.4%" align="right">
 	
 <div id="estrutura" />
+
+<br />
 
 # :books: Estrutura
 
@@ -63,6 +69,8 @@ A versão mobile ainda está sendo desenvolvida
   - Components: São os componentes mais isolados que eu pretendo usar em projetos futuros, dessa forma, possuem uma documentação melhor.
 
 <div id="database" />
+
+<br />
 
 ## :game_die: Database
 
@@ -93,6 +101,8 @@ Objeto **question**:
 
 <div id="storage" />
 
+<br />
+
 ## :ticket: Storage
 
 Conecta o banco de dados com o DOM, chamando o modulo "root" para base para obter, adicionar ou editar dados. A função utiliza o DOM para alterar diretamente os valores. Ademais, cada elemento adicionado após a inicialização é renderizado separadamente por meio do ReactDOM.render.
@@ -102,6 +112,8 @@ Conecta o banco de dados com o DOM, chamando o modulo "root" para base para obte
 Pelas minhas pesquisas, acredito que as melhores práticas seria alterar os dados apenas pelo **useState**, contudo, os valores dos inputs são chamados de diversos componentes diferentes, como a navbar, dessa forma, o useState deveria ser declarado na raiz da pagina, deixando o programa mais **lento e complexo**. Alem disso, fica mais simples de alterar o valor após uma consulta ao indexedDB.
 
 <div id="futuro" />
+
+<br />
 
 ## :sparkles: Planos para o futuro
 
