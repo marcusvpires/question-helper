@@ -11,7 +11,7 @@
  <a href="#compatibilidade">Compatibilidade</a> |
  <a href="#estrutura">Estrutura</a> |
  <a href="#database">Database</a> |
- <a href="#storage">Storage</a>
+ <a href="#storage">Storage</a> |
  <a href="#futuro">Futuro</a>
 </p>
 
