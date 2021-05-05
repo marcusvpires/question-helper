@@ -3,7 +3,7 @@
 <br />
 
 <h1 align="center">Question helper</h1>
-<p align="center">Plataforma segura e rápida para salvar as questões de atividades do EAD e não perder as questões devido problemas da plataforma oficial.</p>
+<p align="center">Plataforma desenvolvida para salver o gabarito de provas e atividades durante o EAD. Tem como objetivo suprir as dificuldades das provas online, visto que, muitos plataformas não salvam os dados, dessa forma, em uma possível queda de energia ou eventual problema que exija um recarregamento da pagina, todos as respostas são perdidas. Ademias, a plataforma permite salvar os gabaritos em repósitórios, permitindo a arquivação dos dados de forma mais organizada.</p>
 
 <p align="center">
  <a href="#motivacao">Motivação</a> |
