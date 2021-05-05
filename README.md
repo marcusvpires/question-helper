@@ -27,7 +27,7 @@ Ademais, as questões não eram salvas automaticamente, dessa forma, era necess�
 
 <div id="solucoes" />
 
-### Suluções
+## Suluções
 
 A plataforma é uma solução mais prática e com um design melhor que um arquivo ".txt", dessa forma, eu utilizei a API do Browser IndexedDB como banco de dados e o React JS como Front-end. O Banco de dados é local, dessa forma é considerávelmente rápido e cada input é salvo em tempo real no localStorage.
 
@@ -38,15 +38,19 @@ Os inputs também são controlados pelo DOM, pois como os inputs são alterados 
 
 <div id="compatibilidade" />
 
-### Compatibilidade
+## Compatibilidade
 
-A plataforma foi desenvolvida no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, principalmente o css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.
-
-A versão mobile ainda está sendo desenvolvida
-
-![Demonstration](public/readme/mobile-questions.png)
-![Demonstration](public/readme/mobile-forms.png)
-
+<div style="display: flex;">
+	<div>
+		<p>A plataforma foi desenvolvida no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, principalmente o css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.</p>
+		<p>A versão mobile ainda está sendo desenvolvida</p>
+	</div>
+	<div style="display: flex;">
+		 <img src="./public/readme/mobile-questions.png" alt="Mobile version questions" width="700"> 
+		 <img src="./public/readme/mobile-forms.png" alt="Mobile version forms" width="700"> 
+	</div>
+</div>
+	
 <div id="estrutura" />
 
 ## Estrutura
