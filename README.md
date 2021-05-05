@@ -46,8 +46,7 @@ Os inputs também são controlados pelo DOM, pois como os inputs são alterados 
 		<p>A versão mobile ainda está sendo desenvolvida</p>
 	</div>
 	<div style="display: flex;">
-		 <img src="./public/readme/mobile-questions.png" alt="Mobile version questions" width="700"> 
-		 <img src="./public/readme/mobile-forms.png" alt="Mobile version forms" width="700"> 
+
 	</div>
 </div>
 	
