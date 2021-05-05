@@ -22,7 +22,7 @@
 
 <div id="motivacao" />
 
-## Motivação
+## :scream: Motivação
 
 Durante o EAD, a minha escola contratou uma plataforma para as aulas, contudo, as avaliações e atividades apresentavam alguns problemas. Primeiramente, o tempo de carregamento era relativamente elevado, em que, devido ao tempo restrito de avaliação, esse "delay" causou um pouco de frustração no meu caso, prejudicando diretamente a minha nota.
 
@@ -30,7 +30,7 @@ Ademais, as questões não eram salvas automaticamente, dessa forma, era necess�
 
 <div id="solucoes" />
 
-## Suluções
+## :rocket: Suluções
 
 A plataforma é uma solução mais prática e com um design melhor que um arquivo ".txt", dessa forma, eu utilizei a API do Browser IndexedDB como banco de dados e o React JS como Front-end. O Banco de dados é local, dessa forma é considerávelmente rápido e cada input é salvo em tempo real no localStorage.
 
@@ -41,7 +41,7 @@ Os inputs também são controlados pelo DOM, pois como os inputs são alterados 
 
 <div id="compatibilidade" />
 
-## Compatibilidade
+## :dizzy: Compatibilidade
 
 
 A plataforma foi desenvolvida no FireFox, dessa forma, pode apresentar bugs e problemas em outros navegadores, principalmente o css. Apenas o Internet Explorer não apresenta compatibilidade com o indexedDB, impossibilitando o uso.
@@ -53,7 +53,7 @@ A versão mobile ainda está sendo desenvolvida
 	
 <div id="estrutura" />
 
-# Estrutura
+# :books: Estrutura
 
 - __Components__: componentes renderizados pelo react
 - __Data base__: inicia e conecta com a IndexedDB
@@ -64,7 +64,7 @@ A versão mobile ainda está sendo desenvolvida
 
 <div id="database" />
 
-## Database
+## :game_die: Database
 
 Objeto **repository**: `{ id: Repository-(date)-(timestamp)-(random), name: ----, }`.
 Além da indexedDB, o ID e o nome são salvos no localStorage com as chaves repositoryID, repository respectivamente.
@@ -93,7 +93,7 @@ Objeto **question**:
 
 <div id="storage" />
 
-## Storage
+## :ticket: Storage
 
 Conecta o banco de dados com o DOM, chamando o modulo "root" para base para obter, adicionar ou editar dados. A função utiliza o DOM para alterar diretamente os valores. Ademais, cada elemento adicionado após a inicialização é renderizado separadamente por meio do ReactDOM.render.
 
@@ -103,7 +103,7 @@ Pelas minhas pesquisas, acredito que as melhores práticas seria alterar os dado
 
 <div id="futuro" />
 
-## Planos para o futuro
+## :sparkles: Planos para o futuro
 
 __Banco de dados na nuvem__: Além da indexeDB para a utilisação local e ofline, __estou desenvolvendo__ uma atualização que vai possibilitar o salvamento na nuvem, poré, é preciso criar um __sistema de altenticação__ primeiro. Estou avaliando utilizar o MongoBD ou criar um banco de dados em MySQL com o Prisma. Outro problema é limitar a quantidade de armasenamento disponível para cada usuario.
 
