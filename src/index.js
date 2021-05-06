@@ -11,7 +11,7 @@ import About from "./Pages/About.js";
 const ReactRouter = () => {
 
   useEffect(() => {
-    ReactGA.initialize('UA-MDWS9F8Z41');
+    ReactGA.initialize('G-MDWS9F8Z41');
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, [])
 
