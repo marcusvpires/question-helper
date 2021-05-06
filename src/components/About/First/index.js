@@ -22,17 +22,17 @@ const First = () =>  (
     <S.HeaderLinks>
       <S.HeaderLink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
         <D.Icon><LinkedinBox /></D.Icon>
-        <S.HeaderLabel>Linkedin</S.HeaderLabel>
+        <D.h3>Linkedin</D.h3>
       </S.HeaderLink>
 
       <S.HeaderRedirect to='/about' >
         <D.Icon><CodeBlock /></D.Icon>
-        <S.HeaderLabel>About</S.HeaderLabel>
+        <D.h3>About</D.h3>
       </S.HeaderRedirect>
 
       <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
         <D.Icon><Github /></D.Icon>
-        <S.HeaderLabel>Github</S.HeaderLabel>
+        <D.h3>Github</D.h3>
       </S.HeaderLink>
     </S.HeaderLinks>
   </S.Wrapper>
