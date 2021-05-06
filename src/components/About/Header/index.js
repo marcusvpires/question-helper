@@ -7,28 +7,29 @@ import { LinkedinBox } from '@styled-icons/remix-fill/LinkedinBox'
 import * as S from "./styled";
 import * as D from "../../../global/Design"
 
-export function AboutHeader() {
+const AboutHeader = () =>  (
+  <S.Wrapper>
+    <S.Logo>
 
-  return (
-    <S.HeaderWrapper>
-      <S.HeaderLinks>
-        <S.HeaderLink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
-          <S.HeaderIcon><LinkedinBox /></S.HeaderIcon>
-          <S.HeaderLabel>Linkedin</S.HeaderLabel>
-        </S.HeaderLink>
+    </S.Logo>
 
-        <S.HeaderRedirect to='/about' >
-          <S.HeaderIcon><CodeBlock /></S.HeaderIcon>
-          <S.HeaderLabel>About</S.HeaderLabel>
-        </S.HeaderRedirect>
+    <S.HeaderLinks>
+      <S.HeaderLink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
+        <D.Icon><LinkedinBox /></D.Icon>
+        <S.HeaderLabel>Linkedin</S.HeaderLabel>
+      </S.HeaderLink>
 
-        <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
-          <S.HeaderIcon><Github /></S.HeaderIcon>
-          <S.HeaderLabel>Github</S.HeaderLabel>
-        </S.HeaderLink>
-      </S.HeaderLinks>
-    </S.HeaderWrapper>
-  );
-}
+      <S.HeaderRedirect to='/about' >
+        <D.Icon><CodeBlock /></D.Icon>
+        <S.HeaderLabel>About</S.HeaderLabel>
+      </S.HeaderRedirect>
+
+      <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
+        <D.Icon><Github /></D.Icon>
+        <S.HeaderLabel>Github</S.HeaderLabel>
+      </S.HeaderLink>
+    </S.HeaderLinks>
+  </S.Wrapper>
+);
 
 export default AboutHeader;

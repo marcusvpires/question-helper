@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Link } from "react-router-dom";
 // import media from "styled-media-query"
 
-export const HeaderWrapper = styled.section`
+export const Wrapper = styled.section`
   background-color: var(--back);
   height: 5rem;
   width: 100%;
@@ -13,9 +13,13 @@ export const HeaderWrapper = styled.section`
   padding: 1rem 2rem;
 `
 
-export const HeaderRepository = styled.input`
-  font-size: 1.4rem;
+export const Logo = styled.div`
 `
+export const LogoImage = styled.img`
+`
+export const LogoText = styled.h1`
+`
+
 
 export const HeaderLinks = styled.div`
   display: flex;
@@ -48,13 +52,6 @@ export const HeaderLink = styled.a`
   &:hover {
     background-color: var(--blueDark);
   }
-`
-
-export const HeaderIcon = styled.div`
-  margin-right: 0.8rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 0.5rem;
 `
 
 export const HeaderLabel = styled.span`
