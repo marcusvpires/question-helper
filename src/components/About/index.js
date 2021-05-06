@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+export const Wrapper = styled.div`
+  background-color: var(--backDark);
+`
+
 export const Container = styled.div`
   padding: 1.8rem 2.8rem 2.8rem;
   overflow: auto;
