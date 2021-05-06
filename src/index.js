@@ -1,8 +1,10 @@
 import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom";
 import React, { useEffect } from 'react';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ReactGA from 'react-ga';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import Questions from "./Pages/Question.js";
 import Repositories from "./Pages/Repositories.js";
@@ -32,10 +34,17 @@ const ReactRouter = () => {
   );
 }
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain={domain}
+    clientId={clientId}
+    redirectUri={window.location.origin}
+  >  
     <ReactRouter />
-  </React.StrictMode>,
+  </Auth0Provider>,
   document.getElementById("root")
 );
 
