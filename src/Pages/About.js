@@ -2,6 +2,7 @@ import React from "react";
 import GlobalStyles from "../global/GlobalStyles";
 
 import Header from "../components/About/Header"
+import First from "../components/About/First"
 
 import * as S from '../components/About'
 import * as D from "../global/Design"
@@ -13,6 +14,7 @@ const AboutPage = () => {
       <GlobalStyles />
       <S.Wrapper>
         <Header />
+        <First />
         <S.Container>
           <S.subTitle>Motivação</S.subTitle>
           <S.Paragraph>

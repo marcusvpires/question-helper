@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 // import media from "styled-media-query"
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.div`
   height: 5rem;
   width: 100%;
   display: flex;
@@ -21,7 +21,7 @@ export const LogoImage = styled.img`
   height: 2rem;
 `;
 
-export const LogoText = styled.h1`
+export const LogoText = styled.h2`
   font-size: 1.5rem;
   font-weight: 600;
   margin-left: 1rem;

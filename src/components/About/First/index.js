@@ -1,40 +1,16 @@
 import React from "react";
 
-import { Github } from '@styled-icons/boxicons-logos/Github'
-import { CodeBlock } from '@styled-icons/boxicons-regular/CodeBlock'
-import { LinkedinBox } from '@styled-icons/remix-fill/LinkedinBox'
-import logo from "./logo.png"
-
+import image from "./image.png"
 import * as S from "./styled";
 import * as D from "../../../global/Design"
 
-console.log(logo)
-
 const First = () =>  (
   <S.Wrapper>
-    <S.Logo>
-      <S.LogoImage src={logo} />
-      <S.LogoText>
-        Gabarito Virtual
-      </S.LogoText>
-    </S.Logo>
-
-    <S.HeaderLinks>
-      <S.HeaderLink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
-        <D.Icon><LinkedinBox /></D.Icon>
-        <D.h3>Linkedin</D.h3>
-      </S.HeaderLink>
-
-      <S.HeaderRedirect to='/about' >
-        <D.Icon><CodeBlock /></D.Icon>
-        <D.h3>About</D.h3>
-      </S.HeaderRedirect>
-
-      <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
-        <D.Icon><Github /></D.Icon>
-        <D.h3>Github</D.h3>
-      </S.HeaderLink>
-    </S.HeaderLinks>
+    <S.TextContainer>
+      <S.Title margin="0 0 2rem 0" >Anote as respostas de forma rápida, prática e segura.</S.Title>
+      <D.p>Utilize todas as ferramentas e inputs para salvar de forma confiável as respostas da prova. Cada letra do texto é salva astomaticamente e disponível a qualquer momento, mesmo sem internet. Organize as suas atividades e provas em repositórios para ter acesso posteriormente.</D.p>
+    </S.TextContainer>
+    <S.Image src={image} />
   </S.Wrapper>
 );
 

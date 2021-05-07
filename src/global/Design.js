@@ -97,14 +97,21 @@ export const Strong = styled.span`
   padding: 1rem 0;
 `
 
-export const Text = styled.p`
-  font-size: .8rem;
-  padding: .8rem 0;
+export const h1 = styled.h1`
+  font-size: 2.2rem;
+  font-weight: 700;
+  ${props => props.margin && 'margin:' + props.margin + ';'}
+  ${props => props.align && 'text-align:' + props.align + ';'}
 `
 
 export const h3 = styled.h3`
   font-size: 1.1rem;
   ${props => props.align && 'text-align:' + props.align + ';'}
+`
+
+export const Text = styled.p`
+  font-size: .8rem;
+  padding: .8rem 0;
 `
 
 export const p = styled.h3`
