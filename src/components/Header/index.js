@@ -45,7 +45,7 @@ export function Header({ isRepoPage }) {
           <S.HeaderLabel>About</S.HeaderLabel>
         </S.HeaderRedirect>
 
-        <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' >
+        <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' target="_blank" >
           <S.HeaderIcon><Github /></S.HeaderIcon>
           <S.HeaderLabel>Github</S.HeaderLabel>
         </S.HeaderLink>
