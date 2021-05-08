@@ -5,6 +5,7 @@ import Header from "../components/About/Header"
 import First from "../components/About/First"
 import Motivation from "../components/About/Motivation"
 import Features from "../components/About/Features"
+import Myself from "../components/About/Myself"
 
 import * as S from '../components/About'
 import * as D from "../global/Design"
@@ -17,6 +18,8 @@ const AboutPage = () => {
       <S.Wrapper>
         <Header />
         <First />
+        <Motivation />
+        <Myself />
         <Motivation />
         <Features />
         <S.Container>

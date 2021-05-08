@@ -1,27 +1,35 @@
 import React from "react";
 
-import image from "./image.png";
+import image from "./profile.png";
+import * as I from "@styled-icons/boxicons-logos"
 import * as S from "./styled";
 import * as D from "../../../global/Design";
 
-const First = () => (
+const Myself = () => (
   <S.Wrapper>
     <S.TextContainer>
-      <S.Title margin="0 0 2rem 0">O FUTURO DA EDUCAÇÃO JÁ COMEÇOU!</S.Title>
+      <S.Title margin="0 0 2rem 0">Quem sou eu</S.Title>
       <D.p>
-        As pessoas não são mais as mesmas, o mundo está mudando. Existem
-        alternativas melhores do que as escolas tradicionais. Dessa forma, esse
-        projeto é o meu pequeno apoio para a evolução do sistema educacional,
-        com mais tecnologia, acessibilidade e liberdade.
+        Meu nome é Marcus Vinícius, tenho 17 anos e estou no 3° ensino médio.
+        Gosto de programar e fazer alguns projetos de robótica desde criança.
+      </D.p>
+      <D.p margin="1rem 0 2rem">
+        Estou estudando para passar em uma boa faculdade em 2021, gosto de tocar
+        violão e estou esperando uma vacina para voltar a aula presencial.
       </D.p>
       <D.Flex>
-        <D.Button margin="1rem 1rem 0 0">Plataforma</D.Button>
+        <S.Link><I.Twitter /></S.Link>
+        <S.Link><I.Linkedin /></S.Link>
+        <S.Link><I.Instagram /></S.Link>
+        <S.Link><I.Discord /></S.Link>
         <D.Link
-          margin="1rem 0 0"
           href="https://github.com/M4rcusVinicius/question-helper"
           target="_blank"
         >
-          Github
+          <D.Flex>
+            <D.Icon><I.Github /></D.Icon>
+            Github
+          </D.Flex>
         </D.Link>
       </D.Flex>
     </S.TextContainer>
@@ -29,4 +37,4 @@ const First = () => (
   </S.Wrapper>
 );
 
-export default First;
+export default Myself;

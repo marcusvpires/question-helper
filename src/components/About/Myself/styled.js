@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 // import media from "styled-media-query"
 
 export const Wrapper = styled.div`
@@ -8,7 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1rem 4rem 3rem;
+  padding: 4rem;
 `;
 
 export const TextContainer = styled.div`
@@ -25,6 +24,20 @@ export const Image = styled.img`
   height: 30rem;
   width: 30rem;
   margin-right: 1rem;
+`;
+
+export const Link = styled.a`
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: .4rem;
+  background-color: #092969;
+  padding: .5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 200ms;
+
+  &:hover { background-color: #002d86; }
+  &:focus { outline: none; }
 `;
 
 
