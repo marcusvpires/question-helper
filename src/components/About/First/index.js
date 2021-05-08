@@ -1,14 +1,29 @@
 import React from "react";
 
-import image from "./image.png"
+import image from "./image.png";
 import * as S from "./styled";
-import * as D from "../../../global/Design"
+import * as D from "../../../global/Design";
 
-const First = () =>  (
+const First = () => (
   <S.Wrapper>
     <S.TextContainer>
-      <S.Title margin="0 0 2rem 0" >Anote as respostas de forma rápida, prática e segura.</S.Title>
-      <D.p>Utilize todas as ferramentas e inputs para salvar de forma confiável as respostas da prova. Cada letra do texto é salva astomaticamente e disponível a qualquer momento, mesmo sem internet. Organize as suas atividades e provas em repositórios para ter acesso posteriormente.</D.p>
+      <S.Title margin="0 0 2rem 0">O FUTURO DA EDUCAÇÃO JÁ COMEÇOU!</S.Title>
+      <D.p>
+        As pessoas não são mais as mesmas, o mundo está mudando. Existem
+        alternativas melhores do que as escolas tradicionais. Dessa forma, esse
+        projeto é o meu pequeno apoio para a evolução do sistema educacional,
+        com mais tecnologia, acessibilidade e liberdade.
+      </D.p>
+      <D.Flex>
+        <D.Button margin="1rem 1rem 0 0">Plataforma</D.Button>
+        <D.Link
+          margin="1rem 0 0"
+          href="https://github.com/M4rcusVinicius/question-helper"
+          target="_blank"
+        >
+          Github
+        </D.Link>
+      </D.Flex>
     </S.TextContainer>
     <S.Image src={image} />
   </S.Wrapper>

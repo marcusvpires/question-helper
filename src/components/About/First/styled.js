@@ -16,7 +16,7 @@ export const TextContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 700;
   margin-bottom: 2.2rem;
 `;
