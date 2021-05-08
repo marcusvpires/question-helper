@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 // import media from "styled-media-query"
 
 export const Wrapper = styled.div`
@@ -7,8 +6,14 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1rem 2rem;
-  background-color: blue;
+  padding: 4rem;
+`;
+
+export const Item = styled.div`
+  width: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 
