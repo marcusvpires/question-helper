@@ -30,7 +30,7 @@ const AboutHeader = () => (
         <D.h3>About</D.h3>
       </S.HeaderRedirect>
 
-      <S.HeaderLink href="https://github.com/M4rcusVinicius/question-helper">
+      <S.HeaderLink href="https://github.com/M4rcusVinicius/question-helper" target="_blank">
         <D.Icon>
           <Github />
         </D.Icon>
