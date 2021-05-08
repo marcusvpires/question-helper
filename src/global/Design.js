@@ -104,6 +104,13 @@ export const h1 = styled.h1`
   ${props => props.align && 'text-align:' + props.align + ';'}
 `
 
+export const h2 = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 600;
+  ${props => props.margin && 'margin:' + props.margin + ';'}
+  ${props => props.align && 'text-align:' + props.align + ';'}
+`
+
 export const h3 = styled.h3`
   font-size: 1.1rem;
   ${props => props.align && 'text-align:' + props.align + ';'}
@@ -116,6 +123,7 @@ export const Text = styled.p`
 
 export const p = styled.h3`
   font-size: 1rem;
+  ${props => props.margin && 'margin:' + props.margin + ';'}
   ${props => props.align && 'text-align:' + props.align + ';'}
   ${props => props.color && 'color:' + props.color + ';'}
 `
@@ -130,6 +138,7 @@ export const Icon = styled.div`
     height: ${props.size ? props.size : '1.5rem'};
     width: ${props.size ? props.size : '1.5rem'};
   `}
+  ${props => props.color && 'color:' + props.color + ';'}
   margin-right: 0.5rem;
 `
 
