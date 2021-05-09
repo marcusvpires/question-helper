@@ -35,6 +35,7 @@ export const FormsQuestion = styled.div`
   border-bottom: solid 1px;
   padding-bottom: 0.5rem;
 
+  ${media.lessThan("1000px")` font-size: 1.3rem; `}
 `
 export const FormsNumber = styled.input`
   font-size: 1.4rem;

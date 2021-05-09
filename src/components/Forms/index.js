@@ -14,7 +14,7 @@ const Forms = () => {
   return (
     <S.FormsWrapper >
       <S.FormsQuestion>
-        Question
+        Questão 
         <Number />
       </S.FormsQuestion>
       <Alternative resetTimer={Timer.handleReset} />

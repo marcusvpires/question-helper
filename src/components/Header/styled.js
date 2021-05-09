@@ -33,14 +33,9 @@ export const RepositoryName = styled.input`
 
   ${media.lessThan("1000px")` font-size: 1.3rem; `}
 
-  ${media.lessThan("800px")`
-    font-size: 1.2rem;
-    width: 20rem;
-  `}
+  ${media.lessThan("800px")` width: 20rem; `}
 
-  ${media.lessThan("350px")`
-    width: 90%;
-  `}
+  ${media.lessThan("350px")` width: 90%; `}
 `;
 
 export const LinksContainer = styled.div`
