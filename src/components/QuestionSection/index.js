@@ -8,7 +8,9 @@ const QuestionSection = styled.ul`
   padding: 1rem 2rem;
   overflow: auto;
   scrollbar-width: thin;
-  user-select: none;  
+  user-select: none;
+    
+  display: none;
 
   ${media.lessThan("medium")`
     border-top: 1px solid #6f757a;

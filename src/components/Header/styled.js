@@ -120,7 +120,7 @@ export const HeaderLabel = styled.span`
   `}
 
   ${media.lessThan("800px")`
-    font-size: 1rem;
+    font-size: .9rem;
   `}
 
   ${media.lessThan("700px")`

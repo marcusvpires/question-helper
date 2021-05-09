@@ -3,27 +3,48 @@ import media from "styled-media-query"
 
 export const FormsWrapper = styled.section`
   height: 100%;
-  width: 24rem;
+  width: 34rem;
   padding: 2rem;
-  ${media.lessThan("medium")`
-    margin: auto;
-    min-width: 24rem;
-    width: 80%;
-    height: calc(100% - 8rem);
+
+  ${media.lessThan("1800px")`
+    width: 30rem;
   `}
-  ${media.lessThan("400px")`
+
+  ${media.lessThan("1600px")`
+    width: 28rem;
+  `}
+
+  ${media.lessThan("1500px")`
+    width: 28rem;
+  `}
+
+  ${media.lessThan("1300px")`
+    width: 24rem;
+    padding: 1.5rem;
+  `}
+
+  ${media.lessThan("1200px")`
+    width: 22rem;
+    padding: 1.5rem;
+  `}
+
+  ${media.lessThan("900px")`
+    width: 20rem;
+    padding: 1rem;
+  `}
+
+  ${media.lessThan("700px")`
     width: 100%;
-    min-width: auto;
+    padding: 1rem;
   `}
+
 `
 
 export const FormsQuestion = styled.div`
   font-size: 1.4rem;
   border-bottom: solid 1px;
   padding-bottom: 0.5rem;
-  ${media.lessThan("400px")`
-    font-size: 1.2rem;
-  `}
+
 `
 export const FormsNumber = styled.input`
   font-size: 1.4rem;
@@ -32,10 +53,5 @@ export const FormsNumber = styled.input`
   &:invalid {
     box-shadow: none;
     color: red;
-  }
-  ${media.lessThan("400px")`
-    width: auto;
-    font-size: 1.2rem;
-  `}
-  
+  }  
 `
