@@ -12,7 +12,8 @@ export const TimerWrapper = styled.div`
 	transition: 200ms;
 	display: flex;
 	align-items: center;
-	height: 2.4rem;
+	height: 2.8rem;
+
 	${media.lessThan("400px")`
 		font-size: .9rem;
 		height: 2.3rem;
