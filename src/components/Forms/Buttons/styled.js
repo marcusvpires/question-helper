@@ -8,11 +8,20 @@ export const BtnWrapper = styled.div`
 	justify-content: space-between;
 `
 
+export const Icon = styled.div`
+	height: 1.5rem;
+	width: 1.5rem;
+	margin-right: .4rem;
+`
+
 export const Button = styled.button`
+	background-color: var(--blueDark);
 	color: var(--primary);
+	height: 2.8rem;
 	border-radius: 2px;
 	border: none;
-	background-color: var(--blueDark);
+	display: flex;
+	align-items: center;
 	padding: .6rem .8rem;
 	font-size: 1rem;
 	letter-spacing: 0.069rem;

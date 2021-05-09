@@ -25,7 +25,9 @@ const Shortcut = ({ resetTimer }) => {
       <S.Shortcut
         value={shortcut}
         onChange={handleShortcut}
-        placeholder='Shortcut'
+        aria-label="Atalho de questões"
+        aria-required="true"
+        placeholder='Atalho'
         valid={isValid}
       />
     </S.ShortcutWrapper>

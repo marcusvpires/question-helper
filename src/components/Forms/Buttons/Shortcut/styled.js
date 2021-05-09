@@ -7,9 +7,10 @@ export const ShortcutWrapper = styled.div`
 export const Shortcut = styled.input`
 	background-color: var(--blueDark);
 	border-radius: 2px;
-	width: 6.5rem;
+	width: 4rem;
 	height: 2.4rem;
 	caret-color: transparent;
+  height: 2.8rem;
 	
 	&::placeholder {
 		color: var(--primary);
@@ -21,10 +22,8 @@ export const Shortcut = styled.input`
 		outline-color: ${props => props.valid ? 'var(--blue)' : 'red'};
 		outline-style: solid;
 	}
-	${media.lessThan("400px")`
-		padding: .6rem .7rem;
-		font-size: .9rem;
-		width: 5.5rem;
-		height: 2.3rem;
+
+	${media.lessThan("1300px")`
+		
   `}
 `
