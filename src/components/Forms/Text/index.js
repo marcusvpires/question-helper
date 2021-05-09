@@ -19,9 +19,11 @@ const FormText = () => {
     <S.TextWrapper>
       <S.TextArea
         id='text'
-        name={'Text question input'}
-        title={'Text question input'}
-        placeholder='Type a text question here...'
+        aria-label='Formulário de texto'
+        aria-required="true"
+        name='Formulário de texto'
+        title='Formulário de texto'
+        placeholder='Digite as questões de texto aqui...'
         value={text}
         onChange={handleText}
       />

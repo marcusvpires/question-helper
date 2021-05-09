@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const TextWrapper = styled.div`
 	margin: 1rem 0;
-	height: calc(100% - 17rem);
+	height: calc(100% - 14rem);
 `
 
 export const TextArea = styled.textarea`
