@@ -11,7 +11,7 @@ export const LayoutWrapper = styled.div`
 export const LayoutMain = styled.main`
   background-color: var(--backDark);
   height: calc(100vh - 4.8rem);
-  width: calc(100% - 3.8rem);
+  width: calc(100% - 12.5rem);
   display: flex;
 
   ${media.lessThan("1000px")`
