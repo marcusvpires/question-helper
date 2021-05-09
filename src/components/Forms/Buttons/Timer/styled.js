@@ -47,6 +47,10 @@ export const Label = styled.div`
 	${media.lessThan("700px")`
 		display: block;
   `}
+
+	${media.lessThan("525px")`
+		display: none;
+  `}
 `
 
 export const Icon = styled.div`

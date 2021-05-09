@@ -10,6 +10,10 @@ export const BtnWrapper = styled.div`
 	${media.lessThan("700px")`
 		padding: 0 1rem;
   `}
+
+	${media.lessThan("650px")`
+		padding: 0;
+  `}
 `
 
 export const Icon = styled.div`
@@ -26,6 +30,18 @@ export const Label = styled.div`
 
 	${media.lessThan("700px")`
 		display: block;
+  `}
+
+	${media.lessThan("450px")`
+		display: none;
+  `}
+
+	${media.lessThan("380px")`
+		display: block;
+  `}
+
+	${media.lessThan("350px")`
+		display: none;
   `}
 `
 
@@ -63,5 +79,13 @@ export const Button = styled.button`
 	${media.lessThan("900px")`
 		height: 2.4rem;
     padding: .5rem .7rem;
+  `}
+
+	${media.lessThan("700px")`
+		padding: .5rem 1.2rem;
+  `}
+
+	${media.lessThan("480px")`
+		padding: .5rem .8rem;
   `}
 `
