@@ -19,35 +19,35 @@ const Navbar = ({ isRepoPage }) => {
 
   const navButtonList = [
     {
-      name: "New repository",
+      name: "Novo repositório",
       onClick: () => {
-        alert('newRepositoryAlert', 'Repository was created successfully', 'info')
-        newRepository('Undefined', isRepoPage)
+        alert('newRepositoryAlert', 'Repositório criado com sucesso', 'info')
+        newRepository('Indefinido', isRepoPage)
       },
       icon: <I.AddToQueue />,
       more: () => {
         input(
           'repositoryName',
-          { title:  'Create new repository', question: 'Type the name of the repository'}, newRepository, [isRepoPage]
+          { title:  'Criar novo repositório', question: 'Digite o nome do repositório'}, newRepository, [isRepoPage]
         )
       }
     },
     {
-      name: "Copy questions",
+      name: "Copiar questões",
       onClick: () => { 
-        alert('copyAlert', 'Successfully copied questions', 'info')
+        alert('copyAlert', 'Questões copiadas com sucesso', 'info')
         QuickCopy("Questão [number] - [value]")
       },
       icon: <I.CopyAlt />,
       more: displayCopy,
     },
     {
-      name: "Clear section",
+      name: "Limpar seção",
       onClick: () => { 
         confirm( 
           'confirmClear', {
-            title: 'Want to clear the session ?',
-            desc: 'All questions on this form together with all the information on the form will be permanently deleted',
+            title: 'Você deseja limpar o repositório atual ?',
+            desc: 'Todas as questões neste repositório, incluindo as informações no formulário serão excluídas permanentemente',
           }, clearSection,
           [ isRepoPage ]
         )
@@ -55,24 +55,19 @@ const Navbar = ({ isRepoPage }) => {
       icon: <I.Brush />,
     },
     {
-      name: "Export",
+      name: "Exportar",
       onClick: exportDatabase,
       icon: <I.CopyAlt />,
     },
     {
-      name: "Import",
+      name: "Importar",
       onClick: importDatabase,
       icon: <I.CopyAlt />,
     },
     {
-      name: "Repositories",
+      name: "Repositórios",
       onClick: () => { history.push("/repositories") },
       icon: <I.FolderOpen />,
-    },
-    {
-      name: "Open trash",
-      onClick: openTrash,
-      icon: <I.Trash />
     },
   ];
 

@@ -4,10 +4,9 @@ import media from "styled-media-query"
 
 export const NavWrapper = styled.section`
   background-color: var(--back);
-  height: 100vh;
+  height: calc(100vh - 4.8rem);
   width: 12.5rem;
-  position: absolute;
-  padding-top: 5rem;
+  padding-top: .5rem;
   ${media.lessThan("large")`
     width: 3.8rem;
   `}
