@@ -1,7 +1,9 @@
 import React from "react";
 import { build } from "../../../storage/question";
+
 import Timer from "./Timer";
 import Shortcut from "./Shortcut";
+import Create from "./Create";
 
 import * as S from "./styled";
 
@@ -21,6 +23,14 @@ const FormButtons = ({ timer }) => {
       <Timer
         timer={timer}
       />
+      <S.Button
+        onClick={() => {
+          build("text");
+          timer.handleReset()
+        }}
+      >
+        Criar
+      </S.Button>
     </S.BtnWrapper>
   );
 };

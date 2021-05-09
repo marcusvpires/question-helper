@@ -3,7 +3,6 @@ import React from "react";
 import Alternative from "./Alternative";
 import Number from "./Number";
 import Text from "./Text";
-import Display from "./Display";
 import Buttons from "./Buttons";
 
 import * as S from "./styled";
@@ -21,7 +20,6 @@ const Forms = () => {
       <Alternative resetTimer={Timer.handleReset} />
       <Buttons timer={Timer} />
       <Text />
-      <Display resetTimer={Timer.handleReset} />
     </S.FormsWrapper>
   );
 };

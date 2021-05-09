@@ -5,10 +5,10 @@ export const DisplayWrapper = styled.div`
 `
 
 export const Display = styled.button`
-	color: var(--primary);
-	border-radius: 2px;
-	border: none;
 	background-color: var(--blueDark);
+	border-radius: 2px;
+	color: var(--primary);
+	border: none;
 	padding: .6rem .8rem;
 	font-size: 1rem;
 	letter-spacing: 0.069rem;

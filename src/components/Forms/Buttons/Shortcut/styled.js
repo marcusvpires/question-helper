@@ -5,8 +5,8 @@ export const ShortcutWrapper = styled.div`
 `
 
 export const Shortcut = styled.input`
-	border-radius: 2px;
 	background-color: var(--blueDark);
+	border-radius: 2px;
 	width: 6.5rem;
 	height: 2.4rem;
 	caret-color: transparent;

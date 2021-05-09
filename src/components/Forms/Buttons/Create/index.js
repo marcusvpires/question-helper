@@ -1,9 +1,9 @@
 import React from "react";
-import { build } from "../../../storage/question";
+import { build } from "../../../../storage/question";
 
 import * as S from "./styled";
 
-const FormDisplay = ({ resetTimer }) => {
+const Create = ({ resetTimer }) => {
   return (
     <S.DisplayWrapper>
       <S.Display
@@ -11,10 +11,10 @@ const FormDisplay = ({ resetTimer }) => {
           build("text");
           resetTimer()
       }}>
-        Create
+        Criar
       </S.Display>
     </S.DisplayWrapper>
   );
 };
 
-export default FormDisplay;
+export default Create;
