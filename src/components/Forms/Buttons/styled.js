@@ -52,7 +52,7 @@ export const Create = styled.div`
 export const Button = styled.button`
 	background-color: var(--blueDark);
 	color: var(--primary);
-	height: 2.8rem;
+	height: 2.5rem;
 	border-radius: 2px;
 	border: none;
 	display: flex;

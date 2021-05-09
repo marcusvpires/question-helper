@@ -38,8 +38,6 @@ export const RepositoryName = styled.input`
     width: 20rem;
   `}
 
-  ${media.lessThan("700px")` font-size: 1.1rem; `}
-
   ${media.lessThan("350px")`
     width: 90%;
   `}
@@ -100,11 +98,6 @@ export const HeaderIcon = styled.div`
   ${media.lessThan("1000px")`
     width: 1.4rem;
     height: 1.4rem;
-  `}
-
-  ${media.lessThan("800px")`
-    width: 1.3rem;
-    height: 1.3rem;
   `}
 
   ${media.lessThan("700px")`

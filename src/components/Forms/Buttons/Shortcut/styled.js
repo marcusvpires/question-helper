@@ -11,9 +11,8 @@ export const Shortcut = styled.input`
 	background-color: var(--blueDark);
 	border-radius: 2px;
 	width: 4rem;
-	height: 2.4rem;
+  height: 2.5rem;
 	caret-color: transparent;
-  height: 2.8rem;
 	
 	&::placeholder {
 		color: var(--primary);

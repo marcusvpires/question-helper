@@ -6,7 +6,7 @@ export const TimerWrapper = styled.div`
 	color: var(--primary);
 	border-radius: 2px;
 	border: none;
-	height: 2.8rem;
+	height: 2.5rem;
 	letter-spacing: 0.069rem;
 	font-size: 1rem;
 	transition: 200ms;

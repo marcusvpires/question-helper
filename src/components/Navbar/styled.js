@@ -10,7 +10,7 @@ export const NavWrapper = styled.section`
 
   ${media.lessThan("1000px")`
     height: calc(100vh - 4.7rem);
-    width: 3.8rem;
+    width: 3.5rem;
   `}
   
   ${media.lessThan("800px")` height: calc(100vh - 4.2rem); `}
@@ -82,7 +82,11 @@ export const NavIcon = styled.div`
   width: 1.5rem;
   height: 1.5rem;
 
-  ${media.lessThan("1000px")` margin: 0; `}
+  ${media.lessThan("1000px")`
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0;
+  `}
 `;
 
 export const ImportWrapper = styled.div`
