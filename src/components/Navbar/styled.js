@@ -30,27 +30,6 @@ export const NavItem = styled.div`
   `}
 `
 
-export const NavMore = styled.button`
-  color: var(--primary);
-  background-color: transparent;
-  border-radius: 2px;
-  border: none;
-  cursor: pointer;
-  
-   &:hover {
-    background-color: var(--blueDark)
-  }
-
-  ${media.lessThan("large")`
-    display: none;
-  `}
-`
-
-export const NavMoreIcon = styled.div`
-  width: 1rem;
-  height: 1rem;
-`
-
 export const NavButton = styled.button`
   color: var(--primary);
   background-color: transparent;
@@ -89,7 +68,6 @@ export const NavIcon = styled.div`
     margin: 0;
   `}
 `
-
 
 export const ImportWrapper = styled.div`
   ${style.border};

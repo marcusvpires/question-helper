@@ -92,17 +92,10 @@ const Navbar = ({ isRepoPage }) => {
     <S.NavWrapper>
       {navButtonList.map((e) => (
         <S.NavItem name={e.name} title={e.name} key={e.name}>
-          <S.NavButton onClick={e.onClick}>
+          <S.NavButton onClick={e.onClick} onDoubleClick={e.more}>
             <S.NavIcon>{e.icon}</S.NavIcon>
             <S.NavText>{e.name}</S.NavText>
           </S.NavButton>
-          {e.more && (
-            <S.NavMore onClick={e.more}>
-              <S.NavMoreIcon>
-                <I.RightArrow />
-              </S.NavMoreIcon>
-            </S.NavMore>
-          )}
         </S.NavItem>
       ))}
     </S.NavWrapper>
