@@ -67,16 +67,18 @@ export const ButtonIcon = styled.div`
 `
 
 export const Link = styled.a`
-	background-color: #115c1f;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  color: var(--primary);
+	transition: 200ms;
+	font-size: 1rem;
 	border-radius: 2px;
+	cursor: pointer;
 	border: none;
 	padding: .5rem .8rem;
 	letter-spacing: 0.069rem;
-  text-decoration: none;
-  color: var(--primary);
-	font-size: 1rem;
-	cursor: pointer;
-	transition: 200ms;
+	background-color: ${props => props.color ? props.color : '#115c1f'};
   margin: ${props => props.margin && props.margin};
   
 	&:hover { background-color: #177629; }
