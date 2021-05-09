@@ -11,7 +11,7 @@ const Layout = ({ children, isRepoPage }) => (
     <GlobalStyles />
     <Header isRepoPage={isRepoPage} />
     <Navbar isRepoPage={isRepoPage} />
-    <S.LayoutMain></S.LayoutMain>
+    <S.LayoutMain>{children}</S.LayoutMain>
   </S.LayoutWrapper>
 );
 
