@@ -35,20 +35,26 @@ export function Header({ isRepoPage }) {
         onBlur={storage.save}
       />
       <S.LinksContainer>
-        <S.HeaderLink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
-          <S.HeaderIcon><LinkedinBox /></S.HeaderIcon>
-          <S.HeaderLabel>Linkedin</S.HeaderLabel>
-        </S.HeaderLink>
+        <S.Hyperlink href='https://www.linkedin.com/in/marcus-vinicius-almeida-pires-b194691b6/' >
+          <S.HeaderLink>
+            <S.HeaderIcon><LinkedinBox /></S.HeaderIcon>
+            <S.HeaderLabel>Linkedin</S.HeaderLabel>
+          </S.HeaderLink>
+        </S.Hyperlink>
 
-        <S.HeaderRedirect to='/about' >
-          <S.HeaderIcon><CodeBlock /></S.HeaderIcon>
-          <S.HeaderLabel>Sobre</S.HeaderLabel>
-        </S.HeaderRedirect>
+        <S.Redirect to='/about' >
+          <S.HeaderLink>
+            <S.HeaderIcon><CodeBlock /></S.HeaderIcon>
+            <S.HeaderLabel>Sobre</S.HeaderLabel>
+          </S.HeaderLink>
+        </S.Redirect>
 
-        <S.HeaderLink href='https://github.com/M4rcusVinicius/question-helper' target="_blank" >
-          <S.HeaderIcon><Github /></S.HeaderIcon>
-          <S.HeaderLabel>Github</S.HeaderLabel>
-        </S.HeaderLink>
+        <S.Hyperlink href='https://github.com/M4rcusVinicius/question-helper' target="_blank" >
+          <S.HeaderLink>
+            <S.HeaderIcon><Github /></S.HeaderIcon>
+            <S.HeaderLabel>Github</S.HeaderLabel>
+          </S.HeaderLink>
+        </S.Hyperlink>
       </S.LinksContainer>
     </S.Wrapper>
   );

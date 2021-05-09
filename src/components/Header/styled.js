@@ -1,60 +1,61 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { Link } from "react-router-dom";
-import media from "styled-media-query"
+import media from "styled-media-query";
 
 export const Wrapper = styled.section`
-  background-color: var(--back);
-  height: 5rem;
-  width: 100%;
   border-bottom: 1px solid #6f757a;
+  background-color: var(--back);
+  height: 4.8rem;
+  width: 100%;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-
-  ${media.lessThan("400px")`
-    height: 4.4rem;
-    padding: .8rem .8rem;
-    position: fixed;
-  `}
 
   &:focus {
     outline: none;
   }
-`
+
+  ${media.lessThan("1000px")` height: 4.7rem; `}
+
+  ${media.lessThan("800px")` height: 4.2rem; `}
+
+  ${media.lessThan("700px")` height: 4rem; `}
+
+  ${media.lessThan("400px")` padding: .8rem .8rem; `}
+`;
 
 export const RepositoryName = styled.input`
   font-size: 1.4rem;
   width: 34rem;
+  height: 3rem;
+  padding: 0;
 
-  ${media.lessThan("400px")`
-    font-size: 1.1rem;
-    width: 9rem;
+  ${media.lessThan("1000px")` font-size: 1.3rem; `}
+
+  ${media.lessThan("800px")`
+    font-size: 1.2rem;
+    width: 20rem;
   `}
-`
+
+  ${media.lessThan("700px")` font-size: 1.1rem; `}
+`;
 
 export const LinksContainer = styled.div`
   display: flex;
-`
+`;
 
-export const HeaderRedirect = styled(Link)`
+export const Redirect = styled(Link)`
+  text-decoration: none;
+`;
+
+export const Hyperlink = styled.a`
+  text-decoration: none;
+`;
+
+export const HeaderLink = styled.div`
   display: flex;
   color: var(--primary);
-  text-decoration: none;
-  align-items: center;
-  border-radius: 5px;
-  padding: 0.5rem 0.8rem;
-  transition: 200ms;
-
-  &:hover {
-    background-color: var(--blueDark);
-  }
-`
-
-export const HeaderLink = styled.a`
-  display: flex;
-  color: var(--primary);
-  text-decoration: none;
   align-items: center;
   border-radius: 5px;
   padding: 0.5rem 0.8rem;
@@ -65,21 +66,57 @@ export const HeaderLink = styled.a`
     background-color: var(--blueDark);
   }
 
+  ${media.lessThan("1000px")`
+    padding: .4rem .7rem;
+    margin: 0 1rem;
+  `}
+
+  ${media.lessThan("800px")`
+    margin: 0 .2rem;
+  `}
+
+  ${media.lessThan("700px")`
+    padding: .4rem;
+    margin: 0 .2rem;
+  `}
+
   ${media.lessThan("400px")`
     margin: 0;
   `}
-`
+`;
 
 export const HeaderIcon = styled.div`
-  margin-right: 0.8rem;
+  margin: 0 0.5rem 0.2rem 0;
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 0.5rem;
-`
+
+  ${media.lessThan("1000px")`
+    width: 1.4rem;
+    height: 1.4rem;
+  `}
+
+  ${media.lessThan("800px")`
+    width: 1.3rem;
+    height: 1.3rem;
+  `}
+
+  ${media.lessThan("700px")`
+    margin: 0 .2rem 0.2rem;
+  `}
+`;
 
 export const HeaderLabel = styled.span`
   font-size: 1.1rem;
-  ${media.lessThan("400px")`
+
+  ${media.lessThan("1000px")`
+    font-size: 1rem;
+  `}
+
+  ${media.lessThan("800px")`
+    font-size: 1rem;
+  `}
+
+  ${media.lessThan("700px")`
     display: none;
   `}
-`
+`;
