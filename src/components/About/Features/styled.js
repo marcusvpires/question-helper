@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 4rem;
+  background-color: var(--black);
 `;
 
 export const Item = styled.div`
