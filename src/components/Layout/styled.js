@@ -3,26 +3,33 @@ import media from "styled-media-query"
 
 
 export const LayoutWrapper = styled.div`
+  background-color: var(--backDark);
+  display: flex;
+  flex-wrap: wrap;
 `
 
 export const LayoutMain = styled.main`
-  height: calc(100vh - 5rem);
-  width: calc(100% - 12.5rem);
-  position: absolute;
-  top: 5rem;
-  left: 12.5rem;
-  background-color: var(--backDark);
+  background-color: blue;
+  height: calc(100vh - 4.8rem);
+  width: calc(100% - 3.8rem);
   display: flex;
-  ${media.lessThan("large")`
-    left: 3.8rem;
+
+  ${media.lessThan("1000px")`
+    height: calc(100vh - 4.7rem);
     width: calc(100% - 3.8rem);
   `}
-  ${media.lessThan("400px")`
-    top: 4.4rem;
-    height: 100vh;
-    left: 0;
+
+  ${media.lessThan("800px")`
+    height: calc(100vh - 4.2rem);
+  `}
+
+  ${media.lessThan("700px")`
+    height: calc(100vh - 4rem);
+  `}
+  
+  ${media.lessThan("600px")`
+    min-height: calc(100vh - 4rem - 3.5rem);
     width: 100%;
-    flex-wrap: wrap;
-    overflow: auto;
+    height: auto;
   `}
 `
