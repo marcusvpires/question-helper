@@ -39,10 +39,17 @@ export const RepositoryName = styled.input`
   `}
 
   ${media.lessThan("700px")` font-size: 1.1rem; `}
+
+  ${media.lessThan("350px")`
+    width: 90%;
+  `}
 `;
 
 export const LinksContainer = styled.div`
   display: flex;
+  ${media.lessThan("350px")`
+    display: none;
+  `}
 `;
 
 export const Redirect = styled(Link)`

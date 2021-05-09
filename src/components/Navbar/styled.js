@@ -1,88 +1,104 @@
-import { style } from '../../global/Design'
-import styled, { keyframes } from "styled-components"
-import media from "styled-media-query"
+import { style } from "../../global/Design";
+import styled, { keyframes } from "styled-components";
+import media from "styled-media-query";
 
 export const NavWrapper = styled.section`
   background-color: var(--back);
   height: calc(100vh - 4.8rem);
   width: 12.5rem;
-  padding-top: .5rem;
-  ${media.lessThan("large")`
+  padding-top: 0.5rem;
+
+  ${media.lessThan("1000px")`
+    height: calc(100vh - 4.7rem);
     width: 3.8rem;
   `}
-  ${media.lessThan("400px")`
+  
+  ${media.lessThan("800px")` height: calc(100vh - 4.2rem); `}
+
+  ${media.lessThan("700px")` height: calc(100vh - 4rem); `}
+
+  ${media.lessThan("600px")`
+    position: fixed;
+    display: flex;
+    display: flex;
+    justify-content: space-around;
+    padding: .2rem 1rem;
+    height: 3.5rem;
     width: 100%;
     bottom: 0;
-    display: flex;
-    height: auto;
-    z-index: 50;
-    padding: 0;
-    justify-content: space-around;
-    position: fixed;
   `}
-`
+`;
 
 export const NavItem = styled.div`
   width: 100%;
   display: flex;
-  ${media.lessThan("large")`
+  ${media.lessThan("1000px")`
+    justify-content: center;
+  `}
+  ${media.lessThan("600px")`
     width: auto;
   `}
-`
+`;
 
 export const NavButton = styled.button`
-  color: var(--primary);
   background-color: transparent;
-  border: none;
+  color: var(--primary);
   border-radius: 2px;
-  cursor: pointer;
-  padding: 1.2rem 0.5rem 1.2rem 1rem;
+  border: none;
   width: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
   transition: 200ms;
+  padding: 1.2rem 0.5rem 1.2rem 1rem;
 
   &:hover {
-    background-color: var(--blueDark)
+    background-color: var(--blueDark);
   }
 
-  ${media.lessThan("medium")`
-    width: auto;
-    border-radius: 10px;
+  ${media.lessThan("600px")`
+    border-radius: 5px;
+    padding: 0 1.5rem;
   `}
-`
+  ${media.lessThan("500px")`
+    padding: 0 1rem;
+  `}
+  ${media.lessThan("350px")`
+    padding: 0 .4rem;
+  `}
+`;
 
 export const NavText = styled.span`
   text-align: start;
   font-size: 1rem;
-  ${media.lessThan("large")`
+
+  ${media.lessThan("1000px")`
     display: none;
   `}
-`
+`;
 
 export const NavIcon = styled.div`
   margin-right: 0.8rem;
   width: 1.5rem;
   height: 1.5rem;
-  ${media.lessThan("large")`
-    margin: 0;
-  `}
-`
+
+  ${media.lessThan("1000px")` margin: 0; `}
+`;
 
 export const ImportWrapper = styled.div`
   ${style.border};
   width: 25rem;
   background-color: var(--back);
   padding: 1rem 1.5rem;
-  animation: 150ms ${props => props.reverse ? fadeOut : fadeIn } linear 1;
-`
+  animation: 150ms ${(props) => (props.reverse ? fadeOut : fadeIn)} linear 1;
+`;
 
 const fadeIn = keyframes`
  0% { transform: scale(.5); opacity: 0; }
  100% { transform: scale(1); opacity: 1; }
-`
+`;
 
 const fadeOut = keyframes`
  0% { transform: scale(1); opacity: 1; }
  100% { transform: scale(.5); opacity: 0; }
-`
+`;
