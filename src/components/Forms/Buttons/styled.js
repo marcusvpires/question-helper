@@ -6,12 +6,31 @@ export const BtnWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	${media.lessThan("700px")`
+		padding: 0 1rem;
+  `}
 `
 
 export const Icon = styled.div`
 	height: 1.5rem;
 	width: 1.5rem;
-	margin-right: .4rem;
+`
+
+export const Label = styled.div`
+	margin-left: .4rem;
+
+	${media.lessThan("900px")`
+    display: none;
+  `}
+
+	${media.lessThan("700px")`
+		display: block;
+  `}
+`
+
+export const Create = styled.div`
+	margin-left: .4rem;
 `
 
 export const Button = styled.button`
@@ -40,8 +59,9 @@ export const Button = styled.button`
 		transition: 50ms;
 		background-color: var(--blue);
 	}
-	${media.lessThan("400px")`
-		padding: .6rem .7rem;
-		font-size: .9rem;
+
+	${media.lessThan("900px")`
+		height: 2.4rem;
+    padding: .5rem .7rem;
   `}
 `

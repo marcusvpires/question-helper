@@ -23,7 +23,13 @@ export const Shortcut = styled.input`
 		outline-style: solid;
 	}
 
-	${media.lessThan("1300px")`
-		
+	${media.lessThan("900px")`
+		height: 2.4rem;
   `}
+
+	${media.lessThan("700px")`
+		width: 7rem;
+		padding: 0 1.2rem;
+  `}
+
 `

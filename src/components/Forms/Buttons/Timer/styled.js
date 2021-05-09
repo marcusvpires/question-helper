@@ -2,21 +2,20 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 export const TimerWrapper = styled.div`
+	background-color: var(--blueDark);
 	color: var(--primary);
 	border-radius: 2px;
 	border: none;
-	background-color: var(--blueDark);
-	font-size: 1rem;
+	height: 2.8rem;
 	letter-spacing: 0.069rem;
-	cursor: pointer;
+	font-size: 1rem;
 	transition: 200ms;
 	display: flex;
 	align-items: center;
-	height: 2.8rem;
-
-	${media.lessThan("400px")`
-		font-size: .9rem;
-		height: 2.3rem;
+	cursor: pointer;
+	
+	${media.lessThan("900px")`
+		height: 2.4rem;
   `}
 `
 
@@ -26,23 +25,31 @@ export const Timer = styled.input`
 	width: 4rem;
 	padding: 0;
 	margin: 0 0 0 .8rem;
-	${media.lessThan("400px")`
-		font-size: .9rem;
-		width: 3.8rem;
-  `}
 `
 
 export const TimerButton = styled.button`
-	width: 2rem;
+	border: none;
+	border-left: 2px solid var(--back);
+	background-color: transparent;
+	color: var(--primary);
 	height: 100%;
 	padding: 0;
-	margin: 0;
-	background-color: transparent;
-	border: none;
-	color: var(--primary);
-	border-left: 2px solid var(--back);
+	display: flex;
+	align-items: center;
 	cursor: pointer;
-	${media.lessThan("400px")`
-		width: 1.8rem;
+`
+
+export const Label = styled.div`
+	display: none;	
+	font-size: 1rem;
+	margin: 0 .2rem 0 .7rem;
+
+	${media.lessThan("700px")`
+		display: block;
   `}
+`
+
+export const Icon = styled.div`
+	width: 2rem;
+	
 `

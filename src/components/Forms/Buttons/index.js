@@ -22,7 +22,9 @@ const FormButtons = ({ timer }) => {
         <S.Icon>
           <I.Repost />
         </S.Icon>
-        Chute
+        <S.Label>
+          Chute
+        </S.Label>
       </S.Button>
       <Shortcut resetTimer={timer.handleReset} />
       <Timer
@@ -37,7 +39,9 @@ const FormButtons = ({ timer }) => {
         <S.Icon>
           <I.ListPlus />
         </S.Icon>
-        Criar
+        <S.Create>
+          Criar
+        </S.Create>
       </S.Button>
     </S.BtnWrapper>
   );

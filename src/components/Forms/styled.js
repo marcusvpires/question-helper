@@ -18,18 +18,8 @@ export const FormsWrapper = styled.section`
     width: 28rem;
   `}
 
-  ${media.lessThan("1300px")`
-    width: 24rem;
-    padding: 1.5rem;
-  `}
-
-  ${media.lessThan("1200px")`
-    width: 22rem;
-    padding: 1.5rem;
-  `}
-
   ${media.lessThan("900px")`
-    width: 20rem;
+    width: 22rem;
     padding: 1rem;
   `}
 
