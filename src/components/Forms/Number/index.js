@@ -18,8 +18,10 @@ const FormNumber = () => {
   return (
     <S.NumberInput
       id='number'
-      name={'Question number'}
-      title={'Question number'}
+      name='Número da questão'
+      title='Número da questão'
+      aria-label="Número da questão"
+      aria-required="true"
       placeholder='0'
       value={number}
       onChange={handleNumber}
