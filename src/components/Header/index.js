@@ -6,13 +6,12 @@ import { CodeBlock } from '@styled-icons/boxicons-regular/CodeBlock'
 import { LinkedinBox } from '@styled-icons/remix-fill/LinkedinBox'
 
 import * as S from "./styled";
-import * as D from "../../global/Design"
 
 export function Header({ isRepoPage }) {
 
   const [repository, setRepository] = React.useState(() => {
     let repository = localStorage.getItem('repository')
-    if (!repository) { repository = 'Undefined' }
+    if (!repository) { repository = 'Indefinido' }
     return repository
   })
   
@@ -26,9 +25,11 @@ export function Header({ isRepoPage }) {
       <S.RepositoryName
         id='repository'
         type="text"
-        name="Repository name"
-        title="Repository name"
-        placeholder="Repository"
+        name="Nome do repositório"
+        title="Nome do repositório"
+        aria-label={repository}
+        aria-required="true"
+        placeholder="Repositório"
         value={isRepoPage ? 'Repositories' : repository}
         disabled={isRepoPage}
         onChange={changeRepository}
