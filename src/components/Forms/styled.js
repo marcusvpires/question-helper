@@ -6,14 +6,6 @@ export const FormsWrapper = styled.section`
   width: 34rem;
   padding: 2rem;
 
-  ${media.lessThan("1800px")`
-    width: 30rem;
-  `}
-
-  ${media.lessThan("1600px")`
-    width: 28rem;
-  `}
-
   ${media.lessThan("1500px")`
     width: 28rem;
   `}

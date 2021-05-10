@@ -8,11 +8,13 @@ const Alternative = ({ resetTimer }) => {
   return (
     <S.AltWrapper>
       {alternatives.map((alt) => {
-        const name = "Alternative" + alt;
+        const name = "Alternative " + alt;
         return (
           <S.AltButton
             name={name}
             title={name}
+            aria-label={name}
+            aria-required="true"
             onClick={(ev) => {
               build("alternative", ev.target.value);
               resetTimer()

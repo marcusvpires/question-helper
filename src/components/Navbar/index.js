@@ -71,11 +71,6 @@ const Navbar = ({ isRepoPage }) => {
     },
   ];
 
-  if (window.innerWidth < 768) {
-    navButtonList.splice(3, 1)
-    navButtonList.splice(3, 1)
-  }
-
   if (isRepoPage) {
     let index = 5
     if (window.innerWidth < 768) {

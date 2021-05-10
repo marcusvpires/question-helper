@@ -3,11 +3,48 @@ import styled from "styled-components"
 export const TextWrapper = styled.div`
 	margin: 1rem 0;
 	height: calc(100% - 14rem);
+	${props => props.mobileFocus && `
+		background-color: var(--back);
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+	`}
+`
+
+export const TextHeader = styled.div`
+	display: ${props => props.mobileFocus ? "block" : "none"};
+	height: 2.5rem;
+	width: 100%;
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+`
+
+export const Question = styled.div`
+	font-size: 1rem;
+	color: var(--secondary);
+`
+
+export const Close = styled.span`
+	height: 1.2rem;
+	width: 1.2rem;
+	margin-bottom: .2rem;
+	transition: 50ms;
+	color: var(--secondary);
+
+	&:active {
+		color: #78add5;
+	}
 `
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: 100%;
+	height: calc(100% - 2.5rem);
 	border-radius: 2px;
 	background-color: var(--black);
 	border: none;
