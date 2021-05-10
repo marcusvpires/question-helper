@@ -15,14 +15,13 @@ export const TextWrapper = styled.div`
 `
 
 export const TextHeader = styled.div`
-	display: ${props => props.mobileFocus ? "block" : "none"};
 	height: 2.5rem;
 	width: 100%;
 	padding: 0 1rem;
-	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
+	display: ${props => props.mobileFocus ? "flex" : "none"};
 `
 
 export const Question = styled.div`
@@ -44,7 +43,7 @@ export const Close = styled.span`
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: calc(100% - 2.5rem);
+	height: ${props => props.mobileFocus ? "calc(100% - 2.5rem)" : "100%"};
 	border-radius: 2px;
 	background-color: var(--black);
 	border: none;
