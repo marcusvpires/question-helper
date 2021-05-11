@@ -128,10 +128,5 @@ const clearSection = (isRepoPage) => {
   } catch (ev) {}
 }
 
-const openTrash = () => {
-  const title = "Role in development"
-  erro("errorTrash", { title: title })
-}
-
 export default Navbar;
  

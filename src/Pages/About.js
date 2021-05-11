@@ -9,7 +9,6 @@ import Myself from "../components/About/Myself"
 import Future from "../components/About/Future"
 
 import * as S from '../components/About'
-import * as D from "../global/Design"
 
 const AboutPage = () => {
 

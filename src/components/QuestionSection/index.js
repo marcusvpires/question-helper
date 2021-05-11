@@ -20,6 +20,8 @@ const QuestionSection = styled.ul`
 
   ${media.lessThan("700px")`
     width: 100%;
+    border: none;
+    padding: 1rem 1rem;
   `}
 `
 
