@@ -4,6 +4,9 @@ import media from "styled-media-query"
 export const Number = styled.div`
   display: flex;
   align-items: center;
+  ${media.lessThan("750px")`
+    margin-bottom: .9rem;
+  `}
 `
 
 export const NumberText = styled.span`
@@ -17,6 +20,9 @@ export const NumberText = styled.span`
   ${media.lessThan("820px")`
     display: none;
   `}
+  ${media.lessThan("750px")`
+    display: block;
+  `}
 ` 
 
 export const NumberTextShort = styled.span`
@@ -29,6 +35,9 @@ export const NumberTextShort = styled.span`
   `}
   ${media.lessThan("820px")`
     display: block;
+  `}
+  ${media.lessThan("750px")`
+    display: none;
   `}
 ` 
 

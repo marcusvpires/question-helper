@@ -15,6 +15,10 @@ export const Question = styled.div`
   ${media.lessThan("820px")`
     padding: .7rem .7rem;
   `}
+
+  ${media.lessThan("750px")`
+    padding: .7rem .7rem 1.2rem;
+  `}
 `
 
 export const Title = styled.span`
@@ -31,5 +35,10 @@ export const Time = styled.span`
 
   ${media.lessThan("1250px")`
     display: none;
+  `}
+
+  ${media.lessThan("750px")`
+    display: block;
+    margin-bottom: .9rem;
   `}
 `
