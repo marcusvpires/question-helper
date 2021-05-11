@@ -11,6 +11,10 @@ export const Question = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   border-radius: 0 5px 5px 0;
+
+  ${media.lessThan("820px")`
+    padding: .7rem .7rem;
+  `}
 `
 
 export const Title = styled.span`

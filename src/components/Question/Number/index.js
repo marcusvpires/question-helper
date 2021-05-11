@@ -12,6 +12,7 @@ const Number = ({ question, save }) => {
   return (
     <S.Number>
       <S.NumberText>Questão</S.NumberText>
+      <S.NumberTextShort>Ex.</S.NumberTextShort>
       <S.NumberInput
         title={`Questão ${question.number}`}
         name={`Questão ${question.number}`}
