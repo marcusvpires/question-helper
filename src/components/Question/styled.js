@@ -24,4 +24,8 @@ export const Title = styled.span`
 
 export const Time = styled.span`
   color: #8c979e;
+
+  ${media.lessThan("1250px")`
+    display: none;
+  `}
 `

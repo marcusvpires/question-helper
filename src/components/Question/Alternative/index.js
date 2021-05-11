@@ -19,6 +19,8 @@ const Alt = ({ question, save }) => {
         const id = question.id + 'alternative' + alt
         const tag = question.id + 'alternative' 
         const name = 'Alternative ' + alt
+        const first = alt === "A"
+        const lest = alt === "E"
         return (
         <S.AltList key={id}>
           <S.AltInput 
@@ -28,8 +30,10 @@ const Alt = ({ question, save }) => {
             value={alt}
             checked={alternative === alt}
             onChange={changeAlternative}
-          />
+            />
           <S.AltLabel
+            first={first}
+            lest={lest}
             title={name}
             htmlFor={id}
           >{alt}</S.AltLabel>

@@ -5,6 +5,10 @@ export const AltWrapper = styled.ul`
   display: flex;
   justify-content: space-around;
   width: 12.8rem;
+
+  ${media.lessThan("1159px")`
+    width: 9rem;
+  `}
 `
 
 export const AltList = styled.li`
@@ -24,6 +28,19 @@ export const AltLabel = styled.label`
   border: 1px var(--third) solid;
   background-color: var(--backDark);
   transition: 200ms;
+
+  ${media.lessThan("1159px")`
+    border-radius: 0;
+    height: 2rem;
+    border-right: none;
+    font-size: .9rem;
+
+    ${props => props.first && `border-radius: 5px 0 0 5px;` }
+    ${props => props.lest && `
+      border-radius: 0 5px 5px 0;
+      border: 1px var(--third) solid; 
+    ` }
+  `}
 `
 
 export const AltInput = styled.input`
