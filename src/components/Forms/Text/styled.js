@@ -6,16 +6,21 @@ export const TextWrapper = styled.div`
 	height: calc(100% - 14rem);
 	${props => props.mobileFocus && `
 		background-color: var(--back);
+		height: 100%;
 		position: fixed;
+		z-index: 9999;
 		top: 0;
 		left: 0;
-		height: 100%;
 		width: 100%;
 		margin: 0;
 	`}
 	
 	${media.lessThan("600px")`
 		height: calc(100% - 17rem);
+
+		${props => props.mobileFocus && `
+			height: 100%;
+		`}
   `}
 `
 
@@ -49,7 +54,7 @@ export const Close = styled.span`
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: ${props => props.mobileFocus ? "calc(100% - 3.5rem - 1px)" : "100%"};
+	height: 100%;
   padding: ${props => props.mobileFocus ? "1rem 2rem" : ".8rem"};
 	border-radius: 2px;
 	background-color: var(--black);
