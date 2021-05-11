@@ -13,8 +13,8 @@ const Number = ({ question, save }) => {
     <S.Number>
       <S.NumberText>Questão</S.NumberText>
       <S.NumberInput
-        title={`Questão ${question}`}
-        name={`Questão ${question}`}
+        title={`Questão ${question.number}`}
+        name={`Questão ${question.number}`}
         arial-label={`Questão ${question.number}`}
         arial-required="true"
         id='number'
