@@ -6,8 +6,12 @@ export const AltWrapper = styled.ul`
   justify-content: space-around;
   width: 12.8rem;
 
-  ${media.between("1159px", "700px")`
+  ${media.lessThan("1159px")`
     width: 9rem;
+  `}
+
+  ${media.lessThan("700px")`
+    width: 12.8rem;
   `}
 
   ${media.lessThan("530px")`
@@ -34,7 +38,7 @@ export const AltLabel = styled.label`
   background-color: var(--backDark);
   transition: 200ms;
 
-  ${media.between("1159px", "700px")`
+  ${media.lessThan("1159px")`
     border-radius: 0;
     height: 2rem;
     border-right: none;
@@ -45,6 +49,13 @@ export const AltLabel = styled.label`
       border-radius: 0 5px 5px 0;
       border: 1px var(--third) solid; 
     ` }
+  `}
+
+  ${media.lessThan("700px")`
+    border-radius: 50%;
+    height: 2.2rem;
+    border: 1px var(--third) solid;
+    font-size: 1rem;
   `}
 
   ${media.lessThan("530px")`
