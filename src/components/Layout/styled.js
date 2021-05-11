@@ -37,8 +37,8 @@ export const LayoutMain = styled.main`
   ${media.lessThan("600px")`
     min-height: calc(100vh - 4rem - 3.5rem);
     width: 100%;
-    height: auto;
-    padding: 0 .5rem;
+    height: 100%;
+    padding: 0 .5rem 5rem;
   `}
 
 `

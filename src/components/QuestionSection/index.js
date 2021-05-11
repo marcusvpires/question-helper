@@ -2,7 +2,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 const QuestionSection = styled.ul`
-  height: 100%;
+  height: auto;
   width: calc(100% - 24rem);
   border-left: 1px solid #6f757a;
   padding: 1rem 2rem;
