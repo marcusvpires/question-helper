@@ -19,6 +19,18 @@ export const Question = styled.div`
   ${media.lessThan("750px")`
     padding: .7rem .7rem 1.2rem;
   `}
+
+  ${media.lessThan("700px")`
+    padding: .8rem 1rem;
+  `}
+
+  ${media.lessThan("400px")`
+    padding: .7rem .5rem .7rem .7rem;
+  `}
+  
+  ${media.lessThan("330px")`
+    padding: .7rem .7rem 1.2rem;
+  `}
 `
 
 export const Title = styled.span`
@@ -38,6 +50,24 @@ export const Time = styled.span`
   `}
 
   ${media.lessThan("750px")`
+    display: block;
+    margin-bottom: .9rem;
+  `}
+
+  ${media.lessThan("700px")`
+    margin-bottom: 0;
+  `}
+
+  ${media.lessThan("470px")`
+    display: none;
+  `}
+
+  ${media.lessThan("330px")`
+    display: block;
+    margin-bottom: .9rem;
+  `}
+
+  ${media.lessThan("330px")`
     display: block;
     margin-bottom: .9rem;
   `}

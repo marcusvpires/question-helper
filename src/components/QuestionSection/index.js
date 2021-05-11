@@ -22,7 +22,7 @@ const QuestionSection = styled.ul`
     width: 100%;
     border: none;
     border-top: 1px solid #6f757a;
-    padding: 1rem 1rem;
+    padding: 4rem 1rem;
   `}
 `
 

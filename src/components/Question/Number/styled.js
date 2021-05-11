@@ -7,6 +7,12 @@ export const Number = styled.div`
   ${media.lessThan("750px")`
     margin-bottom: .9rem;
   `}
+  ${media.lessThan("700px")`
+    margin-bottom: 0;
+  `}
+  ${media.lessThan("330px")`
+    margin-bottom: .9rem;
+  `}
 `
 
 export const NumberText = styled.span`
@@ -23,6 +29,12 @@ export const NumberText = styled.span`
   ${media.lessThan("750px")`
     display: block;
   `}
+  ${media.lessThan("378px")`
+    display: none;
+  `}
+  ${media.lessThan("330px")`
+    display: block;
+  `}
 ` 
 
 export const NumberTextShort = styled.span`
@@ -37,6 +49,12 @@ export const NumberTextShort = styled.span`
     display: block;
   `}
   ${media.lessThan("750px")`
+    display: none;
+  `}
+  ${media.lessThan("378px")`
+    display: block;
+  `}
+  ${media.lessThan("330px")`
     display: none;
   `}
 ` 
@@ -63,7 +81,10 @@ export const NumberInput = styled.input`
     width: 3.2rem;
   `}
   ${media.lessThan("820px")`
-    width: 1.8rem;
+    width: 2.1rem;
+  `}
+  ${media.lessThan("700px")`
+    width: 3.2rem;
   `}
 
 `
