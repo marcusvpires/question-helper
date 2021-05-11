@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
-import * as D from "../../../global/Design";
 
 const Buttons = ({ question, type, displayText, text, save, remove }) => {
   const [marker, setMarker] = useState(question.attributes.marker);

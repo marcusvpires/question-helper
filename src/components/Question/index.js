@@ -18,7 +18,7 @@ const Question = ({ question }) => {
     if (text.display) {
       setText({ display: false, color: null, rotate: null });
     } else {
-      setText({ display: true, color: 'blue', rotate: '180deg' });
+      setText({ display: true, color: '#2a69ff', rotate: '180deg' });
     }
   };
 
