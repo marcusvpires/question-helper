@@ -29,7 +29,9 @@ export const create = (repository) => {
     <Repository repository={repository} />,
     document.getElementById(repository.id)
   );
-  wrapper.scrollIntoView({ behavior: "smooth" });
+  if (window.innerWidth > 700) {
+    wrapper.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 export const build = (name) => {

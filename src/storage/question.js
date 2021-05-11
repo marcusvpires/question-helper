@@ -45,7 +45,7 @@ export const create = async (question) => {
     <Question question={question} />,
     document.getElementById(question.id)
   );
-  if (window.innerWidth > 400) {
+  if (window.innerWidth > 700) {
     wrapper.scrollIntoView({ behavior: "smooth" });
   }
   } catch (ev) {
