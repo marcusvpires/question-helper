@@ -17,7 +17,9 @@ export const FormsWrapper = styled.section`
 
   ${media.lessThan("700px")`
     width: 100%;
+    height: calc(100vh - 5rem);
     padding: 1rem;
+    margin-bottom: 2rem;
   `}
 
 `

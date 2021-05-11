@@ -10,15 +10,16 @@ const QuestionSection = styled.ul`
   scrollbar-width: thin;
   user-select: none;
     
-  display: none;
+  ${media.lessThan("1500px")`
+    width: calc(100% - 28rem);
+  `}
 
-  ${media.lessThan("medium")`
-    border-top: 1px solid #6f757a;
-    border-left: none;
+  ${media.lessThan("900px")`
+    width: calc(100% - 22rem);
+  `}
+
+  ${media.lessThan("700px")`
     width: 100%;
-    padding: 1rem;
-    height: auto;
-    padding-bottom: 7rem;
   `}
 `
 

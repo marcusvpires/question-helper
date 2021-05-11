@@ -7,9 +7,7 @@ export const BtnWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 
-	${media.lessThan("700px")`
-		padding: 0 1rem;
-  `}
+	padding: 0 .1rem;
 
 	${media.lessThan("650px")`
 		padding: 0;

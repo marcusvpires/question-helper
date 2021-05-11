@@ -25,6 +25,11 @@ export const LayoutMain = styled.main`
 
   ${media.lessThan("700px")`
     height: calc(100vh - 4rem);
+    flex-wrap: wrap;
+    min-height: calc(100vh - 4.8rem);
+    width: 100%;
+    height: 100%;
+    padding: 4.2rem 1.9rem 5rem 5.4rem;
   `}
   
   ${media.lessThan("600px")`
@@ -32,4 +37,5 @@ export const LayoutMain = styled.main`
     width: 100%;
     height: auto;
   `}
+
 `

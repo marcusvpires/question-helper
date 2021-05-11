@@ -15,10 +15,13 @@ export const NavWrapper = styled.section`
   
   ${media.lessThan("800px")` height: calc(100vh - 4.2rem); `}
 
-  ${media.lessThan("700px")` height: calc(100vh - 4rem); `}
+  ${media.lessThan("700px")`
+    height: calc(100vh - 4rem);
+    position: fixed;
+    top: 4rem;
+  `}
 
   ${media.lessThan("600px")`
-    position: fixed;
     display: flex;
     display: flex;
     justify-content: space-around;

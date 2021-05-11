@@ -20,7 +20,10 @@ export const Wrapper = styled.section`
 
   ${media.lessThan("800px")` height: 4.2rem; `}
 
-  ${media.lessThan("700px")` height: 4rem; `}
+  ${media.lessThan("700px")`
+    height: 4rem;
+    position: fixed;
+  `}
 
   ${media.lessThan("400px")` padding: .8rem .8rem; `}
 `;
@@ -36,6 +39,7 @@ export const RepositoryName = styled.input`
   ${media.lessThan("800px")` width: 20rem; `}
 
   ${media.lessThan("350px")` width: 90%; `}
+  
 `;
 
 export const LinksContainer = styled.div`
