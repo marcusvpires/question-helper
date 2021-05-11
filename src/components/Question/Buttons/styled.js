@@ -61,6 +61,21 @@ export const BtnContainer = styled.div`
   `} 
 `
 
+export const Button = styled.div`
+  cursor: pointer;
+  height: 1.8rem;
+  width: 1.8rem;
+  padding: 0.3rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  color: ${props => props.color ? props.color : 'var(--secondary)'};
+  ${props => props.rotate && "transform: rotate(180deg);" }
+  transition: 200ms;
+
+  &:hover { background-color: var(--blueDark); }
+`
+
 
 export const Compact = styled.div`
 `

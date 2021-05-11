@@ -76,19 +76,20 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
             onClick = () => {handleMarker(id, btn.marker)} 
           }
           return (
-            <D.ButtonIcon size='1.8rem' key={btn.name}
+            <S.Button key={btn.name}
               onClick={onClick}
               color={color}
               rotate={rotate}
-            >{btn.icon}
-            </D.ButtonIcon>
+            >
+              {btn.icon}
+            </S.Button>
         )})}
       </S.BtnContainer>
 
       <S.CompactButtons>
-        <D.ButtonIcon size='1.8rem' onClick={handleCompact}>
+        <S.Button size='1.8rem' onClick={handleCompact}>
           <I.DotsVerticalRounded />
-        </D.ButtonIcon>
+        </S.Button>
       </S.CompactButtons>
 
     </S.BtnWrapper>
