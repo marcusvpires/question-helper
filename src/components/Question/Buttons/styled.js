@@ -38,9 +38,10 @@ const fadeOut = keyframes`
 export const BtnContainer = styled.div`
   display: flex;
   justify-content: end;
-  width: ${props => props.compact ? 'auto' : '9rem'};
+  width: 9rem;
 
   ${media.lessThan("1400px")`
+    width: auto;
     display: ${props => props.change ? "flex" : "none"};
     animation: 150ms ${props => props.show ? fadeIn : fadeOut } linear 1;
     ${props => props.show ? `
