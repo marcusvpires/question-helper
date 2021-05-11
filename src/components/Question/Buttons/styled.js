@@ -3,7 +3,8 @@ import media from "styled-media-query"
 
 
 export const BtnWrapper = styled.div`
- ${media.lessThan("large")`
+
+ ${media.lessThan("1400px")`
     position: relative;
   `}
 `
@@ -12,24 +13,24 @@ const fadeIn = keyframes`
   0% {
    opacity: 0;
    transform: scale(0.5);
-   left: -3.5;
-   top: 1;
+   right: -2rem;
   }
   100% {
     opacity: 1;
     transform: scale(1);
-    left: -7;
-    top: 2;
+    right: 0;
   }
 `
 
 const fadeOut = keyframes`
   0% {
    opacity: 1;
+   right: 0;
    transform: scale(1);
   }
   100% {
     opacity: 0;
+    right: -2rem;
     transform: scale(0.5);
   }
 `
@@ -38,8 +39,10 @@ export const BtnContainer = styled.div`
   display: flex;
   justify-content: end;
   width: ${props => props.compact ? 'auto' : '9rem'};
-  ${media.lessThan("large")`
-    animation: 150ms ${props => !props.show ? fadeOut : fadeIn } linear 1;
+
+  ${media.lessThan("1400px")`
+    display: ${props => props.change ? "flex" : "none"};
+    animation: 150ms ${props => props.show ? fadeIn : fadeOut } linear 1;
     ${props => props.show ? `
       opacity: 1;
       transform: scale(1);
@@ -49,8 +52,8 @@ export const BtnContainer = styled.div`
     ` } linear 1;
     position: absolute;
     background-color: var(--black);
-    left: -7rem;
-    top: 2rem;
+    right: 0rem;
+    top: -.5rem;
     padding: .5rem;
     border-radius: 5px 0 5px 5px;
     z-index: 10;
@@ -63,7 +66,8 @@ export const Compact = styled.div`
 
 export const CompactButtons = styled.div`
   display: none;
-  ${media.lessThan("large")`
+
+  ${media.lessThan("1400px")`
     display: block;
   `}
 `

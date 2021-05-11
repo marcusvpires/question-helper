@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 import * as D from "../../../global/Design";
@@ -6,7 +7,6 @@ import * as D from "../../../global/Design";
 const Buttons = ({ question, type, displayText, text, save, remove }) => {
   const [marker, setMarker] = useState(question.attributes.marker);
   const [show, setShow] = useState(false)
-  const [change, setChange] = useState(false)
   const id = question.id
 
   const isMarker = (Marker) => { if (marker === Marker) { return `var(--${Marker}Icon)`; } };
@@ -43,26 +43,9 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
     rotate: text.rotate
   })}
 
-  const close = () => {
-    console.log("Close by listener")
-    removeEventListener()
-    setTimeout(() => { setShow(false) }, 250)
-  }
-
-  const removeEventListener = () => {
-    document.removeEventListener("mousedown", close)
-  }
-
-  const handleCompact = () => {
-    console.log("Open by compact")
-    document.addEventListener("mousedown", close)
-    setChange(true)
-    setShow(true)
-  }
-
   return (
     <S.BtnWrapper>
-    <S.BtnContainer show={show} compact change={change}>
+    <S.BtnContainer show={show} compact>
         {buttons.map(btn => {
           let onClick; let color; let rotate
 
@@ -86,7 +69,7 @@ const Buttons = ({ question, type, displayText, text, save, remove }) => {
       </S.BtnContainer>
 
       <S.CompactButtons>
-        <D.ButtonIcon size='1.8rem' onClick={handleCompact}>
+        <D.ButtonIcon size='1.8rem' onClick={() => { setShow(!show) }}>
           <I.DotsVerticalRounded />
         </D.ButtonIcon>
       </S.CompactButtons>
