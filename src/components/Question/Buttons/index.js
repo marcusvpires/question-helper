@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import * as I from "@styled-icons/boxicons-regular/";
 import * as S from "./styled";
 
