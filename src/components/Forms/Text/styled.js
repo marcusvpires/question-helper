@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const TextWrapper = styled.div`
 	margin: 1rem 0;
@@ -12,6 +13,10 @@ export const TextWrapper = styled.div`
 		width: 100%;
 		margin: 0;
 	`}
+	
+	${media.lessThan("600px")`
+		height: calc(100% - 17rem);
+  `}
 `
 
 export const TextHeader = styled.div`

@@ -5,6 +5,8 @@ import media from "styled-media-query"
 export const LayoutWrapper = styled.div`
   background-color: var(--backDark);
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-wrap: wrap;
 `
 
@@ -36,6 +38,7 @@ export const LayoutMain = styled.main`
     min-height: calc(100vh - 4rem - 3.5rem);
     width: 100%;
     height: auto;
+    padding: 0 1.5rem;
   `}
 
 `

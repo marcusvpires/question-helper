@@ -23,12 +23,12 @@ export const NavWrapper = styled.section`
 
   ${media.lessThan("600px")`
     display: flex;
-    display: flex;
     justify-content: space-around;
     padding: .2rem 1rem;
     height: 3.5rem;
     width: 100%;
     bottom: 0;
+    top: unset;
   `}
 `;
 

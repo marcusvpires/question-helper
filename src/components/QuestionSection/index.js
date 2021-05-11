@@ -21,6 +21,7 @@ const QuestionSection = styled.ul`
   ${media.lessThan("700px")`
     width: 100%;
     border: none;
+    border-top: 1px solid #6f757a;
     padding: 1rem 1rem;
   `}
 `

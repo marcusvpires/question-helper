@@ -25,6 +25,11 @@ export const Wrapper = styled.section`
     position: fixed;
   `}
 
+  ${media.lessThan("600px")`
+    height: 4rem;
+    position: unset;
+  `}
+
   ${media.lessThan("400px")` padding: .8rem .8rem; `}
 `;
 
