@@ -43,7 +43,7 @@ export const RepositoryName = styled.input`
 
   ${media.lessThan("800px")` width: 20rem; `}
 
-  ${media.lessThan("350px")` width: 90%; `}
+  ${media.lessThan("350px")` width: auto; `}
   
 `;
 
