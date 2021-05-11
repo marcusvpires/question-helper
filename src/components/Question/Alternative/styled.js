@@ -5,9 +5,6 @@ export const AltWrapper = styled.ul`
   display: flex;
   justify-content: space-around;
   width: 12.8rem;
-  ${media.lessThan("400px")`
-    width: 9.8rem;
-  `}
 `
 
 export const AltList = styled.li`
@@ -27,11 +24,6 @@ export const AltLabel = styled.label`
   border: 1px var(--third) solid;
   background-color: var(--backDark);
   transition: 200ms;
-  ${media.lessThan("400px")`
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: .9rem;
-  `}
 `
 
 export const AltInput = styled.input`

@@ -27,8 +27,8 @@ export function Header({ isRepoPage }) {
         type="text"
         name="Nome do repositório"
         title="Nome do repositório"
-        aria-label={repository}
-        aria-required="true"
+        arial-label={repository}
+        arial-required="true"
         placeholder="Repositório"
         value={isRepoPage ? 'Repositories' : repository}
         disabled={isRepoPage}

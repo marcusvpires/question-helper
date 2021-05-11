@@ -16,9 +16,5 @@ export const NumberInput = styled.input`
     box-shadow: none;
     color: red;
   }
-  ${media.lessThan("400px")`
-    width: 2rem;
-    padding: 0 0 0 .4rem;
-  `}
 `
 

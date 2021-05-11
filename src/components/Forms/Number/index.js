@@ -20,8 +20,8 @@ const FormNumber = () => {
       id='number'
       name='Número da questão'
       title='Número da questão'
-      aria-label="Número da questão"
-      aria-required="true"
+      arial-label="Número da questão"
+      arial-required="true"
       placeholder='0'
       value={number}
       onChange={handleNumber}

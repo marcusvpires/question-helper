@@ -49,8 +49,8 @@ const FormText = () => {
       </S.TextHeader>
       <S.TextArea
         id='text'
-        aria-label='Formulário de texto'
-        aria-required="true"
+        arial-label='Formulário de texto'
+        arial-required="true"
         name='Formulário de texto'
         title='Formulário de texto'
         placeholder='Digite as questões de texto aqui...'

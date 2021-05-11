@@ -11,10 +11,12 @@ const Number = ({ question, save }) => {
 
   return (
     <S.Number>
-      <S.NumberText>Question</S.NumberText>
+      <S.NumberText>Questão</S.NumberText>
       <S.NumberInput
-        title='Question number'
-        name='Question number'
+        title={`Questão ${question}`}
+        name={`Questão ${question}`}
+        arial-label={`Questão ${question.number}`}
+        arial-required="true"
         id='number'
         type='number'
         placeholder='0'

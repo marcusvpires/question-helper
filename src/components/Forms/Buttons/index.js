@@ -11,8 +11,8 @@ const FormButtons = ({ timer }) => {
   return (
     <S.BtnWrapper>
       <S.Button
-        aria-label="Resposta aleatória [A, B, C, D, E]"
-        aria-required="true"
+        arial-label="Resposta aleatória [A, B, C, D, E]"
+        arial-required="true"
         onClick={() => {
           const alternatives = ["A", "B", "C", "D", "E"];
           build("alternative", alternatives[(5 * Math.random()) | 0]);

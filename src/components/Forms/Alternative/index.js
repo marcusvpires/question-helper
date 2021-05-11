@@ -13,8 +13,8 @@ const Alternative = ({ resetTimer }) => {
           <S.AltButton
             name={name}
             title={name}
-            aria-label={name}
-            aria-required="true"
+            arial-label={name}
+            arial-required="true"
             onClick={(ev) => {
               build("alternative", ev.target.value);
               resetTimer()
