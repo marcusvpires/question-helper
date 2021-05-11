@@ -12,6 +12,10 @@ export const BtnWrapper = styled.div`
 	${media.lessThan("650px")`
 		padding: 0;
   `}
+
+	${media.lessThan("618px")`
+		padding: 0 .5rem;
+  `}
 `
 
 export const Icon = styled.div`
@@ -80,6 +84,14 @@ export const Button = styled.button`
   `}
 
 	${media.lessThan("700px")`
+		padding: .5rem 1.2rem;
+  `}
+
+	${media.lessThan("650px")`
+		padding: .5rem .8rem;
+  `}
+
+	${media.lessThan("618px")`
 		padding: .5rem 1.2rem;
   `}
 

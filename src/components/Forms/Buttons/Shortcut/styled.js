@@ -2,7 +2,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 export const ShortcutWrapper = styled.div`
-	${media.lessThan("380px")`
+	${media.lessThan("618px")`
 		display: none;
 	`}
 `
@@ -30,12 +30,12 @@ export const Shortcut = styled.input`
   `}
 
 	${media.lessThan("700px")`
-		width: 7rem;
+		width: 5.8rem;
 		padding: 0 1.2rem;
   `}
 
-	${media.lessThan("550px")`
-		padding: .8rem;
+	${media.lessThan("650px")`
 		width: 5rem;
+		padding: 0 .8rem;
   `}
 `
