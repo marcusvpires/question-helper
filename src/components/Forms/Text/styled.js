@@ -15,7 +15,8 @@ export const TextWrapper = styled.div`
 `
 
 export const TextHeader = styled.div`
-	height: 2.5rem;
+	height: 3.5rem;
+	border-bottom: solid 1px var(--third);
 	width: 100%;
 	padding: 0 1rem;
 	align-items: center;
@@ -43,14 +44,14 @@ export const Close = styled.span`
 
 export const TextArea = styled.textarea`
 	width: 100%;
-	height: ${props => props.mobileFocus ? "calc(100% - 2.5rem)" : "100%"};
+	height: ${props => props.mobileFocus ? "calc(100% - 3.5rem - 1px)" : "100%"};
+  padding: ${props => props.mobileFocus ? "1rem 2rem" : ".8rem"};
 	border-radius: 2px;
 	background-color: var(--black);
 	border: none;
 	font-size: 1rem;
 	color: var(--primary);
 	resize: none;
-  padding: .8rem;
 	overflow: auto;
 	scrollbar-width: thin;
 
