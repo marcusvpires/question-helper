@@ -38,7 +38,7 @@ export const LayoutMain = styled.main`
     min-height: calc(100vh - 4rem - 3.5rem);
     width: 100%;
     height: auto;
-    padding: 0 1.5rem;
+    padding: 0 .5rem;
   `}
 
 `

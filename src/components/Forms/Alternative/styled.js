@@ -71,7 +71,7 @@ export const AltButton = styled.button`
     }
   `}
 
-  ${media.lessThan("380px")`
+  ${media.lessThan("400px")`
     width: 2.5rem;
     height: 2.5rem;
     font-size: .9rem;

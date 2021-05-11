@@ -16,6 +16,10 @@ export const BtnWrapper = styled.div`
 	${media.lessThan("618px")`
 		padding: 0 .5rem;
   `}
+
+	${media.lessThan("330px")`
+		padding: 0 .1rem;
+  `}
 `
 
 export const Icon = styled.div`
@@ -34,17 +38,10 @@ export const Label = styled.div`
 		display: block;
   `}
 
-	${media.lessThan("450px")`
+	${media.lessThan("400px")`
 		display: none;
   `}
 
-	${media.lessThan("380px")`
-		display: block;
-  `}
-
-	${media.lessThan("350px")`
-		display: none;
-  `}
 `
 
 export const Create = styled.div`
