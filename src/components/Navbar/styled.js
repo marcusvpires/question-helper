@@ -39,6 +39,7 @@ export const NavItem = styled.div`
     justify-content: center;
   `}
   ${media.lessThan("600px")`
+    ${props => props.onlyPC && `display: none;`}
     width: auto;
   `}
 `;

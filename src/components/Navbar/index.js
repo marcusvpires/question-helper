@@ -58,11 +58,13 @@ const Navbar = ({ isRepoPage }) => {
       name: "Exportar",
       onClick: exportDatabase,
       icon: <I.CopyAlt />,
+      onlyPC: true
     },
     {
       name: "Importar",
       onClick: importDatabase,
       icon: <I.CopyAlt />,
+      onlyPC: true
     },
     {
       name: "Repositórios",
@@ -86,7 +88,7 @@ const Navbar = ({ isRepoPage }) => {
   return (
     <S.NavWrapper>
       {navButtonList.map((e) => (
-        <S.NavItem name={e.name} title={e.name} key={e.name}>
+        <S.NavItem name={e.name} title={e.name} key={e.name} onlyPC={e.onlyPC}>
           <S.NavButton onClick={e.onClick} onDoubleClick={e.more}>
             <S.NavIcon>{e.icon}</S.NavIcon>
             <S.NavText>{e.name}</S.NavText>
