@@ -27,6 +27,27 @@ export const Timer = styled.input`
 	margin: 0 0 0 .8rem;
 `
 
+export const Time = styled.div`
+	font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+	font-size: 1rem;
+	padding: 0;
+	margin: 0 .7rem 0 .8rem;
+	display: flex;
+	align-items: center;
+`
+
+export const Minutes = styled.input`
+	width: 1.2rem;
+	margin-right: .1rem;
+	padding: 0;
+`
+
+export const Seconds = styled.input`
+	width: 1.2rem;
+	margin-left: .2rem;
+	padding: 0;
+`
+
 export const TimerButton = styled.button`
 	border: none;
 	border-left: 2px solid var(--back);
