@@ -19,14 +19,6 @@ export const TimerWrapper = styled.div`
   `}
 `
 
-export const Timer = styled.input`
-	font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-	font-size: 1rem;
-	width: 4rem;
-	padding: 0;
-	margin: 0 0 0 .8rem;
-`
-
 export const Time = styled.div`
 	font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 	font-size: 1rem;
@@ -37,7 +29,7 @@ export const Time = styled.div`
 `
 
 export const Minutes = styled.input`
-	width: 1.2rem;
+	width: 1.25rem;
 	margin-right: .1rem;
 	padding: 0;
 `
