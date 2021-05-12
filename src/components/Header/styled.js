@@ -37,7 +37,6 @@ export const RepositoryName = styled.input`
   font-size: 1.4rem;
   width: 34rem;
   height: 3rem;
-  background-color: blue;
   padding: 0;
 
   ${media.lessThan("1000px")` font-size: 1.3rem; `}
