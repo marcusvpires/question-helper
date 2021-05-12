@@ -7,11 +7,7 @@ export const BtnWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 
-	padding: 0 .1rem;
-
-	${media.lessThan("650px")`
-		padding: 0;
-  `}
+	padding: 0 .2rem;
 
 	${media.lessThan("618px")`
 		padding: 0 .5rem;
@@ -30,6 +26,10 @@ export const Icon = styled.div`
 export const Label = styled.div`
 	margin-left: .4rem;
 
+	${media.lessThan("1400px")`
+    display: none;
+
+  `}
 	${media.lessThan("900px")`
     display: none;
   `}
